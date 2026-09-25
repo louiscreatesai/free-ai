@@ -1,0 +1,35 @@
+
+:root { --cream:#f3ead6; --ink:#1c1a17; --accent:#d9a93b; --red:#e0664f; --blue:#4c6fff; --muted:#6b645a; }
+* { box-sizing: border-box; }
+body { margin:0; background:var(--cream) url(assets/paper.png); background-size:256px; color:var(--ink);
+       font-family:'Fraunces', Georgia, serif; font-size:19px; line-height:1.55; }
+a { color:var(--ink); }
+.wrap { max-width:720px; margin:0 auto; padding:28px 20px 80px; }
+.tape { display:inline-block; background:#fbf6e8 url(assets/paper.png); background-size:256px; padding:10px 22px 12px;
+        font-family:'Montserrat', Arial, sans-serif; font-weight:900; text-transform:uppercase; letter-spacing:-.01em;
+        box-shadow:0 4px 10px rgba(0,0,0,.18); transform:rotate(-1.5deg); position:relative; }
+.tape:before, .tape:after { content:''; position:absolute; top:-12px; width:70px; height:26px; background:rgba(222,206,160,.9); }
+.tape:before { left:-24px; transform:rotate(-24deg); } .tape:after { right:-24px; transform:rotate(22deg); }
+h1.tape { font-size:clamp(28px, 7vw, 44px); margin:18px 0 26px; }
+h2 { font-family:'Montserrat', Arial, sans-serif; font-weight:900; text-transform:uppercase; font-size:22px; margin-top:34px; }
+.hero p { font-size:21px; }
+.cards { display:grid; gap:18px; margin-top:26px; }
+.card { display:block; text-decoration:none; background:#fffaf0; padding:20px 22px; border-radius:10px;
+        box-shadow:0 8px 18px rgba(0,0,0,.12); transform:rotate(var(--r, -.6deg)); transition:transform .15s; }
+.card:hover { transform:rotate(0) scale(1.01); }
+.card .kw { font-family:'Montserrat', Arial, sans-serif; font-weight:900; font-size:14px; color:#fff; background:var(--red);
+            padding:4px 10px; border-radius:6px; }
+.card h3 { font-family:'Montserrat', Arial, sans-serif; font-weight:900; font-size:22px; margin:10px 0 6px; }
+.card p { margin:0; color:var(--muted); font-size:17px; }
+.box { background:#fffaf0; border-radius:12px; padding:22px; box-shadow:0 8px 18px rgba(0,0,0,.12); margin:30px 0; }
+.btn { display:inline-block; font-family:'Montserrat', Arial, sans-serif; font-weight:900; background:var(--ink); color:#fff;
+       text-decoration:none; padding:14px 22px; border-radius:10px; border:0; font-size:17px; cursor:pointer; }
+input[type=email] { font:inherit; padding:12px 14px; border-radius:10px; border:2px solid var(--ink); width:100%; margin:10px 0; background:#fff; }
+.guide { background:#fffaf0; border-radius:12px; padding:8px 24px 24px; box-shadow:0 8px 18px rgba(0,0,0,.12); }
+.guide h1 { font-size:30px; line-height:1.15; margin:18px 0 10px; }
+.guide code { background:#efe6d2; padding:2px 6px; border-radius:5px; font-size:.9em; word-break:break-all; }
+.guide pre { background:#27231f; color:#f5efe1; padding:14px; border-radius:10px; overflow-x:auto; }
+.guide pre code { background:none; color:inherit; }
+.small { color:var(--muted); font-size:15px; }
+.robot { width:84px; float:right; margin:0 0 10px 14px; }
+footer { margin-top:50px; color:var(--muted); font-size:15px; }
