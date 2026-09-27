@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Resume Matcher: tailor your CV to every job, free</title>
+<meta name="description" content="Free AI tools, tested and explained in plain English. Every guide from my reels lives here.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;700;900&family=Montserrat:wght@700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css"></head>
+<body><div class="wrap"><svg class="robot" viewBox="0 0 260 300" aria-hidden="true"><line x1="130" y1="62" x2="130" y2="24" stroke="#1c1a17" stroke-width="7" stroke-linecap="round"/><circle cx="130" cy="20" r="14" fill="#ffd23f" stroke="#1c1a17" stroke-width="5"/><rect x="88" y="236" width="26" height="54" rx="8" fill="#4c6fff"/><rect x="146" y="236" width="26" height="54" rx="8" fill="#4c6fff"/><rect x="206" y="92" width="30" height="86" rx="14" fill="#4c6fff" transform="rotate(-150 221 100)"/><rect x="24" y="142" width="30" height="86" rx="14" fill="#4c6fff"/><rect x="44" y="58" width="172" height="190" rx="36" fill="#4c6fff"/><rect x="70" y="86" width="120" height="92" rx="24" fill="#fbf4e4"/><ellipse cx="105" cy="128" rx="13" ry="16" fill="#1c1a17"/><ellipse cx="155" cy="128" rx="13" ry="16" fill="#1c1a17"/><path d="M112 154 Q130 172 148 154" stroke="#1c1a17" stroke-width="6" fill="none" stroke-linecap="round"/></svg><a class="small" href="../">&larr; All free guides</a>
+<h1 class="tape">MATCH</h1>
+<div class="guide"><h1>Resume Matcher: tailor your CV to every job, free</h1>
+<p>Resume Matcher is a free, open source tool with over 28,000 stars on GitHub. You paste in a job description and it gives your CV a match score, highlights the keywords, rewrites your CV for that job and writes a matching cover letter. Both export as PDFs.</p>
+<p>It runs on your own computer. The first setup takes about 10 minutes, and after that you just open it.</p>
+<h2>What you need</h2>
+<ul>
+<li><strong>Docker Desktop</strong> (free): <a href="https://www.docker.com/products/docker-desktop/">docker.com/products/docker-desktop</a>. It runs the app for you, so you don't have to install anything else by hand.</li>
+<li><strong>An AI to do the writing.</strong> Pick one:</li>
+<li><strong>Free:</strong> Ollama, which runs an AI model on your own computer: <a href="https://ollama.com">ollama.com</a></li>
+<li><strong>Paid per use:</strong> an API key from ChatGPT (OpenAI), Claude (Anthropic) or Gemini (Google)</li>
+</ul>
+<h2>Install it</h2>
+<ol>
+<li>Install Docker Desktop and open it. Leave it running.</li>
+<li>Open <strong>Terminal</strong> (Mac) or <strong>PowerShell</strong> (Windows), paste this line and press Enter:</li>
+</ol>
+<pre><code>docker run -d --name resume-matcher -p 3000:3000 -v resume-data:/app/backend/data ghcr.io/srbhr/resume-matcher:latest
+</code></pre>
+<ol start="3">
+<li>Wait for the download to finish, then open <a href="http://localhost:3000">localhost:3000</a> in your browser. You should see the Resume Matcher dashboard.</li>
+</ol>
+<p>Next time, open Docker Desktop and press play on <strong>resume-matcher</strong>, or run <code>docker start resume-matcher</code>.</p>
+<h2>Connect the AI</h2>
+<h3>Free: Ollama</h3>
+<ol>
+<li>Install Ollama from <a href="https://ollama.com">ollama.com</a> and open it.</li>
+<li>In Terminal or PowerShell, download a model. This is the one the setup guide suggests:</li>
+</ol>
+<pre><code>ollama pull gemma3:4b
+</code></pre>
+<ol start="3">
+<li>In Resume Matcher, open <strong>Settings</strong> (<a href="http://localhost:3000/settings">localhost:3000/settings</a>) and pick <strong>Ollama</strong>.</li>
+<li>Because the app runs inside Docker, set the Ollama URL to <code>http://host.docker.internal:11434</code> instead of localhost.</li>
+<li>Click <strong>Save Configuration</strong>, then <strong>Test Connection</strong>.</li>
+</ol>
+<h3>Paid: ChatGPT, Claude or Gemini</h3>
+<ol>
+<li>Get an API key: <a href="https://platform.openai.com/api-keys">OpenAI</a>, <a href="https://console.anthropic.com/">Anthropic (Claude)</a> or <a href="https://aistudio.google.com/app/apikey">Google AI Studio (Gemini)</a>.</li>
+<li>In <strong>Settings</strong>, pick that provider and paste your key.</li>
+<li>Click <strong>Save Configuration</strong>, then <strong>Test Connection</strong>.</li>
+</ol>
+<p>These providers charge for what you use, so keep an eye on your usage page.</p>
+<h2>Tailor your CV to a job</h2>
+<ol>
+<li>On the dashboard, upload your main CV (PDF or DOCX).</li>
+<li>Paste the job description you're applying to.</li>
+<li>Check the match score and the highlighted keywords to see what the job wants that your CV is missing.</li>
+<li>Review the tailored CV and the cover letter it writes.</li>
+<li>Pick a template and export both as PDFs.</li>
+</ol>
+<p>Do this for every application. It takes a minute once it's set up.</p>
+<h2>Good to know</h2>
+<ul>
+<li>Your CVs are saved on your computer. If you use ChatGPT, Claude or Gemini, the text you tailor is sent to that provider. With Ollama it never leaves your machine.</li>
+<li>Always read the tailored CV before you send it. Only keep what's true about you.</li>
+<li>Stuck? Open <a href="https://github.com/srbhr/Resume-Matcher/blob/main/SETUP.md">SETUP.md</a> and paste the error into ChatGPT or Claude. The setup guide also covers the developer install without Docker.</li>
+</ul>
+<h2>Links</h2>
+<ul>
+<li>Resume Matcher on GitHub: <a href="https://github.com/srbhr/Resume-Matcher">github.com/srbhr/Resume-Matcher</a></li>
+<li>The full setup guide: <a href="https://github.com/srbhr/Resume-Matcher/blob/main/SETUP.md">SETUP.md</a></li>
+</ul></div>
+<div class="box"><h2>Get the next free tool first</h2><p>I post one free AI tool at a time, tested, with the setup.</p><a class="btn" href="https://www.instagram.com/louiscreates.ai/">Follow @louiscreates.ai</a></div>
+<footer>Louis&#x27;s Free AI Library · <a href="https://www.instagram.com/louiscreates.ai/">@louiscreates.ai</a></footer>
+</div></body></html>
