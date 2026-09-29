@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>4 free Claude Code plugins, with the install commands</title>
+<meta name="description" content="Free AI tools, tested and explained in plain English. Every guide from my reels lives here.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;700;900&family=Montserrat:wght@700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css"></head>
+<body><div class="wrap"><svg class="robot" viewBox="0 0 260 300" aria-hidden="true"><line x1="130" y1="62" x2="130" y2="24" stroke="#1c1a17" stroke-width="7" stroke-linecap="round"/><circle cx="130" cy="20" r="14" fill="#ffd23f" stroke="#1c1a17" stroke-width="5"/><rect x="88" y="236" width="26" height="54" rx="8" fill="#4c6fff"/><rect x="146" y="236" width="26" height="54" rx="8" fill="#4c6fff"/><rect x="206" y="92" width="30" height="86" rx="14" fill="#4c6fff" transform="rotate(-150 221 100)"/><rect x="24" y="142" width="30" height="86" rx="14" fill="#4c6fff"/><rect x="44" y="58" width="172" height="190" rx="36" fill="#4c6fff"/><rect x="70" y="86" width="120" height="92" rx="24" fill="#fbf4e4"/><ellipse cx="105" cy="128" rx="13" ry="16" fill="#1c1a17"/><ellipse cx="155" cy="128" rx="13" ry="16" fill="#1c1a17"/><path d="M112 154 Q130 172 148 154" stroke="#1c1a17" stroke-width="6" fill="none" stroke-linecap="round"/></svg><a class="small" href="../">&larr; All free guides</a>
+<h1 class="tape">CODING</h1>
+<div class="guide"><h1>4 free Claude Code plugins, with the install commands</h1>
+<p>All four are free and open source. Install them in this order and you're done in about 10 minutes.</p>
+<p>Commands that start with <code>/</code> go in the Claude Code prompt. The others go in Terminal (Mac) or PowerShell (Windows).</p>
+<h2>1. Ponytail: less code, lower cost</h2>
+<p>It makes Claude code like the laziest senior dev in the room: it writes the smallest thing that works. Its own test on real Claude Code sessions found about 54% less code and about 20% lower cost.</p>
+<p>You need <a href="https://nodejs.org">Node.js</a> installed. Send these as two separate prompts:</p>
+<pre><code>/plugin marketplace add DietrichGebert/ponytail
+</code></pre>
+<pre><code>/plugin install ponytail@ponytail
+</code></pre>
+<p>Repo: <a href="https://github.com/DietrichGebert/ponytail">github.com/DietrichGebert/ponytail</a></p>
+<h2>2. OmniRoute: never stop at your usage limit</h2>
+<p>One local endpoint that sits between Claude Code and 350+ AI providers. When one runs out, it moves to the next one on its own. By its own count the free plans add up to about 1.6 billion free tokens a month.</p>
+<pre><code>npm install -g omniroute
+omniroute
+</code></pre>
+<ol>
+<li>Open the dashboard at <a href="http://localhost:20128">localhost:20128</a>.</li>
+<li>Go to <strong>Providers</strong> and connect the ones you want. OpenCode Free works with no signup.</li>
+<li>Start Claude Code through it. <code>auto</code> lets OmniRoute pick the model and fall back for you:</li>
+</ol>
+<pre><code>omniroute run claude --model auto
+</code></pre>
+<p>The catch: some free providers have terms that forbid this kind of use. OmniRoute marks those in its catalog, so read them before you connect one.</p>
+<p>Repo: <a href="https://github.com/diegosouzapw/OmniRoute">github.com/diegosouzapw/OmniRoute</a></p>
+<h2>3. Graphify: Claude stops rereading your files</h2>
+<p>It turns your whole project into a knowledge graph that Claude can search, instead of opening the same files again and again. Mapping the code is free and stays on your machine.</p>
+<p>You need <a href="https://docs.astral.sh/uv/">uv</a> (or pipx):</p>
+<pre><code>uv tool install graphifyy
+graphify install
+</code></pre>
+<p>Then, inside your project in Claude Code:</p>
+<pre><code>/graphify .
+</code></pre>
+<p>It writes a <code>graphify-out</code> folder with the graph, a clickable map (graph.html) and a short report.</p>
+<p>Repo: <a href="https://github.com/Graphify-Labs/graphify">github.com/Graphify-Labs/graphify</a></p>
+<h2>4. Agent Skills by Addy Osmani: work like a senior engineer</h2>
+<p>25 skills that walk Claude through the whole job: /spec, /plan, /build, /test, /review and /ship. The right skill switches on by itself for what you're doing.</p>
+<p>Send these as two separate prompts:</p>
+<pre><code>/plugin marketplace add addyosmani/agent-skills
+</code></pre>
+<pre><code>/plugin install agent-skills@addy-agent-skills
+</code></pre>
+<p>Or, for any coding agent:</p>
+<pre><code>npx skills add addyosmani/agent-skills
+</code></pre>
+<p>Repo: <a href="https://github.com/addyosmani/agent-skills">github.com/addyosmani/agent-skills</a></p>
+<h2>Check it worked</h2>
+<p>Restart Claude Code, then type <code>/plugin</code> to see Ponytail and Agent Skills listed. Type <code>/graphify</code> to check Graphify is there.</p></div>
+<div class="box"><h2>Get the next free tool first</h2><p>I post one free AI tool at a time, tested, with the setup.</p><a class="btn" href="https://www.instagram.com/louiscreates.ai/">Follow @louiscreates.ai</a></div>
+<footer>Louis&#x27;s Free AI Library · <a href="https://www.instagram.com/louiscreates.ai/">@louiscreates.ai</a></footer>
+</div></body></html>
