@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Find Skills: the Claude skill that installs the other skills</title>
+<meta name="description" content="Free AI tools, tested and explained in plain English. Every guide from my reels lives here.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;700;900&family=Montserrat:wght@700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css"></head>
+<body><div class="wrap"><svg class="robot" viewBox="0 0 260 300" aria-hidden="true"><line x1="130" y1="62" x2="130" y2="24" stroke="#1c1a17" stroke-width="7" stroke-linecap="round"/><circle cx="130" cy="20" r="14" fill="#ffd23f" stroke="#1c1a17" stroke-width="5"/><rect x="88" y="236" width="26" height="54" rx="8" fill="#4c6fff"/><rect x="146" y="236" width="26" height="54" rx="8" fill="#4c6fff"/><rect x="206" y="92" width="30" height="86" rx="14" fill="#4c6fff" transform="rotate(-150 221 100)"/><rect x="24" y="142" width="30" height="86" rx="14" fill="#4c6fff"/><rect x="44" y="58" width="172" height="190" rx="36" fill="#4c6fff"/><rect x="70" y="86" width="120" height="92" rx="24" fill="#fbf4e4"/><ellipse cx="105" cy="128" rx="13" ry="16" fill="#1c1a17"/><ellipse cx="155" cy="128" rx="13" ry="16" fill="#1c1a17"/><path d="M112 154 Q130 172 148 154" stroke="#1c1a17" stroke-width="6" fill="none" stroke-linecap="round"/></svg><a class="small" href="../">&larr; All free guides</a>
+<h1 class="tape">HIRE</h1>
+<div class="guide"><h1>Find Skills: the Claude skill that installs the other skills</h1>
+<h2>What it is</h2>
+<p>Find Skills is the most installed skill on skills.sh, with 3.7 million installs. It doesn't do your task itself. When you ask Claude for something it can't do well yet, Find Skills finds the best skill for that job and installs it for you.</p>
+<!-- Sources: skills.sh all-time leaderboard, read 2026-10-02: #1 find-skills (vercel-labs/skills) 3.7M installs, #2 grill-me 1.3M. skills.sh/vercel-labs/skills/find-skills. -->
+
+<p>It's free and MIT licensed. Get it here: <a href="https://skills.sh/vercel-labs/skills/find-skills">skills.sh/vercel-labs/skills/find-skills</a></p>
+<h2>1. The one-line install</h2>
+<p>You need Node.js on your computer (it comes with <code>npx</code>). Get it from <a href="https://nodejs.org">nodejs.org</a> if you don't have it.</p>
+<p>Open a terminal in your project, paste this and press Enter:</p>
+<pre><code>npx skills add vercel-labs/skills --skill find-skills
+</code></pre>
+<p>Want it in every project on your computer, not just this one? Add <code>-g</code>:</p>
+<pre><code>npx skills add vercel-labs/skills --skill find-skills -g
+</code></pre>
+<!-- skills.sh install command: npx skills add https://github.com/vercel-labs/skills --skill find-skills. README: -s/--skill installs a particular skill, -g/--global installs to the user directory instead of the project. -->
+
+<h2>2. Just ask</h2>
+<p>You don't need a special command. Ask Claude the way you'd ask a person:</p>
+<ul>
+<li>"Find a skill for SEO audits"</li>
+<li>"How do I add tests to this app?"</li>
+<li>"Is there a skill that can make slide decks?"</li>
+</ul>
+<p>Find Skills checks the skills.sh leaderboard first, then searches by keyword, and installs the one it picks so Claude can use it right away.</p>
+<h2>3. How it picks (so you don't get junk)</h2>
+<p>It checks three things before it recommends a skill:</p>
+<ol>
+<li>Installs. It prefers skills with 1,000+ installs and is careful with anything under 100.</li>
+<li>Who made it. It trusts official sources like Anthropic, Vercel and Microsoft.</li>
+<li>GitHub stars. Repos with under 100 stars get a second look.</li>
+</ol>
+<!-- find-skills SKILL.md, "Verification Before Recommending". -->
+
+<h2>4. It works beyond Claude</h2>
+<p>The same skills install into Claude Code, Codex, Cursor, OpenCode and 75 more AI coding tools.</p>
+<!-- vercel-labs/skills README: "OpenCode, Claude Code, Codex, Cursor, and 75 more". -->
+
+<h2>5. Two handy extras</h2>
+<ul>
+<li>See what you have: <code>npx skills list</code></li>
+<li>Update every skill you've installed in one go: <code>npx skills update</code></li>
+</ul>
+<h2>Honest note</h2>
+<p>A skill can run code on your machine. Read what a skill does before you let it run, and stick to well-known sources.</p>
+<p>Follow <a href="https://www.instagram.com/louiscreates.ai/">@louiscreates.ai</a> for the next free AI tool.</p></div>
+<div class="box"><h2>Get the next free tool first</h2><p>I post one free AI tool at a time, tested, with the setup.</p><a class="btn" href="https://www.instagram.com/louiscreates.ai/">Follow @louiscreates.ai</a></div>
+<footer>Louis&#x27;s Free AI Library · <a href="https://www.instagram.com/louiscreates.ai/">@louiscreates.ai</a></footer>
+</div></body></html>
