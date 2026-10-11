@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RESUME: a hiring panel of 7 Claudes that tries to reject your resume</title>
+<meta name="description" content="Free AI tools, tested and explained in plain English. Every guide from my reels lives here.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;700;900&family=Montserrat:wght@700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css"></head>
+<body><div class="wrap"><svg class="robot" viewBox="0 0 260 300" aria-hidden="true"><line x1="130" y1="62" x2="130" y2="24" stroke="#1c1a17" stroke-width="7" stroke-linecap="round"/><circle cx="130" cy="20" r="14" fill="#ffd23f" stroke="#1c1a17" stroke-width="5"/><rect x="88" y="236" width="26" height="54" rx="8" fill="#4c6fff"/><rect x="146" y="236" width="26" height="54" rx="8" fill="#4c6fff"/><rect x="206" y="92" width="30" height="86" rx="14" fill="#4c6fff" transform="rotate(-150 221 100)"/><rect x="24" y="142" width="30" height="86" rx="14" fill="#4c6fff"/><rect x="44" y="58" width="172" height="190" rx="36" fill="#4c6fff"/><rect x="70" y="86" width="120" height="92" rx="24" fill="#fbf4e4"/><ellipse cx="105" cy="128" rx="13" ry="16" fill="#1c1a17"/><ellipse cx="155" cy="128" rx="13" ry="16" fill="#1c1a17"/><path d="M112 154 Q130 172 148 154" stroke="#1c1a17" stroke-width="6" fill="none" stroke-linecap="round"/></svg><a class="small" href="../">&larr; All free guides</a>
+<h1 class="tape">RESUME</h1>
+<div class="guide"><h1>RESUME: a hiring panel of 7 Claudes that tries to reject your resume</h1>
+<h2>What it is</h2>
+<p>You never find out why a company rejected your resume. This free skill makes seven Claudes try to reject it first, then rebuilds it with every mistake fixed. Type <code>/hiring-panel</code> and give it your resume (a file or pasted text). If you have a job posting, paste that too.</p>
+<p>Each of the seven reviewers judges your resume alone and never sees what the others said:</p>
+<ul>
+<li><strong>The automated screen:</strong> the system that decides if a human should even see your resume. It checks if the text can be read top to bottom, if titles, employers and dates are clear, and with a job posting, which of its key skills are missing. It answers PASS or REJECT.</li>
+<li><strong>The hiring manager:</strong> decides who gets an interview. INTERVIEW or NO, what decided it in the first ten seconds, and the question they would ask.</li>
+<li><strong>A domain expert:</strong> a senior person in your field who has seen many inflated resumes. Which claim sounds most inflated or vague?</li>
+<li><strong>Another applicant:</strong> applied for the same job. Where is your resume weaker than theirs?</li>
+<li><strong>The CEO:</strong> reads for impact. What did you change, and by how much?</li>
+<li><strong>The recruiter:</strong> has 30 seconds and 100 resumes today. Where did interest get lost?</li>
+<li><strong>The teammate:</strong> would sit next to you. How do you work with others?</li>
+</ul>
+<p>Then it merges everything into one list of mistakes, worst first, each with a severity (Blocker, Major or Minor), the exact line it is about and how many of the seven flagged it. Then it writes you an improved resume and runs a fresh automated screen on the new version, without telling it what changed.</p>
+<p>It never invents anything. If a fix needs a fact it does not have (a number, a tool, a team size), it leaves <code>[ADD: what you need]</code> and asks you at the end.</p>
+<h2>1. Download the skill</h2>
+<ul>
+<li><a href="hiring-panel.zip">Download hiring-panel.zip</a></li>
+<li><a href="SKILL.md">Open SKILL.md</a> (the same skill as a text file)</li>
+</ul>
+<p>It's free. I made it, and you can change anything in it.</p>
+<h2>2. Install it in Claude Code</h2>
+<p>Paste this into a terminal (Mac, Linux, or Git Bash on Windows):</p>
+<pre><code>mkdir -p ~/.claude/skills/hiring-panel &amp;&amp; curl -o ~/.claude/skills/hiring-panel/SKILL.md https://louiscreatesai.github.io/free-ai/resume/SKILL.md
+</code></pre>
+<p>Then start a new Claude Code session. In Claude Code the seven reviewers run as separate agents, so they really can't see each other's answers.</p>
+<h2>Or install it in the Claude app</h2>
+<ol>
+<li>Turn on code execution: <strong>Settings &gt; Capabilities</strong>. Skills need it.</li>
+<li>Go to <strong>Customize &gt; Skills</strong>.</li>
+<li>Click <strong>+</strong>, then <strong>Create skill</strong>, then <strong>Upload a skill</strong>, and pick <code>hiring-panel.zip</code>.</li>
+<li>Make sure the skill is switched on in your skills list.</li>
+</ol>
+<h2>3. Run it on your resume</h2>
+<p>Start a new chat and type:</p>
+<blockquote>
+<p>/hiring-panel path/to/my-resume.pdf</p>
+</blockquote>
+<p>You can also paste your resume text right after <code>/hiring-panel</code>. Add the job posting under it for a sharper result. If you give no job at all, it asks you one question first: what job are you applying for?</p>
+<h2>4. What you get</h2>
+<p>Everything is saved in a new folder called <code>.hiring-panel/&lt;date&gt;-&lt;your name&gt;/</code> next to where you ran it:</p>
+<ul>
+<li><code>PANEL.md</code>: the seven verdicts, the numbered mistakes with severities, and what fixed each one.</li>
+<li><code>RESUME-IMPROVED.md</code>: your new resume, with the <code>[ADD: ...]</code> questions at the end.</li>
+</ul>
+<p>In the chat you see one line per reviewer, the five worst mistakes, the before and after verdict of the automated screen, and where the files are.</p>
+<h2>Honest note</h2>
+<p>This is a structured second opinion made by language models. It does not guarantee an interview or a job, and it is not career or legal advice. If your Claude cannot start separate agents, one model plays all seven roles and they are less independent. Your resume text goes to Claude like any chat message, so use a version you are happy to share.</p></div>
+<div class="box"><h2>Get the next free tool first</h2><p>I post one free AI tool at a time, tested, with the setup.</p><a class="btn" href="https://www.instagram.com/louiscreates.ai/">Follow @louiscreates.ai</a></div>
+<footer>Louis&#x27;s Free AI Library · <a href="https://www.instagram.com/louiscreates.ai/">@louiscreates.ai</a></footer>
+</div></body></html>
