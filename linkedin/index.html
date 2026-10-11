@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LINKEDIN: a panel of 7 Claudes that roasts your LinkedIn profile</title>
+<meta name="description" content="Free AI tools, tested and explained in plain English. Every guide from my reels lives here.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;700;900&family=Montserrat:wght@700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css"></head>
+<body><div class="wrap"><svg class="robot" viewBox="0 0 260 300" aria-hidden="true"><line x1="130" y1="62" x2="130" y2="24" stroke="#1c1a17" stroke-width="7" stroke-linecap="round"/><circle cx="130" cy="20" r="14" fill="#ffd23f" stroke="#1c1a17" stroke-width="5"/><rect x="88" y="236" width="26" height="54" rx="8" fill="#4c6fff"/><rect x="146" y="236" width="26" height="54" rx="8" fill="#4c6fff"/><rect x="206" y="92" width="30" height="86" rx="14" fill="#4c6fff" transform="rotate(-150 221 100)"/><rect x="24" y="142" width="30" height="86" rx="14" fill="#4c6fff"/><rect x="44" y="58" width="172" height="190" rx="36" fill="#4c6fff"/><rect x="70" y="86" width="120" height="92" rx="24" fill="#fbf4e4"/><ellipse cx="105" cy="128" rx="13" ry="16" fill="#1c1a17"/><ellipse cx="155" cy="128" rx="13" ry="16" fill="#1c1a17"/><path d="M112 154 Q130 172 148 154" stroke="#1c1a17" stroke-width="6" fill="none" stroke-linecap="round"/></svg><a class="small" href="../">&larr; All free guides</a>
+<h1 class="tape">LINKEDIN</h1>
+<div class="guide"><h1>LINKEDIN: a panel of 7 Claudes that roasts your LinkedIn profile</h1>
+<h2>What it is</h2>
+<p>Nobody tells you why they skipped your LinkedIn profile. This free skill makes seven Claudes roast it first, then rewrites it with every mistake fixed. Type <code>/linkedin-panel</code> and paste your profile (headline, About, experience and skills). If you know the job you want next, say it.</p>
+<p>Each of the seven reviewers judges your profile alone and never sees what the others said:</p>
+<ul>
+<li><strong>The stranger:</strong> knows nothing about your field. Can they say in one sentence what you do and who you help?</li>
+<li><strong>The recruiter:</strong> has a role to fill and little time. Do the words they would search for show up? MESSAGE, SAVE or SKIP.</li>
+<li><strong>The hiring manager:</strong> decides who gets a message. What decided it fast, and the one question they would ask.</li>
+<li><strong>The person with the dream job:</strong> a senior person who already does it. Which claim sounds most inflated or vague?</li>
+<li><strong>The rival:</strong> going for the same role. Where is your profile weaker than theirs?</li>
+<li><strong>The skeptic:</strong> hunts empty words like "passionate" and "results-driven" and claims with no proof.</li>
+<li><strong>The referrer:</strong> would they put their own name behind you? What proof is missing?</li>
+</ul>
+<p>Then it merges everything into one list of mistakes, worst first, each with a severity (Blocker, Major or Minor), the exact line it is about and how many of the seven flagged it. Then it writes you three new headlines, a new About section and better experience lines, and tests the new headline and About on a fresh stranger, without telling it what changed.</p>
+<p>It never makes anything up. If a fix needs a fact it does not have (a number, a tool, a link), it leaves <code>[ADD: what you need]</code> and asks you at the end.</p>
+<h2>1. Download the skill</h2>
+<ul>
+<li><a href="linkedin-panel.zip">Download linkedin-panel.zip</a></li>
+<li><a href="SKILL.md">Open SKILL.md</a> (the same skill as a text file)</li>
+</ul>
+<p>It's free. I made it, and you can change anything in it. It runs inside Claude, so you need a Claude account.</p>
+<h2>2. Install it in Claude Code</h2>
+<p>Paste this into a terminal (Mac, Linux, or Git Bash on Windows):</p>
+<pre><code>mkdir -p ~/.claude/skills/linkedin-panel &amp;&amp; curl -o ~/.claude/skills/linkedin-panel/SKILL.md https://louiscreatesai.github.io/free-ai/linkedin/SKILL.md
+</code></pre>
+<p>Then start a new Claude Code session. In Claude Code the seven reviewers run as separate agents, so they really can't see each other's answers.</p>
+<h2>Or install it in the Claude app</h2>
+<ol>
+<li>Turn on code execution: <strong>Settings &gt; Capabilities</strong>. Skills need it.</li>
+<li>Go to <strong>Customize &gt; Skills</strong>.</li>
+<li>Click <strong>+</strong>, then <strong>Create skill</strong>, then <strong>Upload a skill</strong>, and pick <code>linkedin-panel.zip</code>.</li>
+<li>Make sure the skill is switched on in your skills list.</li>
+</ol>
+<h2>3. Run it on your profile</h2>
+<p>Open your own LinkedIn profile, copy your headline, About, experience and skills into a new chat, and type:</p>
+<blockquote>
+<p>/linkedin-panel (paste your profile here)</p>
+</blockquote>
+<p>Add the job you want next for a sharper result. If you give no job at all, it asks you one question first: what job do you want next?</p>
+<h2>4. What you get</h2>
+<p>Everything is saved in a new folder called <code>.linkedin-panel/&lt;date&gt;-&lt;your name&gt;/</code> next to where you ran it:</p>
+<ul>
+<li><code>PANEL.md</code>: the seven verdicts, the numbered mistakes with severities, and what fixed each one.</li>
+<li><code>PROFILE-IMPROVED.md</code>: three new headlines, a new About section, better experience lines and the skills order, with the <code>[ADD: ...]</code> questions at the end.</li>
+</ul>
+<p>In the chat you see one line per reviewer, the five worst mistakes, the before and after verdict of the stranger test, and where the files are.</p>
+<h2>Honest note</h2>
+<p>This is a structured second opinion made by language models. It does not guarantee a message, an interview or a job, and it is not career advice. If your Claude cannot start separate agents, one model plays all seven roles and they are less independent. Your profile text goes to Claude like any chat message, so leave out anything you do not want to share (phone, email, address).</p></div>
+<div class="box"><h2>Get the next free tool first</h2><p>I post one free AI tool at a time, tested, with the setup.</p><a class="btn" href="https://www.instagram.com/louiscreates.ai/">Follow @louiscreates.ai</a></div>
+<footer>Louis&#x27;s Free AI Library · <a href="https://www.instagram.com/louiscreates.ai/">@louiscreates.ai</a></footer>
+</div></body></html>
