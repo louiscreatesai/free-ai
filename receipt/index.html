@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RECEIPT: see where your Claude limit went, free</title>
+<meta name="description" content="Free AI tools, tested and explained in plain English. Every guide from my reels lives here.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;700;900&family=Montserrat:wght@700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css"></head>
+<body><div class="wrap"><svg class="robot" viewBox="0 0 260 300" aria-hidden="true"><line x1="130" y1="62" x2="130" y2="24" stroke="#1c1a17" stroke-width="7" stroke-linecap="round"/><circle cx="130" cy="20" r="14" fill="#ffd23f" stroke="#1c1a17" stroke-width="5"/><rect x="88" y="236" width="26" height="54" rx="8" fill="#4c6fff"/><rect x="146" y="236" width="26" height="54" rx="8" fill="#4c6fff"/><rect x="206" y="92" width="30" height="86" rx="14" fill="#4c6fff" transform="rotate(-150 221 100)"/><rect x="24" y="142" width="30" height="86" rx="14" fill="#4c6fff"/><rect x="44" y="58" width="172" height="190" rx="36" fill="#4c6fff"/><rect x="70" y="86" width="120" height="92" rx="24" fill="#fbf4e4"/><ellipse cx="105" cy="128" rx="13" ry="16" fill="#1c1a17"/><ellipse cx="155" cy="128" rx="13" ry="16" fill="#1c1a17"/><path d="M112 154 Q130 172 148 154" stroke="#1c1a17" stroke-width="6" fill="none" stroke-linecap="round"/></svg><a class="small" href="../">&larr; All free guides</a>
+<h1 class="tape">RECEIPT</h1>
+<div class="guide"><h1>RECEIPT: see where your Claude limit went, free</h1>
+<h2>What it is</h2>
+<p>You hit your Claude limit and nobody shows you a receipt. ccusage is a free, open source tool that reads the usage files already on your own computer and prints a report: tokens and cost by day, week, month, session and model. It also shows Claude Code's 5 hour windows, so you can see which one burned your limit.</p>
+<p>It is MIT licensed and has about 19,000 stars on GitHub.</p>
+<h2>1. Run it (one command)</h2>
+<p>You need Node.js installed. Then paste this into a terminal:</p>
+<pre><code>npx ccusage@latest
+</code></pre>
+<p>That prints your usage by day. Nothing to install, nothing to sign up for.</p>
+<h2>2. The other reports</h2>
+<pre><code>npx ccusage@latest daily
+npx ccusage@latest weekly
+npx ccusage@latest monthly
+npx ccusage@latest session
+npx ccusage@latest blocks
+</code></pre>
+<ul>
+<li><code>session</code> shows which conversations used the most.</li>
+<li><code>blocks</code> shows Claude Code's 5 hour windows.</li>
+<li>Add <code>--since 2026-10-01</code> to start from a date, or <code>--json</code> if you want the numbers as data.</li>
+</ul>
+<p>It also reads usage from other coding agents it detects, such as Codex and Gemini CLI.</p>
+<h2>3. How to read your receipt</h2>
+<ol>
+<li>Look at the day with the biggest bar. That is your Monday.</li>
+<li>Open <code>session</code> and find the one conversation that ate the most. That is usually one long chat that read the whole project again and again.</li>
+<li>Start a fresh chat for each new task, so a long chat does not carry its whole history every time.</li>
+</ol>
+<h2>Honest note</h2>
+<p>ccusage shows how many tokens you used and what they cost. It does not show what each message said, or why one chat used so much: that part is up to you to work out from the sessions. The cost column is an estimate. It reads local usage data on your computer and is made by a third party, not by Anthropic.</p>
+<ul>
+<li>Source and docs: <a href="https://github.com/ccusage/ccusage">github.com/ccusage/ccusage</a></li>
+</ul></div>
+<div class="box"><h2>Get the next free tool first</h2><p>I post one free AI tool at a time, tested, with the setup.</p><a class="btn" href="https://www.instagram.com/louiscreates.ai/">Follow @louiscreates.ai</a></div>
+<footer>Louis&#x27;s Free AI Library · <a href="https://www.instagram.com/louiscreates.ai/">@louiscreates.ai</a></footer>
+</div></body></html>

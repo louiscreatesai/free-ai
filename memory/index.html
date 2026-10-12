@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MEMORY: give Claude a real memory with claude-mem, free</title>
+<meta name="description" content="Free AI tools, tested and explained in plain English. Every guide from my reels lives here.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;700;900&family=Montserrat:wght@700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css"></head>
+<body><div class="wrap"><svg class="robot" viewBox="0 0 260 300" aria-hidden="true"><line x1="130" y1="62" x2="130" y2="24" stroke="#1c1a17" stroke-width="7" stroke-linecap="round"/><circle cx="130" cy="20" r="14" fill="#ffd23f" stroke="#1c1a17" stroke-width="5"/><rect x="88" y="236" width="26" height="54" rx="8" fill="#4c6fff"/><rect x="146" y="236" width="26" height="54" rx="8" fill="#4c6fff"/><rect x="206" y="92" width="30" height="86" rx="14" fill="#4c6fff" transform="rotate(-150 221 100)"/><rect x="24" y="142" width="30" height="86" rx="14" fill="#4c6fff"/><rect x="44" y="58" width="172" height="190" rx="36" fill="#4c6fff"/><rect x="70" y="86" width="120" height="92" rx="24" fill="#fbf4e4"/><ellipse cx="105" cy="128" rx="13" ry="16" fill="#1c1a17"/><ellipse cx="155" cy="128" rx="13" ry="16" fill="#1c1a17"/><path d="M112 154 Q130 172 148 154" stroke="#1c1a17" stroke-width="6" fill="none" stroke-linecap="round"/></svg><a class="small" href="../">&larr; All free guides</a>
+<h1 class="tape">MEMORY</h1>
+<div class="guide"><h1>MEMORY: give Claude a real memory with claude-mem, free</h1>
+<h2>What it is</h2>
+<p>When a Claude Code chat fills up, Claude has to compact it, and six hours of work turns into one paragraph. claude-mem is a free, open source plugin that saves what Claude did in each session, condenses it, and feeds the useful parts back into your next chats. You do not have to do anything after you install it.</p>
+<p>It is Apache-2.0 licensed and has about 100,000 stars on GitHub.</p>
+<h2>1. Install it</h2>
+<p>You need Node.js 20 or newer and Claude Code. In a terminal, run:</p>
+<pre><code>npx claude-mem install
+</code></pre>
+<p>Or, inside Claude Code, run these two commands:</p>
+<pre><code>/plugin marketplace add thedotmack/claude-mem
+/plugin install claude-mem
+</code></pre>
+<p>Then restart Claude Code. Context from your previous sessions shows up in new sessions automatically.</p>
+<p>Do not run <code>npm install -g claude-mem</code>. That installs only the library, not the plugin.</p>
+<h2>2. The sign-in (you can skip it)</h2>
+<p>The installer can ask you to sign in with an email link. Signing in starts a 30 day free trial of claude-mem's own memory service. When the trial ends, memory falls back to your Claude plan unless you subscribe, so it uses part of your plan. You can skip the sign-in and choose your own provider instead. The README explains how to skip it with the <code>--provider</code> flag or <code>CLAUDE_MEM_ONLINE_OPTIN=false</code>.</p>
+<h2>3. Use it</h2>
+<ol>
+<li>Work as usual. It captures what Claude does and makes short summaries on its own.</li>
+<li>Start a new session the next day. The useful parts from before are already there.</li>
+<li>To look something up, ask Claude to search your past work, for example "what did we decide about the button?". claude-mem has a search skill for this.</li>
+<li>Put <code>&lt;private&gt;</code> tags around anything you do not want saved.</li>
+</ol>
+<h2>Honest note</h2>
+<p>claude-mem is made by a third party, not by Anthropic. It records what Claude does in your sessions, so keep secrets out of your chats and use the <code>&lt;private&gt;</code> tags. Memory is helpful, not magic: it saves summaries, so Claude can still miss details.</p>
+<ul>
+<li>Source: <a href="https://github.com/thedotmack/claude-mem">github.com/thedotmack/claude-mem</a></li>
+<li>Docs: <a href="https://docs.claude-mem.ai/">docs.claude-mem.ai</a></li>
+</ul></div>
+<div class="box"><h2>Get the next free tool first</h2><p>I post one free AI tool at a time, tested, with the setup.</p><a class="btn" href="https://www.instagram.com/louiscreates.ai/">Follow @louiscreates.ai</a></div>
+<footer>Louis&#x27;s Free AI Library · <a href="https://www.instagram.com/louiscreates.ai/">@louiscreates.ai</a></footer>
+</div></body></html>
