@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GHOST: find out which job posts are real before you apply</title>
+<meta name="description" content="Free AI tools, tested and explained in plain English. Every guide from my reels lives here.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;700;900&family=Montserrat:wght@700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css"></head>
+<body><div class="wrap"><svg class="robot" viewBox="0 0 260 300" aria-hidden="true"><line x1="130" y1="62" x2="130" y2="24" stroke="#1c1a17" stroke-width="7" stroke-linecap="round"/><circle cx="130" cy="20" r="14" fill="#ffd23f" stroke="#1c1a17" stroke-width="5"/><rect x="88" y="236" width="26" height="54" rx="8" fill="#4c6fff"/><rect x="146" y="236" width="26" height="54" rx="8" fill="#4c6fff"/><rect x="206" y="92" width="30" height="86" rx="14" fill="#4c6fff" transform="rotate(-150 221 100)"/><rect x="24" y="142" width="30" height="86" rx="14" fill="#4c6fff"/><rect x="44" y="58" width="172" height="190" rx="36" fill="#4c6fff"/><rect x="70" y="86" width="120" height="92" rx="24" fill="#fbf4e4"/><ellipse cx="105" cy="128" rx="13" ry="16" fill="#1c1a17"/><ellipse cx="155" cy="128" rx="13" ry="16" fill="#1c1a17"/><path d="M112 154 Q130 172 148 154" stroke="#1c1a17" stroke-width="6" fill="none" stroke-linecap="round"/></svg><a class="small" href="../">&larr; All free guides</a>
+<h1 class="tape">GHOST</h1>
+<div class="guide"><h1>GHOST: find out which job posts are real before you apply</h1>
+<h2>What it is</h2>
+<p>About one in five job posts is a ghost: nobody is hiring, the post just sits there. Greenhouse, a hiring platform, estimated that in a quarter 18% to 22% of the jobs posted on its platform could be classified as ghost jobs (its 2024 report, covered in the news in January 2025).</p>
+<p>This is one prompt that makes Claude check each job against the company's own career page, so you only write cover letters for the real ones.</p>
+<h2>1. Set it up (two minutes)</h2>
+<ol>
+<li>Install Claude in Chrome, the Claude extension for Google Chrome, and sign in. Check that your Claude plan includes it.</li>
+<li>Open a new Claude in Chrome chat.</li>
+<li>Collect the links to the jobs you want to apply for.</li>
+</ol>
+<h2>2. The prompt</h2>
+<p>Paste this and put your links at the bottom:</p>
+<pre><code>I'm applying to the jobs below. For each one, do this:
+1. Open the job post link.
+2. Find the company's own website and its careers page.
+3. Check that the same job is listed on the company's own careers page.
+4. Find out how old the post is (the date posted, or a note that it was reposted).
+
+Then give me a table with these columns: job, company, on their own careers page (yes or no), posted when, verdict, and one line on why.
+
+The verdict is GHOST if the job is not on the company's own careers page, or the post is months old. It is REAL if it is on their page and recent. If you can't tell, write UNSURE. Don't guess.
+
+Do not log in to anything, apply to anything, or enter any personal details.
+
+Jobs:
+1. &lt;paste link&gt;
+2. &lt;paste link&gt;
+3. &lt;paste link&gt;
+</code></pre>
+<h2>3. Read the answer</h2>
+<ol>
+<li>Start with the REAL ones. Open each and read it yourself before you write anything.</li>
+<li>Check the UNSURE ones by hand: look at the company's own site.</li>
+<li>Skip the GHOST ones, or put them last.</li>
+<li>Keep the table. Next week, run the same prompt on the new jobs.</li>
+</ol>
+<h2>Honest note</h2>
+<p>This is a guide, not a guarantee. A real job can be missing from a company's careers page because the page is out of date, the company hires through a recruiter, or the post just went up. A ghost job can sit on the careers page too. Claude can also get a page wrong, so always open the few it calls REAL and check them yourself. How long it takes depends on how many jobs you give it and how fast the sites load. In the video the numbers (forty jobs, nine real, thirty-one letters) are an example, not a real result.</p>
+<ul>
+<li>Source for the one in five figure: <a href="https://www.fox5ny.com/news/ghost-jobs-greenhouse-analysis">Fox News, "1 in 5 job postings aren't real, recent study finds" (Greenhouse analysis)</a></li>
+</ul></div>
+<div class="box"><h2>Get the next free tool first</h2><p>I post one free AI tool at a time, tested, with the setup.</p><a class="btn" href="https://www.instagram.com/louiscreates.ai/">Follow @louiscreates.ai</a></div>
+<footer>Louis&#x27;s Free AI Library · <a href="https://www.instagram.com/louiscreates.ai/">@louiscreates.ai</a></footer>
+</div></body></html>
