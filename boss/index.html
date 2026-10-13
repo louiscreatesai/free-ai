@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BOSS: the rulebook that keeps your AI agents in line</title>
+<meta name="description" content="Free AI tools, tested and explained in plain English. Every guide from my reels lives here.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;700;900&family=Montserrat:wght@700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css"></head>
+<body><div class="wrap"><svg class="robot" viewBox="0 0 260 300" aria-hidden="true"><line x1="130" y1="62" x2="130" y2="24" stroke="#1c1a17" stroke-width="7" stroke-linecap="round"/><circle cx="130" cy="20" r="14" fill="#ffd23f" stroke="#1c1a17" stroke-width="5"/><rect x="88" y="236" width="26" height="54" rx="8" fill="#4c6fff"/><rect x="146" y="236" width="26" height="54" rx="8" fill="#4c6fff"/><rect x="206" y="92" width="30" height="86" rx="14" fill="#4c6fff" transform="rotate(-150 221 100)"/><rect x="24" y="142" width="30" height="86" rx="14" fill="#4c6fff"/><rect x="44" y="58" width="172" height="190" rx="36" fill="#4c6fff"/><rect x="70" y="86" width="120" height="92" rx="24" fill="#fbf4e4"/><ellipse cx="105" cy="128" rx="13" ry="16" fill="#1c1a17"/><ellipse cx="155" cy="128" rx="13" ry="16" fill="#1c1a17"/><path d="M112 154 Q130 172 148 154" stroke="#1c1a17" stroke-width="6" fill="none" stroke-linecap="round"/></svg><a class="small" href="../">&larr; All free guides</a>
+<h1 class="tape">BOSS</h1>
+<div class="guide"><h1>BOSS: the rulebook that keeps your AI agents in line</h1>
+<h2>What it is</h2>
+<p>When you run several AI agents on the same project, nobody tells them who owns what. One rewrites the file another just finished, and nobody checks the result.</p>
+<p>The fix is one rulebook. It is a file of house rules that every agent reads before it touches anything, plus one lead agent that checks the work before it ships. In Claude Code the rulebook is a file called <code>CLAUDE.md</code>, and the lead agent is a subagent you define once.</p>
+<h2>1. Write the rulebook (five minutes)</h2>
+<ol>
+<li>Open your project folder.</li>
+<li>Create a file named <code>CLAUDE.md</code> in the project root, or in a <code>.claude</code> folder inside it. Claude Code loads it at the start of every session. Subagents get it too, unless a subagent is set to skip it.</li>
+<li>Paste this and change it to fit your project:</li>
+</ol>
+<pre><code># House rules
+
+## Who owns what
+- Agent 1 owns the front end: src/ui
+- Agent 2 owns the backend: src/api
+- Agent 3 owns the tests: tests/
+- Agent 4 owns the docs: docs/
+- Never edit a file that another agent owns. Ask the lead agent instead.
+
+## Never do this
+- Never delete or rename a file you did not create.
+- Never rewrite a whole file when you only need to change a few lines.
+- Never push or merge. Only the lead agent decides what ships.
+
+## Before you say you are done
+- Run the tests and write down what you ran.
+- List every file you changed.
+</code></pre>
+<p>Keep the file short. The Claude Code docs suggest under 200 lines: longer files use more context and Claude follows them less closely.</p>
+<h2>2. Add the boss: a lead agent that checks the work</h2>
+<p>Create the file <code>.claude/agents/lead.md</code> in your project and paste this:</p>
+<pre><code>---
+name: lead
+description: Reviews the work of the other agents before anything ships. Use proactively when agents finish a task.
+tools: Read, Glob, Grep, Bash
+---
+
+You are the lead agent. You do not write features. You check the work.
+
+When you are called:
+1. Read CLAUDE.md. These are the house rules.
+2. Run git status and git diff to see every file that changed.
+3. For each changed file, check that the agent that changed it owns it.
+4. Check that nothing was deleted or renamed that should not have been.
+5. Run the tests.
+
+Then give me a short report: OK to ship, or BLOCKED, and for each problem the file, the rule it broke, and what to do.
+Never fix things yourself. Never push or merge.
+</code></pre>
+<p>When your agents finish, ask Claude: "Have the lead agent review the changes." Claude can also hand the review to it on its own, because of the <code>description</code> line.</p>
+<h2>3. Use it</h2>
+<ol>
+<li>Start your agents as usual. They all read <code>CLAUDE.md</code> at the start.</li>
+<li>When they finish, ask the lead agent to review.</li>
+<li>Fix anything it marks BLOCKED, then ask again.</li>
+<li>Whenever an agent breaks a rule, add a line to <code>CLAUDE.md</code> so it happens once at most.</li>
+</ol>
+<h2>Honest note</h2>
+<p>This is a guide, not a guarantee. The Claude Code docs say <code>CLAUDE.md</code> is context, not enforced configuration: an agent can still ignore a rule. If a rule must never be broken, such as deleting files or pushing code, the docs recommend a hook, which blocks the action whatever the agent decides. The lead agent also reads and runs checks, so it can miss things: look at what ships before you trust it. In the video the four agents deleting each other's work is a skit, not a real result.</p>
+<ul>
+<li>Source: <a href="https://code.claude.com/docs/en/memory">How Claude remembers your project (CLAUDE.md)</a></li>
+<li>Source: <a href="https://code.claude.com/docs/en/sub-agents">Create custom subagents</a></li>
+</ul></div>
+<div class="box"><h2>Get the next free tool first</h2><p>I post one free AI tool at a time, tested, with the setup.</p><a class="btn" href="https://www.instagram.com/louiscreates.ai/">Follow @louiscreates.ai</a></div>
+<footer>Louis&#x27;s Free AI Library · <a href="https://www.instagram.com/louiscreates.ai/">@louiscreates.ai</a></footer>
+</div></body></html>
