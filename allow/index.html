@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ALLOW: stop the Claude Code permission prompts without saying yes to everything, free</title>
+<meta name="description" content="Free AI tools, tested and explained in plain English. Every guide from my reels lives here.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;700;900&family=Montserrat:wght@700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css"></head>
+<body><div class="wrap"><svg class="robot" viewBox="0 0 260 300" aria-hidden="true"><line x1="130" y1="62" x2="130" y2="24" stroke="#1c1a17" stroke-width="7" stroke-linecap="round"/><circle cx="130" cy="20" r="14" fill="#ffd23f" stroke="#1c1a17" stroke-width="5"/><rect x="88" y="236" width="26" height="54" rx="8" fill="#4c6fff"/><rect x="146" y="236" width="26" height="54" rx="8" fill="#4c6fff"/><rect x="206" y="92" width="30" height="86" rx="14" fill="#4c6fff" transform="rotate(-150 221 100)"/><rect x="24" y="142" width="30" height="86" rx="14" fill="#4c6fff"/><rect x="44" y="58" width="172" height="190" rx="36" fill="#4c6fff"/><rect x="70" y="86" width="120" height="92" rx="24" fill="#fbf4e4"/><ellipse cx="105" cy="128" rx="13" ry="16" fill="#1c1a17"/><ellipse cx="155" cy="128" rx="13" ry="16" fill="#1c1a17"/><path d="M112 154 Q130 172 148 154" stroke="#1c1a17" stroke-width="6" fill="none" stroke-linecap="round"/></svg><a class="small" href="../">&larr; All free guides</a>
+<h1 class="tape">ALLOW</h1>
+<div class="guide"><h1>ALLOW: stop the Claude Code permission prompts without saying yes to everything, free</h1>
+<h2>What it is</h2>
+<p>Claude Code asks permission before it runs commands, edits files or fetches the web. If you hit yes on everything without reading, you are not really approving anything. The fix is to decide once, in rules: allow the safe things, block the risky ones, and keep the prompts for the rest.</p>
+<p>It is built into Claude Code. Nothing to install.</p>
+<h2>1. Open the rules</h2>
+<p>Type this inside Claude Code:</p>
+<pre><code>/permissions
+</code></pre>
+<p>It lists every rule and which settings file it comes from. You can add or remove rules there.</p>
+<h2>2. The three kinds of rule</h2>
+<ul>
+<li>Allow: Claude runs it without asking.</li>
+<li>Ask: Claude always asks.</li>
+<li>Deny: Claude cannot do it.</li>
+</ul>
+<p>Deny is checked first, then ask, then allow. So a deny rule always wins over an allow rule.</p>
+<h2>3. Paste this into your settings</h2>
+<p>Put it in <code>.claude/settings.json</code> in your project (or <code>~/.claude/settings.json</code> to apply everywhere):</p>
+<pre><code class="language-json">{
+  &quot;permissions&quot;: {
+    &quot;allow&quot;: [
+      &quot;Bash(npm run *)&quot;,
+      &quot;Bash(git commit *)&quot;
+    ],
+    &quot;deny&quot;: [
+      &quot;Bash(git push *)&quot;
+    ]
+  }
+}
+</code></pre>
+<p>That runs your npm scripts and git commits without asking, and blocks any <code>git push</code>.</p>
+<p>Put the <code>*</code> after the command you mean. <code>Bash(git log *)</code> allows only <code>git log</code>. <code>Bash(git *)</code> allows every git command, so be careful with that one.</p>
+<h2>4. The shortcut</h2>
+<p>When a prompt appears, choose "Yes, and don't ask again". For a command, Claude Code saves a rule so it stops asking for that command in that project. File edits are only remembered until the session ends.</p>
+<h2>5. Pick a mode instead</h2>
+<p>You can also change how Claude Code starts, with <code>defaultMode</code> in settings. <code>acceptEdits</code> approves file edits and simple file commands like <code>mkdir</code> and <code>cp</code> inside your project. <code>plan</code> makes Claude read and plan without editing.</p>
+<h2>Honest note</h2>
+<p>Do not use <code>bypassPermissions</code> unless you are in a throwaway container or virtual machine. It skips the prompts, including for the protected folders <code>.git</code> and <code>.claude</code>. Also, a rule is enforced by Claude Code itself, not by asking Claude nicely in your prompt, so rules are the safe way to do this.</p>
+<ul>
+<li>Source and docs: <a href="https://code.claude.com/docs/en/permissions">code.claude.com/docs/en/permissions</a></li>
+</ul></div>
+<div class="box"><h2>Get the next free tool first</h2><p>I post one free AI tool at a time, tested, with the setup.</p><a class="btn" href="https://www.instagram.com/louiscreates.ai/">Follow @louiscreates.ai</a></div>
+<footer>Louis&#x27;s Free AI Library · <a href="https://www.instagram.com/louiscreates.ai/">@louiscreates.ai</a></footer>
+</div></body></html>

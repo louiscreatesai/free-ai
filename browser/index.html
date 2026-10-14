@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BROWSER: let Claude test your app in a real browser, free</title>
+<meta name="description" content="Free AI tools, tested and explained in plain English. Every guide from my reels lives here.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;700;900&family=Montserrat:wght@700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css"></head>
+<body><div class="wrap"><svg class="robot" viewBox="0 0 260 300" aria-hidden="true"><line x1="130" y1="62" x2="130" y2="24" stroke="#1c1a17" stroke-width="7" stroke-linecap="round"/><circle cx="130" cy="20" r="14" fill="#ffd23f" stroke="#1c1a17" stroke-width="5"/><rect x="88" y="236" width="26" height="54" rx="8" fill="#4c6fff"/><rect x="146" y="236" width="26" height="54" rx="8" fill="#4c6fff"/><rect x="206" y="92" width="30" height="86" rx="14" fill="#4c6fff" transform="rotate(-150 221 100)"/><rect x="24" y="142" width="30" height="86" rx="14" fill="#4c6fff"/><rect x="44" y="58" width="172" height="190" rx="36" fill="#4c6fff"/><rect x="70" y="86" width="120" height="92" rx="24" fill="#fbf4e4"/><ellipse cx="105" cy="128" rx="13" ry="16" fill="#1c1a17"/><ellipse cx="155" cy="128" rx="13" ry="16" fill="#1c1a17"/><path d="M112 154 Q130 172 148 154" stroke="#1c1a17" stroke-width="6" fill="none" stroke-linecap="round"/></svg><a class="small" href="../">&larr; All free guides</a>
+<h1 class="tape">BROWSER</h1>
+<div class="guide"><h1>BROWSER: let Claude test your app in a real browser, free</h1>
+<h2>What it is</h2>
+<p>Claude says "all tests pass" without ever opening your app. Playwright MCP fixes that. It is a free tool from Microsoft that lets Claude open a real browser, click through your app, fill in forms, read the page and tell you what actually happened.</p>
+<p>It is Apache 2.0 licensed and has about 38,000 stars on GitHub.</p>
+<h2>1. Add it to Claude Code (one command)</h2>
+<p>You need Node.js (version 18 or newer). Then paste this into a terminal:</p>
+<pre><code>claude mcp add playwright npx @playwright/mcp@latest
+</code></pre>
+<p>That is the whole install. No account, no key.</p>
+<h2>2. Ask Claude to use it</h2>
+<p>Start your app, then tell Claude something like this:</p>
+<pre><code>Open http://localhost:3000 in the browser, sign up with a test account, click through the main flow and tell me what breaks. Do not say it works unless you saw it work on the page.
+</code></pre>
+<p>Replace the address with wherever your app runs.</p>
+<h2>3. What it can do</h2>
+<ul>
+<li>Open pages, click, type, fill forms, pick options, press keys and upload files.</li>
+<li>Read the page, take screenshots, read the browser console and look at network requests.</li>
+<li>Run with a visible window by default, so you can watch it work. Add <code>--headless</code> if you want it hidden.</li>
+</ul>
+<h2>4. Make "tests pass" mean something</h2>
+<ol>
+<li>Ask Claude to write the test first, run it, and show you it failing.</li>
+<li>Then ask it to fix the code and run the test again in the real browser.</li>
+<li>If Claude says "done", ask it for a screenshot of the page.</li>
+</ol>
+<h2>Honest note</h2>
+<p>Playwright MCP lets Claude look at your app, it does not make Claude right. Watch the first run yourself, and keep your own tests too. It runs a browser on your computer, so only point it at apps and test accounts you are happy for it to click around in.</p>
+<ul>
+<li>Source and docs: <a href="https://github.com/microsoft/playwright-mcp">github.com/microsoft/playwright-mcp</a></li>
+</ul></div>
+<div class="box"><h2>Get the next free tool first</h2><p>I post one free AI tool at a time, tested, with the setup.</p><a class="btn" href="https://www.instagram.com/louiscreates.ai/">Follow @louiscreates.ai</a></div>
+<footer>Louis&#x27;s Free AI Library · <a href="https://www.instagram.com/louiscreates.ai/">@louiscreates.ai</a></footer>
+</div></body></html>
