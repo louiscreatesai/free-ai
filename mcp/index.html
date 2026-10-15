@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MCP: the 4 plugins that give Claude real powers, with the install commands</title>
+<meta name="description" content="Free AI tools, tested and explained in plain English. Every guide from my reels lives here.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;700;900&family=Montserrat:wght@700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css"></head>
+<body><div class="wrap"><svg class="robot" viewBox="0 0 260 300" aria-hidden="true"><line x1="130" y1="62" x2="130" y2="24" stroke="#1c1a17" stroke-width="7" stroke-linecap="round"/><circle cx="130" cy="20" r="14" fill="#ffd23f" stroke="#1c1a17" stroke-width="5"/><rect x="88" y="236" width="26" height="54" rx="8" fill="#4c6fff"/><rect x="146" y="236" width="26" height="54" rx="8" fill="#4c6fff"/><rect x="206" y="92" width="30" height="86" rx="14" fill="#4c6fff" transform="rotate(-150 221 100)"/><rect x="24" y="142" width="30" height="86" rx="14" fill="#4c6fff"/><rect x="44" y="58" width="172" height="190" rx="36" fill="#4c6fff"/><rect x="70" y="86" width="120" height="92" rx="24" fill="#fbf4e4"/><ellipse cx="105" cy="128" rx="13" ry="16" fill="#1c1a17"/><ellipse cx="155" cy="128" rx="13" ry="16" fill="#1c1a17"/><path d="M112 154 Q130 172 148 154" stroke="#1c1a17" stroke-width="6" fill="none" stroke-linecap="round"/></svg><a class="small" href="../">&larr; All free guides</a>
+<h1 class="tape">MCP</h1>
+<div class="guide"><h1>MCP: the 4 plugins that give Claude real powers, with the install commands</h1>
+<h2>What it is</h2>
+<p>An MCP is a plugin that connects Claude to something outside the chat. Without one, Claude can only talk. With these four it can search the web, read any website, drive a real browser and read the latest docs.</p>
+<p>Paste each command into a terminal (Node.js 18 or newer is needed for all four). They are for Claude Code.</p>
+<h2>1. Perplexity: web search and deep research</h2>
+<p>You need a Perplexity API key from <a href="https://console.perplexity.ai">console.perplexity.ai</a>. The API is billed by use, so check the price on that page before you add a card.</p>
+<pre><code>claude mcp add perplexity --env PERPLEXITY_API_KEY=&quot;your_key_here&quot; -- npx -y @perplexity-ai/mcp-server
+</code></pre>
+<p>It gives Claude four tools: search, ask, research (the deep one, which can take minutes) and reason.</p>
+<h2>2. Firecrawl: scrape any site, click through it, pull its brand</h2>
+<p>Make a Firecrawl account and copy your API key (it starts with <code>fc-</code>).</p>
+<pre><code>claude mcp add firecrawl -e FIRECRAWL_API_KEY=fc-YOUR_API_KEY -- npx -y firecrawl-mcp
+</code></pre>
+<p>Firecrawl can also return a site's branding (logo, colors, fonts) when you scrape it. Ask Claude: "Scrape this site and give me its brand colors and fonts."</p>
+<h2>3. Playwright: drive a real browser (free, by Microsoft)</h2>
+<p>No account and no key.</p>
+<pre><code>claude mcp add playwright npx @playwright/mcp@latest
+</code></pre>
+<p>Claude can open pages, click, fill forms, read the page and test your app. It is Apache 2.0 licensed and has about 38,000 stars on GitHub.</p>
+<h2>4. Context7: the latest docs, so Claude stops guessing</h2>
+<p>Get a free key at <a href="https://context7.com/dashboard">context7.com/dashboard</a> (it raises your rate limits).</p>
+<pre><code>claude mcp add --scope user context7 -- npx -y @upstash/context7-mcp --api-key YOUR_API_KEY
+</code></pre>
+<p>Then end a prompt with "use context7" and Claude reads the current docs for the library you named. It is MIT licensed.</p>
+<h2>Check they work</h2>
+<p>Start <code>claude</code> and type <code>/mcp</code>. All four should show as connected.</p>
+<h2>Honest notes</h2>
+<ul>
+<li>Perplexity and Firecrawl need API keys, and both are paid beyond their free allowances. Playwright is free. Context7 has a free key.</li>
+<li>Never paste a key into a chat or a public repo. The commands above store it on your own computer.</li>
+<li>
+<p>Every MCP gives Claude more access. Add the ones you need, not all of them at once.</p>
+</li>
+<li>
+<p>Sources: <a href="https://github.com/perplexityai/modelcontextprotocol">Perplexity</a>, <a href="https://github.com/firecrawl/firecrawl-mcp-server">Firecrawl</a>, <a href="https://github.com/microsoft/playwright-mcp">Playwright</a>, <a href="https://github.com/upstash/context7">Context7</a></p>
+</li>
+</ul></div>
+<div class="box"><h2>Get the next free tool first</h2><p>I post one free AI tool at a time, tested, with the setup.</p><a class="btn" href="https://www.instagram.com/louiscreates.ai/">Follow @louiscreates.ai</a></div>
+<footer>Louis&#x27;s Free AI Library · <a href="https://www.instagram.com/louiscreates.ai/">@louiscreates.ai</a></footer>
+</div></body></html>

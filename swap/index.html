@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SWAP: the free code that swaps a person in any video</title>
+<meta name="description" content="Free AI tools, tested and explained in plain English. Every guide from my reels lives here.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;700;900&family=Montserrat:wght@700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css"></head>
+<body><div class="wrap"><svg class="robot" viewBox="0 0 260 300" aria-hidden="true"><line x1="130" y1="62" x2="130" y2="24" stroke="#1c1a17" stroke-width="7" stroke-linecap="round"/><circle cx="130" cy="20" r="14" fill="#ffd23f" stroke="#1c1a17" stroke-width="5"/><rect x="88" y="236" width="26" height="54" rx="8" fill="#4c6fff"/><rect x="146" y="236" width="26" height="54" rx="8" fill="#4c6fff"/><rect x="206" y="92" width="30" height="86" rx="14" fill="#4c6fff" transform="rotate(-150 221 100)"/><rect x="24" y="142" width="30" height="86" rx="14" fill="#4c6fff"/><rect x="44" y="58" width="172" height="190" rx="36" fill="#4c6fff"/><rect x="70" y="86" width="120" height="92" rx="24" fill="#fbf4e4"/><ellipse cx="105" cy="128" rx="13" ry="16" fill="#1c1a17"/><ellipse cx="155" cy="128" rx="13" ry="16" fill="#1c1a17"/><path d="M112 154 Q130 172 148 154" stroke="#1c1a17" stroke-width="6" fill="none" stroke-linecap="round"/></svg><a class="small" href="../">&larr; All free guides</a>
+<h1 class="tape">SWAP</h1>
+<div class="guide"><h1>SWAP: the free code that swaps a person in any video</h1>
+<h2>What it is</h2>
+<p>Genjustsu is an open-source workflow by Sirio Berati. You upload a video, it masks the person, the background or an object, and a video model generates a new version with your swap. Your original audio goes back into the final video.</p>
+<p>The code is free (MIT license, about 900 stars on GitHub). The video generation is not: it runs on two paid services, so you pay for each swap you make, and nothing else.</p>
+<p>Get it here: <a href="https://github.com/sirioberati/Genjustsu-Open-Source-Workflow">github.com/sirioberati/Genjustsu-Open-Source-Workflow</a></p>
+<h2>What you need</h2>
+<ul>
+<li>Python 3.12 or newer.</li>
+<li>A Mac, Linux, or Windows with WSL2. Native Windows is not supported.</li>
+<li>An Enhancor API key (makes the video) and a <a href="https://replicate.com">Replicate</a> API token (makes the masks). The repo's README links both. Both are paid by use, so check their prices first.</li>
+<li>No graphics card. The heavy work runs on their servers.</li>
+</ul>
+<h2>1. Get the code</h2>
+<p>On the GitHub page, press Code, then Download ZIP, and unzip it.</p>
+<h2>2. Install the tools it needs</h2>
+<p>Mac:</p>
+<pre><code>brew install rubberband cloudflared
+</code></pre>
+<p>Ubuntu or Windows WSL2:</p>
+<pre><code>sudo apt install rubberband-cli python3-venv
+</code></pre>
+<h2>3. Set it up</h2>
+<p>Open a terminal in the folder and run:</p>
+<pre><code>bash setup.sh
+</code></pre>
+<p>Open the new <code>.env</code> file and add your two keys:</p>
+<pre><code>ENHANCOR_API_KEY=your key
+REPLICATE_API_TOKEN=your token
+</code></pre>
+<p>Check it:</p>
+<pre><code>.venv/bin/python doctor.py --require-keys
+</code></pre>
+<h2>4. Start the screen with buttons</h2>
+<pre><code>bash start.command
+</code></pre>
+<p>Open <a href="http://127.0.0.1:8770">http://127.0.0.1:8770</a>. Upload an MP4 or MOV, prepare it, check the mask, then make a <strong>draft</strong>. Only press the 1080p button once you like the draft. Do not retry a generation blindly, because each try can be charged.</p>
+<h2>Use it from your AI agent</h2>
+<p>Open the folder in Claude Code (or another agent that can run Python) and ask it to follow <code>AGENTS.md</code> and <code>.agents/skills/tein-video-workflow/SKILL.md</code>. Then ask for your swap in plain words. Tell it to wait for your OK before anything paid.</p>
+<h2>Honest notes</h2>
+<ul>
+<li>The tool is free, the generations are not. Each draft and each HD render costs money on your Enhancor and Replicate accounts.</li>
+<li>It is a local single-user app. Keep it on your own computer, and do not put it online without adding a login.</li>
+<li>Only swap people who agreed to it, and do not use it to pass a swapped video off as real. It is for your own videos and for fun.</li>
+<li>The code is MIT. The author's names, logos and example media are not covered by that license.</li>
+</ul></div>
+<div class="box"><h2>Get the next free tool first</h2><p>I post one free AI tool at a time, tested, with the setup.</p><a class="btn" href="https://www.instagram.com/louiscreates.ai/">Follow @louiscreates.ai</a></div>
+<footer>Louis&#x27;s Free AI Library · <a href="https://www.instagram.com/louiscreates.ai/">@louiscreates.ai</a></footer>
+</div></body></html>

@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PewDiePie&#x27;s free AI app (Odysseus), ready for Ajax</title>
+<meta name="description" content="Free AI tools, tested and explained in plain English. Every guide from my reels lives here.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;700;900&family=Montserrat:wght@700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css"></head>
+<body><div class="wrap"><svg class="robot" viewBox="0 0 260 300" aria-hidden="true"><line x1="130" y1="62" x2="130" y2="24" stroke="#1c1a17" stroke-width="7" stroke-linecap="round"/><circle cx="130" cy="20" r="14" fill="#ffd23f" stroke="#1c1a17" stroke-width="5"/><rect x="88" y="236" width="26" height="54" rx="8" fill="#4c6fff"/><rect x="146" y="236" width="26" height="54" rx="8" fill="#4c6fff"/><rect x="206" y="92" width="30" height="86" rx="14" fill="#4c6fff" transform="rotate(-150 221 100)"/><rect x="24" y="142" width="30" height="86" rx="14" fill="#4c6fff"/><rect x="44" y="58" width="172" height="190" rx="36" fill="#4c6fff"/><rect x="70" y="86" width="120" height="92" rx="24" fill="#fbf4e4"/><ellipse cx="105" cy="128" rx="13" ry="16" fill="#1c1a17"/><ellipse cx="155" cy="128" rx="13" ry="16" fill="#1c1a17"/><path d="M112 154 Q130 172 148 154" stroke="#1c1a17" stroke-width="6" fill="none" stroke-linecap="round"/></svg><a class="small" href="../">&larr; All free guides</a>
+<h1 class="tape">AJAX</h1>
+<div class="guide"><h1>PewDiePie's free AI app (Odysseus), ready for Ajax</h1>
+<h2>What it is</h2>
+<p>PewDiePie just showed Ajax, his own AI: a small model (about 9 billion parameters, built on Qwen 3.5) trained to search the web, handle email and run your calendar, right on your own computer. OpenAI banned his account twice while he built it, because he used its outputs to help train Ajax.</p>
+<p>Ajax isn't out for download yet. What you can run today is <strong>Odysseus</strong>, his free, open-source AI workspace, which already has almost 89,000 stars on GitHub. It's where Ajax runs. Chat, agents, research, documents, email, notes and calendar, on your own machine, with no telemetry.</p>
+<!-- Sources: aiweekly.co/alerts/pewdiepie-debuts-ajax-a-qwen-35-9b-agent-for-odysseus-workspace; tech-insider.org/pewdiepie-ajax-ai-model-openai-bans-2026 (no public download confirmed as of 2 Oct 2026); github.com/odysseus-dev/odysseus (88,949 stars on 3 Oct 2026, AGPL-3.0, README: "A self-hosted AI workspace for chat, agents, research, documents, email, notes, calendar, and local model workflows"). -->
+
+<p>Get it here: <a href="https://github.com/odysseus-dev/odysseus">github.com/odysseus-dev/odysseus</a></p>
+<h2>1. Install Docker</h2>
+<p>Odysseus runs in Docker. On Windows or Mac, install <a href="https://www.docker.com/products/docker-desktop/">Docker Desktop</a> and open it once so it's running.</p>
+<h2>2. Download and start Odysseus</h2>
+<p>Open a terminal (PowerShell on Windows), paste these one at a time:</p>
+<pre><code>git clone https://github.com/odysseus-dev/odysseus.git
+cd odysseus
+cp .env.example .env
+docker compose up -d --build
+</code></pre>
+<p>On Windows PowerShell, use <code>copy .env.example .env</code> for the third line.</p>
+<p>The first start takes a few minutes while it builds.</p>
+<!-- README Quick start: git clone, cd odysseus, cp .env.example .env, docker compose up -d --build. -->
+
+<h2>3. Open it</h2>
+<p>Go to <a href="http://localhost:7000">http://localhost:7000</a> in your browser once the containers are healthy.</p>
+<h2>4. Pick a model that fits your computer</h2>
+<p>Open the <strong>Cookbook</strong>. It looks at your hardware and recommends local models you can download and run with one click (it lists 270+). Start with a small one. You can also connect OpenAI or Claude with your own key if you want, but you don't need to.</p>
+<h2>5. When Ajax drops</h2>
+<p>Ajax runs inside Odysseus, so when PewDiePie releases it you'll just add it as a model. Follow <a href="https://www.instagram.com/louiscreates.ai/">@louiscreates.ai</a> and I'll post the moment it's out.</p>
+<h2>Honest notes</h2>
+<ul>
+<li>If anyone else can reach your computer on the network, keep <code>AUTH_ENABLED=true</code> in the <code>.env</code> file (the README says so).</li>
+<li>Local models need a decent amount of RAM, and run faster with a graphics card. The Cookbook only suggests what fits.</li>
+<li>Odysseus is AGPL-3.0 licensed open source.</li>
+</ul></div>
+<div class="box"><h2>Get the next free tool first</h2><p>I post one free AI tool at a time, tested, with the setup.</p><a class="btn" href="https://www.instagram.com/louiscreates.ai/">Follow @louiscreates.ai</a></div>
+<footer>Louis&#x27;s Free AI Library · <a href="https://www.instagram.com/louiscreates.ai/">@louiscreates.ai</a></footer>
+</div></body></html>
