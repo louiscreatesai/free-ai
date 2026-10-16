@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CITE: free skills that check every source in your paper is real</title>
+<meta name="description" content="Free AI tools, tested and explained in plain English. Every guide from my reels lives here.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;700;900&family=Montserrat:wght@700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css"></head>
+<body><div class="wrap"><svg class="robot" viewBox="0 0 260 300" aria-hidden="true"><line x1="130" y1="62" x2="130" y2="24" stroke="#1c1a17" stroke-width="7" stroke-linecap="round"/><circle cx="130" cy="20" r="14" fill="#ffd23f" stroke="#1c1a17" stroke-width="5"/><rect x="88" y="236" width="26" height="54" rx="8" fill="#4c6fff"/><rect x="146" y="236" width="26" height="54" rx="8" fill="#4c6fff"/><rect x="206" y="92" width="30" height="86" rx="14" fill="#4c6fff" transform="rotate(-150 221 100)"/><rect x="24" y="142" width="30" height="86" rx="14" fill="#4c6fff"/><rect x="44" y="58" width="172" height="190" rx="36" fill="#4c6fff"/><rect x="70" y="86" width="120" height="92" rx="24" fill="#fbf4e4"/><ellipse cx="105" cy="128" rx="13" ry="16" fill="#1c1a17"/><ellipse cx="155" cy="128" rx="13" ry="16" fill="#1c1a17"/><path d="M112 154 Q130 172 148 154" stroke="#1c1a17" stroke-width="6" fill="none" stroke-linecap="round"/></svg><a class="small" href="../">&larr; All free guides</a>
+<h1 class="tape">CITE</h1>
+<div class="guide"><h1>CITE: free skills that check every source in your paper is real</h1>
+<h2>What it is</h2>
+<p>AI can write a source that looks perfect and does not exist. Academic Research Skills is a free set of Claude Code skills, made by Imbad0202 and shared on GitHub. It includes a citation check for a finished paper: it looks for each source and checks whether it says what your sentence claims.</p>
+<p>It is licensed CC BY-NC 4.0. That means free for non-commercial use, like school work or a personal project, and not for paid work.</p>
+<ul>
+<li>Source and docs: <a href="https://github.com/Imbad0202/academic-research-skills">github.com/Imbad0202/academic-research-skills</a></li>
+</ul>
+<h2>1. What you need</h2>
+<ul>
+<li>Claude Code installed.</li>
+<li>An Anthropic API key. The README lists <code>ANTHROPIC_API_KEY</code> as a requirement, set in your terminal or the first time you run <code>claude</code>. Using an API key is billed by use, so check your own setup before you start.</li>
+</ul>
+<h2>2. Install it</h2>
+<p>Paste these two lines into Claude Code, one at a time:</p>
+<pre><code>/plugin marketplace add Imbad0202/academic-research-skills
+/plugin install academic-research-skills
+</code></pre>
+<h2>3. Check your paper</h2>
+<p>Open Claude Code in the folder where your paper is saved. Type:</p>
+<blockquote>
+<p>Check citations</p>
+</blockquote>
+<p>then paste your paper or attach the file. The project's changelog also names a slash command, <code>/ars-citation-check</code>, which should do the same.</p>
+<p>The README does not describe exactly what the report looks like, so read what it prints and write down every source it flags.</p>
+<h2>4. The deeper check (optional)</h2>
+<p>The project has an opt-in claim audit. Turn it on with <code>ARS_CLAIM_AUDIT=1</code>. It fetches each source and judges whether the source really supports the sentence you attached it to. The README says this judge has not yet been calibrated against a live test, so treat it as a second look, not a verdict.</p>
+<h2>5. What to do with the result</h2>
+<ol>
+<li>Open every flagged source yourself.</li>
+<li>If you cannot find it, or it does not say what you wrote, remove it or replace it with one you have read.</li>
+<li>Do the same for the sources you rely on most, even the ones it passed.</li>
+</ol>
+<h2>Honest note</h2>
+<ul>
+<li>It misses some. The README says some checks are sampled or run by a language model, so a made-up source that is described consistently can pass.</li>
+<li>The project's own showcase paper is a warning: a later audit still found problems in 21 of its 68 references after three rounds of checks (the README says the current checks have not been measured on that paper).</li>
+<li>It checks that sources exist and match your claim. It does not prove the research behind them is real.</li>
+<li>Cost: the README estimates about US$3 to $7 for a full pipeline run on a 15,000 word paper. That figure is for the whole pipeline, not for the citation check alone, and I could not find a figure for the check alone.</li>
+<li>You are still responsible for every source you hand in. This is a checker, not a guarantee, and it is for checking your own work, not for writing it for you.</li>
+</ul></div>
+<div class="box"><h2>Get the next free tool first</h2><p>I post one free AI tool at a time, tested, with the setup.</p><a class="btn" href="https://www.instagram.com/louiscreates.ai/">Follow @louiscreates.ai</a></div>
+<footer>Louis&#x27;s Free AI Library · <a href="https://www.instagram.com/louiscreates.ai/">@louiscreates.ai</a></footer>
+</div></body></html>

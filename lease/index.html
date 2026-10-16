@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LEASE: Anthropic&#x27;s free legal plugin that flags the risky lines in a contract</title>
+<meta name="description" content="Free AI tools, tested and explained in plain English. Every guide from my reels lives here.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;700;900&family=Montserrat:wght@700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css"></head>
+<body><div class="wrap"><svg class="robot" viewBox="0 0 260 300" aria-hidden="true"><line x1="130" y1="62" x2="130" y2="24" stroke="#1c1a17" stroke-width="7" stroke-linecap="round"/><circle cx="130" cy="20" r="14" fill="#ffd23f" stroke="#1c1a17" stroke-width="5"/><rect x="88" y="236" width="26" height="54" rx="8" fill="#4c6fff"/><rect x="146" y="236" width="26" height="54" rx="8" fill="#4c6fff"/><rect x="206" y="92" width="30" height="86" rx="14" fill="#4c6fff" transform="rotate(-150 221 100)"/><rect x="24" y="142" width="30" height="86" rx="14" fill="#4c6fff"/><rect x="44" y="58" width="172" height="190" rx="36" fill="#4c6fff"/><rect x="70" y="86" width="120" height="92" rx="24" fill="#fbf4e4"/><ellipse cx="105" cy="128" rx="13" ry="16" fill="#1c1a17"/><ellipse cx="155" cy="128" rx="13" ry="16" fill="#1c1a17"/><path d="M112 154 Q130 172 148 154" stroke="#1c1a17" stroke-width="6" fill="none" stroke-linecap="round"/></svg><a class="small" href="../">&larr; All free guides</a>
+<h1 class="tape">LEASE</h1>
+<div class="guide"><h1>LEASE: Anthropic's free legal plugin that flags the risky lines in a contract</h1>
+<h2>What it is</h2>
+<p>Claude will happily tell you a contract "looks great". This is the plugin Anthropic released for contract review. You give it a contract and it reviews it against your playbook (your own list of what you will and will not accept), flags where the contract differs, suggests changes and explains what each risky clause could mean for you.</p>
+<p>It is open source (Apache-2.0), and it works in Cowork and in Claude Code.</p>
+<p><strong>Read this first:</strong> Anthropic built it for in-house legal teams reviewing company contracts, not for a home lease. So I wrote a starter playbook for renters. It is mine, not Anthropic's, and it is below.</p>
+<ul>
+<li>Source and docs: <a href="https://github.com/anthropics/knowledge-work-plugins/tree/main/legal">github.com/anthropics/knowledge-work-plugins</a></li>
+</ul>
+<h2>1. Install it</h2>
+<p>Paste these into a terminal:</p>
+<pre><code>claude plugin marketplace add anthropics/knowledge-work-plugins
+claude plugin install legal@knowledge-work-plugins
+</code></pre>
+<h2>2. Add the renter playbook</h2>
+<p>The plugin reads a playbook file called <code>legal.local.md</code>, saved in a folder called <code>.claude</code> inside your project folder.</p>
+<ul>
+<li><a href="legal.local.md">Download legal.local.md</a></li>
+</ul>
+<p>Put it at <code>.claude/legal.local.md</code> in the folder where you will run Claude Code. The plugin's default playbook reflects United States positions (Delaware, New York and California), so if you rent somewhere else, this file matters.</p>
+<h2>3. Run it on your lease</h2>
+<p>In that folder, start Claude Code and type:</p>
+<blockquote>
+<p>/review-contract path/to/my-lease.pdf</p>
+</blockquote>
+<p>You can also paste the lease text, or a link, after the command.</p>
+<h2>4. What you get</h2>
+<p>A review of the contract against the playbook: the clauses that look fine, the ones to ask about and the ones that look like red flags, each with the line it is about. Use it to build a list of questions for the landlord before you sign.</p>
+<h2>Honest note</h2>
+<ul>
+<li>It is not legal advice. Anthropic says so in its own README: always check conclusions with a qualified legal professional.</li>
+<li>It is built for company legal teams and its default positions are American. The renter playbook above is my own template, so try it on a sample lease first and see what it flags.</li>
+<li>It cannot tell you what is allowed where you live. Ask a local tenant organisation or a lawyer about anything it flags.</li>
+<li>Never sign because an AI said it looked fine.</li>
+</ul></div>
+<div class="box"><h2>Get the next free tool first</h2><p>I post one free AI tool at a time, tested, with the setup.</p><a class="btn" href="https://www.instagram.com/louiscreates.ai/">Follow @louiscreates.ai</a></div>
+<footer>Louis&#x27;s Free AI Library · <a href="https://www.instagram.com/louiscreates.ai/">@louiscreates.ai</a></footer>
+</div></body></html>
