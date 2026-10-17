@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SLOP: Anthropic&#x27;s free skill that stops Claude building the same website</title>
+<meta name="description" content="Free AI tools, tested and explained in plain English. Every guide from my reels lives here.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;700;900&family=Montserrat:wght@700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css"></head>
+<body><div class="wrap"><svg class="robot" viewBox="0 0 260 300" aria-hidden="true"><line x1="130" y1="62" x2="130" y2="24" stroke="#1c1a17" stroke-width="7" stroke-linecap="round"/><circle cx="130" cy="20" r="14" fill="#ffd23f" stroke="#1c1a17" stroke-width="5"/><rect x="88" y="236" width="26" height="54" rx="8" fill="#4c6fff"/><rect x="146" y="236" width="26" height="54" rx="8" fill="#4c6fff"/><rect x="206" y="92" width="30" height="86" rx="14" fill="#4c6fff" transform="rotate(-150 221 100)"/><rect x="24" y="142" width="30" height="86" rx="14" fill="#4c6fff"/><rect x="44" y="58" width="172" height="190" rx="36" fill="#4c6fff"/><rect x="70" y="86" width="120" height="92" rx="24" fill="#fbf4e4"/><ellipse cx="105" cy="128" rx="13" ry="16" fill="#1c1a17"/><ellipse cx="155" cy="128" rx="13" ry="16" fill="#1c1a17"/><path d="M112 154 Q130 172 148 154" stroke="#1c1a17" stroke-width="6" fill="none" stroke-linecap="round"/></svg><a class="small" href="../">&larr; All free guides</a>
+<h1 class="tape">SLOP</h1>
+<div class="guide"><h1>SLOP: Anthropic's free skill that stops Claude building the same website</h1>
+<h2>What it is</h2>
+<p>Ask Claude for a website and you often get the same page. Cream background, terracotta button, three identical cards, an arrow on every link. This is a free skill from Anthropic called frontend-design. It is a text file of instructions that Claude reads before it designs a page.</p>
+<p>It tells Claude to do three things:
+- Work out who the page is for and what it must do, if you did not say.
+- Write a short design plan (colours, fonts, layout), then check the plan against your brief and change any part that looks like the usual default.
+- Build the page, then criticise its own work.</p>
+<p>It also lists the usual AI tells so Claude can steer away from them. They are in "What to look for" below.</p>
+<p>It is open source (Apache 2.0) and it lives in Anthropic's skills repo.</p>
+<ul>
+<li>Source: <a href="https://github.com/anthropics/skills/tree/main/skills/frontend-design">github.com/anthropics/skills</a></li>
+</ul>
+<h2>1. Get the skill</h2>
+<p>Pick the way that fits how you use Claude.</p>
+<p><strong>A. Claude Code, with the plugin (the way the repo's README shows).</strong>
+Paste these into Claude Code, one at a time:</p>
+<pre><code>/plugin marketplace add anthropics/skills
+/plugin install example-skills@anthropic-agent-skills
+</code></pre>
+<p>Claude Code opens a screen for the install. Pick where to install it (for you, or for one project). Heads up: <code>example-skills</code> is a bundle. It installs a dozen of Anthropic's example skills, and frontend-design is one of them.</p>
+<p>You can also do it from a normal terminal, without opening Claude Code:</p>
+<pre><code>claude plugin marketplace add anthropics/skills
+claude plugin install example-skills@anthropic-agent-skills
+</code></pre>
+<p><strong>B. Claude Code, only this one skill.</strong>
+Copy the folder by hand. In a terminal:</p>
+<pre><code>git clone --depth 1 https://github.com/anthropics/skills.git
+mkdir -p ~/.claude/skills
+cp -r skills/skills/frontend-design ~/.claude/skills/
+</code></pre>
+<p>That puts it in <code>~/.claude/skills/frontend-design/</code>, which Claude Code reads in all your projects. To use it in one project only, copy the folder into <code>.claude/skills/</code> inside that project instead.</p>
+<p><strong>C. Claude.ai in the browser or app.</strong>
+Anthropic's help page says Skills work on Free, Pro, Max, Team and Enterprise plans, and need code execution turned on. On Free, Pro and Max that switch is in Settings, then Capabilities, then "Code execution and file creation". Then open Customize, then Skills, and look for frontend-design in the list. If it is there, switch it on.</p>
+<p>If it is not there, upload it yourself. Build a zip with the skill folder inside it (for example, run the B commands above, then <code>cd skills/skills</code> and <code>zip -r frontend-design.zip frontend-design</code>). In Customize, then Skills, click the + button, then "+ Create skill", then "Upload a skill", and pick the zip.</p>
+<ul>
+<li>Help page: <a href="https://support.claude.com/en/articles/12512180-using-skills-in-claude">Using skills in Claude</a></li>
+<li>Zip layout: <a href="https://support.claude.com/en/articles/12512198-creating-custom-skills">Creating custom skills</a></li>
+<li>Claude Code docs: <a href="https://code.claude.com/docs/en/discover-plugins">Install and manage plugins</a> and <a href="https://code.claude.com/docs/en/skills">Skills</a></li>
+</ul>
+<h2>2. Ask for a specific style</h2>
+<p>The skill follows your words first. Its own text says the brief always wins, even when you ask for one of the usual looks. So if you type "make it modern" or "make it nice", you hand the choice back to the safe default.</p>
+<p>Give Claude three things instead:
+1. A specific style, in a few words (not "modern").
+2. Who the page is for.
+3. What the page must do.</p>
+<p>Also say the skill's name in your prompt. It makes sure Claude loads it.</p>
+<p>Three prompts you can paste:</p>
+<blockquote>
+<p>Use the frontend-design skill. Build a landing page for a dog walking business in the style of a 1970s hand-painted park sign. The visitors are busy dog owners. The page must make booking a walk the first thing they see.</p>
+<p>Use the frontend-design skill. Build a one-page site for a small bakery in the style of a printed newspaper ad, black type on warm paper. The visitors are locals. The page must show the opening hours and the menu without scrolling.</p>
+<p>Use the frontend-design skill. Build a pricing page for a budgeting app in a plain Swiss poster style. The visitors are students comparing plans. The page must make the difference between the plans clear at a glance.</p>
+</blockquote>
+<h2>3. What to look for</h2>
+<p>These are the tells of a page Claude made on autopilot. The skill is built to steer away from them. Check your result for them.</p>
+<ol>
+<li><strong>The same cream background.</strong> A warm cream page with a fancy serif headline.</li>
+<li><strong>The same terracotta button.</strong> An orange-brown accent. The skill even notes that this colour is Anthropic's own Claude colour, so on your page it reads as a tell.</li>
+<li><strong>Identical cards.</strong> The content chopped into the same rounded boxes, same corners, same soft shadow, often with a gradient behind them.</li>
+<li><strong>An arrow on every link.</strong> A small arrow stuck on the end of links and buttons.</li>
+</ol>
+<p>The skill lists a few more. A tiny all-caps label above every heading is one. Numbers like 01, 02, 03 on things that are not really steps is another. A near-black page with one bright green accent is a third.</p>
+<p>If you see these, say so to Claude, name a different style, and ask it to rebuild.</p>
+<h2>Honest note</h2>
+<ul>
+<li>It is a demo. Anthropic's repo says its skills are "for demonstration and educational purposes only" and tells you to test them yourself before relying on them.</li>
+<li>It does not guarantee a unique design. It only gives Claude a plan to avoid the usual defaults. Results vary from run to run.</li>
+<li>A quick test, one try each, same prompt "build a landing page for a dog walking business". Without the skill, I got a cream page with an orange-red button and a row of three cards. With the skill installed but not named in the prompt, it looked about the same, and I could not tell whether Claude had loaded it. With the skill named in the prompt, the page came out clearly different: cool blue-grey and dark, one yellow-green accent, no arrows. It still had a row of three walker profiles lower down. One try each proves nothing, so test it on your own page.</li>
+<li>It is the instructions that changed, not magic. If you ask for a look the skill warns about, it will build it.</li>
+<li>Check the result before you use it. The pages Claude built in my test had made-up names, prices and reviews as placeholders. Replace all of them with your real ones.</li>
+</ul></div>
+<div class="box"><h2>Get the next free tool first</h2><p>I post one free AI tool at a time, tested, with the setup.</p><a class="btn" href="https://www.instagram.com/louiscreates.ai/">Follow @louiscreates.ai</a></div>
+<footer>Louis&#x27;s Free AI Library · <a href="https://www.instagram.com/louiscreates.ai/">@louiscreates.ai</a></footer>
+</div></body></html>

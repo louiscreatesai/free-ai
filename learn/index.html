@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LEARN: make Claude ask you first, so you actually learn it</title>
+<meta name="description" content="Free AI tools, tested and explained in plain English. Every guide from my reels lives here.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;700;900&family=Montserrat:wght@700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css"></head>
+<body><div class="wrap"><svg class="robot" viewBox="0 0 260 300" aria-hidden="true"><line x1="130" y1="62" x2="130" y2="24" stroke="#1c1a17" stroke-width="7" stroke-linecap="round"/><circle cx="130" cy="20" r="14" fill="#ffd23f" stroke="#1c1a17" stroke-width="5"/><rect x="88" y="236" width="26" height="54" rx="8" fill="#4c6fff"/><rect x="146" y="236" width="26" height="54" rx="8" fill="#4c6fff"/><rect x="206" y="92" width="30" height="86" rx="14" fill="#4c6fff" transform="rotate(-150 221 100)"/><rect x="24" y="142" width="30" height="86" rx="14" fill="#4c6fff"/><rect x="44" y="58" width="172" height="190" rx="36" fill="#4c6fff"/><rect x="70" y="86" width="120" height="92" rx="24" fill="#fbf4e4"/><ellipse cx="105" cy="128" rx="13" ry="16" fill="#1c1a17"/><ellipse cx="155" cy="128" rx="13" ry="16" fill="#1c1a17"/><path d="M112 154 Q130 172 148 154" stroke="#1c1a17" stroke-width="6" fill="none" stroke-linecap="round"/></svg><a class="small" href="../">&larr; All free guides</a>
+<h1 class="tape">LEARN</h1>
+<div class="guide"><h1>LEARN: make Claude ask you first, so you actually learn it</h1>
+<h2>What it is</h2>
+<p>When you ask AI for the answer, you get the answer. You do not always learn it. Anthropic ran a small study on this with developers. This page shows you the Learning setting Anthropic built, plus short prompts that make Claude ask you questions first, and what the study really found.</p>
+<h2>1. Turn on Learning style</h2>
+<p>Anthropic has a Learning style. It is meant to guide your thinking instead of just handing you the answer.</p>
+<p><strong>In Claude Code</strong> (Anthropic's coding tool). This is from Anthropic's own docs:
+1. Run <code>/config</code> and pick <strong>Output style</strong>, then choose <strong>Learning</strong>. You can also type <code>/output-style learning</code>.
+2. In this style, Claude explains its choices and leaves small pieces of code for you to write yourself.</p>
+<ul>
+<li>Official page: <a href="https://code.claude.com/docs/en/output-styles">Claude Code output styles</a></li>
+</ul>
+<p><strong>In the Claude chat app.</strong> Anthropic describes a Learning mode that "guides students' reasoning process rather than providing answers" and asks guiding questions instead of giving the solution right away. It first came with Claude for Education.</p>
+<ul>
+<li>Official page: <a href="https://www.anthropic.com/news/introducing-claude-for-education">Introducing Claude for Education</a></li>
+</ul>
+<p>I could not find an Anthropic page that gives the current menu steps for the chat app, and the menus change, so I am not going to guess where the button is. You can search the <a href="https://support.claude.com/en/">Claude Help Center</a> for "Learning" or "styles". If you cannot find it, do not worry, step 2 works in any chat.</p>
+<h2>2. Prompts that make Claude ask first</h2>
+<p>Paste one of these at the start of a chat, or right after you ask your question.</p>
+<pre><code>Don't give me the answer yet. Ask me what I think first.
+
+Quiz me on this before you explain it.
+
+Explain it, then ask me three questions to check I understood.
+
+I'm going to explain this back to you. Tell me what I got wrong.
+
+Ask why it works, not just what to do.
+</code></pre>
+<p>Tip: when Claude gives you an answer, ask a follow-up like "why does this work?" The study below points the same way.</p>
+<h2>What the Anthropic study found</h2>
+<p>Anthropic published a study called "How AI assistance impacts the formation of coding skills" on January 29, 2026.</p>
+<ul>
+<li>52 software engineers took part. Anthropic says most were junior.</li>
+<li>They had to learn a Python library they had not used before (it is called Trio).</li>
+<li>Some could use an AI assistant and some coded by hand. Then everyone took the same quiz.</li>
+<li>The AI group averaged 50% on the quiz. The hand-coding group averaged 67%. Anthropic describes that as 17% lower, about two letter grades.</li>
+<li>The biggest gap was on debugging questions.</li>
+<li>Using AI did not always mean a lower score. The people who scored higher used the AI to build understanding too, for example by asking follow-up questions, asking for explanations or asking conceptual questions.</li>
+<li>Anthropic's own words: the sample was relatively small, the quiz came shortly after the task, and the results are preliminary.</li>
+</ul>
+<p>This was a study about learning to code. It does not say how AI affects learning in school, languages or any other subject.</p>
+<ul>
+<li>Anthropic's write-up: <a href="https://www.anthropic.com/research/AI-assistance-coding-skills">How AI assistance impacts the formation of coding skills</a></li>
+<li>The paper: <a href="https://arxiv.org/abs/2601.20245">arxiv.org/abs/2601.20245</a></li>
+</ul>
+<h2>Honest note</h2>
+<ul>
+<li>This is not a promise that you will score higher. No one tested these prompts in that study.</li>
+<li>It was a small study about coding with a small group of people. Treat it as a good reason to try, not as proof.</li>
+<li>The Learning setting and the prompts only help if you do the work. Answer the questions yourself before you read on.</li>
+<li>Claude can still be wrong. Check any fact it gives you before you rely on it.</li>
+</ul></div>
+<div class="box"><h2>Get the next free tool first</h2><p>I post one free AI tool at a time, tested, with the setup.</p><a class="btn" href="https://www.instagram.com/louiscreates.ai/">Follow @louiscreates.ai</a></div>
+<footer>Louis&#x27;s Free AI Library · <a href="https://www.instagram.com/louiscreates.ai/">@louiscreates.ai</a></footer>
+</div></body></html>
