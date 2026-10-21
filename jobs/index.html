@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>JOBS: the free AI job hunter that runs on Claude Code</title>
+<meta name="description" content="Free AI tools, tested and explained in plain English. Every guide from my reels lives here.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;700;900&family=Montserrat:wght@700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css"></head>
+<body><div class="wrap"><svg class="robot" viewBox="0 0 260 300" aria-hidden="true"><line x1="130" y1="62" x2="130" y2="24" stroke="#1c1a17" stroke-width="7" stroke-linecap="round"/><circle cx="130" cy="20" r="14" fill="#ffd23f" stroke="#1c1a17" stroke-width="5"/><rect x="88" y="236" width="26" height="54" rx="8" fill="#4c6fff"/><rect x="146" y="236" width="26" height="54" rx="8" fill="#4c6fff"/><rect x="206" y="92" width="30" height="86" rx="14" fill="#4c6fff" transform="rotate(-150 221 100)"/><rect x="24" y="142" width="30" height="86" rx="14" fill="#4c6fff"/><rect x="44" y="58" width="172" height="190" rx="36" fill="#4c6fff"/><rect x="70" y="86" width="120" height="92" rx="24" fill="#fbf4e4"/><ellipse cx="105" cy="128" rx="13" ry="16" fill="#1c1a17"/><ellipse cx="155" cy="128" rx="13" ry="16" fill="#1c1a17"/><path d="M112 154 Q130 172 148 154" stroke="#1c1a17" stroke-width="6" fill="none" stroke-linecap="round"/></svg><a class="small" href="../">&larr; All free guides</a>
+<h1 class="tape">JOBS</h1>
+<div class="guide"><h1>JOBS: the free AI job hunter that runs on Claude Code</h1>
+<h2>What it is</h2>
+<p>ai-job-search is a free (MIT) framework built on Claude Code with about 58,000 GitHub stars. You give it your CV once. For each job post it scores how well you fit, drafts a tailored CV and cover letter, and has a second agent review both. It also preps interviews and tracks the answers you get back. It never sends anything for you: drafts only.</p>
+<p>The creator says 69 applications turned into 20 first interviews and one signed contract. That is one person's result, not a measured outcome. It is not affiliated with Anthropic.</p>
+<h2>Before you start</h2>
+<ul>
+<li>A paid Claude plan (Pro, Max or Team) or Anthropic API credits. Claude Code has no free tier.</li>
+<li>Python 3.10+, Bun, and a LaTeX install with <code>lualatex</code> and <code>xelatex</code> (for the CV PDFs).</li>
+<li>Use a PRIVATE repository (not a fork). Setup writes your personal data into tracked files, and a public copy would publish it.</li>
+</ul>
+<h2>1. Get it</h2>
+<p>Do not fork it: a fork of this project is always public (GitHub does not allow private forks), and setup writes your personal data into tracked files. Instead create a NEW PRIVATE repository, add the original project as <code>upstream</code>, and clone your private one. The project's README links the two-minute recipe (SETUP.md, section 8).</p>
+<h2>2. Install the job site tools</h2>
+<pre><code>python3 tools/install_portal_clis.py
+</code></pre>
+<h2>3. Set up your profile</h2>
+<p>Inside Claude Code:</p>
+<pre><code>/setup
+</code></pre>
+<p>It can read a documents folder, import a pasted CV, or interview you.</p>
+<h2>4. Use it</h2>
+<ul>
+<li><code>/apply &lt;job url&gt;</code> or paste the job text: it scores the fit, drafts a CV and cover letter, and a second agent reviews them.</li>
+<li><code>/rank</code> scores a batch of jobs.</li>
+<li><code>/interview</code> preps interviews. <code>/outcome</code> tracks results and drafts follow-ups.</li>
+</ul>
+<h2>Honest note</h2>
+<ul>
+<li>The built-in job-site search (<code>/scrape</code>) is set up for Denmark. In other countries, paste the job post into <code>/apply</code>, or add a portal with <code>/add-portal</code>.</li>
+<li>Its own page says the defenses are instruction-level, not a sandbox. Read what it writes before you send anything.</li>
+<li>The LinkedIn skill is for personal use only, since automated access is against LinkedIn's terms.</li>
+<li>
+<p>Stars show attention, not quality.</p>
+</li>
+<li>
+<p>Source: <a href="https://github.com/MadsLorentzen/ai-job-search">github.com/MadsLorentzen/ai-job-search</a></p>
+</li>
+</ul></div>
+<div class="box"><h2>Get the next free tool first</h2><p>I post one free AI tool at a time, tested, with the setup.</p><a class="btn" href="https://www.instagram.com/louiscreates.ai/">Follow @louiscreates.ai</a></div>
+<footer>Louis&#x27;s Free AI Library · <a href="https://www.instagram.com/louiscreates.ai/">@louiscreates.ai</a></footer>
+</div></body></html>

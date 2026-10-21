@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LIMIT: the free caveman plugin that saves your Claude usage limit</title>
+<meta name="description" content="Free AI tools, tested and explained in plain English. Every guide from my reels lives here.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;700;900&family=Montserrat:wght@700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css"></head>
+<body><div class="wrap"><svg class="robot" viewBox="0 0 260 300" aria-hidden="true"><line x1="130" y1="62" x2="130" y2="24" stroke="#1c1a17" stroke-width="7" stroke-linecap="round"/><circle cx="130" cy="20" r="14" fill="#ffd23f" stroke="#1c1a17" stroke-width="5"/><rect x="88" y="236" width="26" height="54" rx="8" fill="#4c6fff"/><rect x="146" y="236" width="26" height="54" rx="8" fill="#4c6fff"/><rect x="206" y="92" width="30" height="86" rx="14" fill="#4c6fff" transform="rotate(-150 221 100)"/><rect x="24" y="142" width="30" height="86" rx="14" fill="#4c6fff"/><rect x="44" y="58" width="172" height="190" rx="36" fill="#4c6fff"/><rect x="70" y="86" width="120" height="92" rx="24" fill="#fbf4e4"/><ellipse cx="105" cy="128" rx="13" ry="16" fill="#1c1a17"/><ellipse cx="155" cy="128" rx="13" ry="16" fill="#1c1a17"/><path d="M112 154 Q130 172 148 154" stroke="#1c1a17" stroke-width="6" fill="none" stroke-linecap="round"/></svg><a class="small" href="../">&larr; All free guides</a>
+<h1 class="tape">LIMIT</h1>
+<div class="guide"><h1>LIMIT: the free caveman plugin that saves your Claude usage limit</h1>
+<h2>What it is</h2>
+<p>Caveman is a free plugin (Apache 2.0, over 100,000 GitHub stars) for Claude Code and other coding agents. It makes Claude answer in fewer words and shrinks the files and tool output Claude reads. Code, commands, paths and error messages stay exactly the same.</p>
+<p>Its own test on 54 Claude Code runs: sessions used 33.2 percent fewer input tokens (885,793 down to 591,673). That is the project's own number, and results change with your work.</p>
+<h2>1. Install Caveman</h2>
+<p>Simplest:</p>
+<pre><code>npx @caveman-ai/cli@latest
+</code></pre>
+<p>Or as a Claude Code plugin:</p>
+<pre><code>claude plugin marketplace add JuliusBrussee/caveman
+claude plugin install caveman@caveman
+</code></pre>
+<p>It needs Node.js 22.13 or newer.</p>
+<h2>2. Turn the telemetry off</h2>
+<p>The Caveman command line tool sends usage telemetry by default. Switch it off with:</p>
+<pre><code>caveman telemetry off
+</code></pre>
+<p>or set <code>DO_NOT_TRACK=1</code>.</p>
+<h2>3. Add Context Mode (optional)</h2>
+<p>Keeps giant tool output out of your chat. Its own example shrinks 315 KB to 5.4 KB. It uses the Elastic License 2.0, which is source-available, not open source.</p>
+<pre><code>/plugin marketplace add mksglu/context-mode
+/plugin install context-mode@context-mode
+</code></pre>
+<p>Restart Claude Code or run <code>/reload-plugins</code>, then check with <code>/context-mode:ctx-doctor</code>.</p>
+<h2>4. Built in, no install</h2>
+<ul>
+<li><code>/context</code> shows what is filling your chat.</li>
+<li><code>/compact</code> frees space without starting over.</li>
+<li><code>/clear</code> starts a fresh, empty chat.</li>
+<li><code>/usage</code> shows your plan usage limits.</li>
+</ul>
+<h2>Honest note</h2>
+<ul>
+<li>Caveman's own page says that simply asking Claude to "answer concisely" already gets most of the saving on answers. The bigger win is the reading side.</li>
+<li>Savings only matter where you are limited by tokens, like your Claude plan limit.</li>
+<li>
+<p>Star counts are attention, not proof of quality.</p>
+</li>
+<li>
+<p>Sources: <a href="https://github.com/JuliusBrussee/caveman">github.com/JuliusBrussee/caveman</a>, <a href="https://github.com/mksglu/context-mode">github.com/mksglu/context-mode</a>, <a href="https://code.claude.com/docs/en/commands">code.claude.com/docs/en/commands</a></p>
+</li>
+</ul></div>
+<div class="box"><h2>Get the next free tool first</h2><p>I post one free AI tool at a time, tested, with the setup.</p><a class="btn" href="https://www.instagram.com/louiscreates.ai/">Follow @louiscreates.ai</a></div>
+<footer>Louis&#x27;s Free AI Library · <a href="https://www.instagram.com/louiscreates.ai/">@louiscreates.ai</a></footer>
+</div></body></html>

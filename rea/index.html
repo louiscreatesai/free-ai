@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>REA: the free tool that lets Claude take apart any app or website</title>
+<meta name="description" content="Free AI tools, tested and explained in plain English. Every guide from my reels lives here.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;700;900&family=Montserrat:wght@700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css"></head>
+<body><div class="wrap"><svg class="robot" viewBox="0 0 260 300" aria-hidden="true"><line x1="130" y1="62" x2="130" y2="24" stroke="#1c1a17" stroke-width="7" stroke-linecap="round"/><circle cx="130" cy="20" r="14" fill="#ffd23f" stroke="#1c1a17" stroke-width="5"/><rect x="88" y="236" width="26" height="54" rx="8" fill="#4c6fff"/><rect x="146" y="236" width="26" height="54" rx="8" fill="#4c6fff"/><rect x="206" y="92" width="30" height="86" rx="14" fill="#4c6fff" transform="rotate(-150 221 100)"/><rect x="24" y="142" width="30" height="86" rx="14" fill="#4c6fff"/><rect x="44" y="58" width="172" height="190" rx="36" fill="#4c6fff"/><rect x="70" y="86" width="120" height="92" rx="24" fill="#fbf4e4"/><ellipse cx="105" cy="128" rx="13" ry="16" fill="#1c1a17"/><ellipse cx="155" cy="128" rx="13" ry="16" fill="#1c1a17"/><path d="M112 154 Q130 172 148 154" stroke="#1c1a17" stroke-width="6" fill="none" stroke-linecap="round"/></svg><a class="small" href="../">&larr; All free guides</a>
+<h1 class="tape">REA</h1>
+<div class="guide"><h1>REA: the free tool that lets Claude take apart any app or website</h1>
+<h2>What it is</h2>
+<p>REA is a free, open source (MIT) tool that gives an AI agent such as Claude Code the tools to inspect software, trace how it works and report back with the evidence behind each answer. It was the number one trending repo on GitHub in the week to 20 October 2026, with 201,065 new stars (341,285 in total). Stars show attention, not quality, so read what it does before you trust it.</p>
+<p>The analysis runs on your own computer. Your agent's model provider still has its own data policy for what the agent sees.</p>
+<h2>Before you start</h2>
+<ul>
+<li>Node.js 22.x (22.19 or newer), 24.x (24.11 or newer) or 26+, plus npm.</li>
+<li>An AI agent that supports local MCP servers: Claude Code, Codex, Cursor, Gemini CLI and more. Claude Code needs a paid Claude plan or API credits.</li>
+</ul>
+<h2>1. Set it up</h2>
+<p>Run this in your terminal:</p>
+<pre><code>npx rea-agents setup
+</code></pre>
+<p>Choose your agents, review the changes it proposes and approve them. It keeps backups of your existing config. Then restart your agent.</p>
+<h2>2. Optional: install the command line tool</h2>
+<pre><code>npm install --global rea-agents
+rea --help
+</code></pre>
+<p>Update later with <code>rea update</code>.</p>
+<h2>3. Ask your agent</h2>
+<p>Try something like: "Use REA to investigate how the export button works on this website and show me the evidence." Then: "Build a similar feature into my project."</p>
+<h2>What it can look at</h2>
+<p>Websites and browser captures, JavaScript and Electron apps, Android apps, .NET apps, native binaries (these need Hopper, Ghidra or IDA), firmware, SQLite databases and more. What you need depends on the target, so check the README for yours.</p>
+<h2>Honest note</h2>
+<ul>
+<li>REA is for lawful research, education, interoperability and software preservation, and for software you own or are authorized to examine. Only use it on software you own or have permission to study.</li>
+<li>Commercial tools such as IDA Pro and Hopper need their own legal licenses.</li>
+<li>Runtime capture runs the target with your user permissions, so read the runtime guide first.</li>
+<li>
+<p>A similar repo name does not mean it is the official one. Use the link below.</p>
+</li>
+<li>
+<p>Source: <a href="https://github.com/morluto/rea">github.com/morluto/rea</a></p>
+</li>
+</ul></div>
+<div class="box"><h2>Get the next free tool first</h2><p>I post one free AI tool at a time, tested, with the setup.</p><a class="btn" href="https://www.instagram.com/louiscreates.ai/">Follow @louiscreates.ai</a></div>
+<footer>Louis&#x27;s Free AI Library · <a href="https://www.instagram.com/louiscreates.ai/">@louiscreates.ai</a></footer>
+</div></body></html>
