@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>JURY</title>
+<meta name="description" content="A free prompt that puts six characters on your life decision. Works in ChatGPT, Gemini and Claude.">
+<style>
+:root{--bg:#0b0c10;--card:#14161d;--line:#262a36;--text:#eef0f6;--mute:#9aa1b2;--accent:#ffb347;--ok:#6ee7a8}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font:17px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+main{max-width:640px;margin:0 auto;padding:28px 16px 64px}
+h1{font-size:44px;letter-spacing:.06em;margin:0 0 4px}
+.sub{color:var(--mute);margin:0 0 24px;font-size:18px}
+h2{font-size:15px;text-transform:uppercase;letter-spacing:.1em;color:var(--mute);margin:32px 0 10px}
+ol{padding-left:20px;margin:0}
+li{margin:6px 0}
+.copy{display:block;width:100%;padding:20px;border:0;border-radius:14px;background:var(--accent);color:#1a1200;font-family:inherit;font-weight:700;font-size:22px;line-height:1;cursor:pointer}
+.copy:active{transform:scale(.99)}
+.copy.done{background:var(--ok)}
+.ex{display:grid;gap:10px}
+.ex button{text-align:left;padding:14px 16px;border-radius:12px;border:1px solid var(--line);background:var(--card);color:var(--text);font:inherit;cursor:pointer}
+.ex button b{display:block;color:var(--accent);font-size:14px;letter-spacing:.06em;text-transform:uppercase;margin-bottom:4px}
+.ex button:hover,.ex button:focus-visible{border-color:var(--accent);outline:none}
+textarea{width:100%;min-height:130px;padding:14px;border-radius:12px;border:1px solid var(--line);background:var(--card);color:var(--text);font:inherit;resize:vertical}
+textarea:focus{outline:2px solid var(--accent);outline-offset:0}
+details{margin-top:16px;border:1px solid var(--line);border-radius:12px;background:var(--card)}
+summary{padding:14px 16px;cursor:pointer;color:var(--mute)}
+pre{margin:0;padding:0 16px 16px;white-space:pre-wrap;word-wrap:break-word;font:13px/1.55 ui-monospace,Menlo,Consolas,monospace;color:#d6d9e4}
+.note{color:var(--mute);font-size:14px;margin-top:28px}
+</style>
+</head>
+<body>
+<main>
+<h1>JURY</h1>
+<p class="sub">Six characters argue your life decision. Then a judge tells you the truth.</p>
+
+<h2>How it works</h2>
+<ol>
+<li>Type your decision below, or tap an example.</li>
+<li>Tap the big button.</li>
+<li>Paste into ChatGPT, Gemini or Claude. Hit send.</li>
+</ol>
+
+<h2>Your decision</h2>
+<textarea id="d" placeholder="One paragraph. Say what you are leaning toward, what scares you, and any numbers." aria-label="Your decision"></textarea>
+
+<div style="height:14px"></div>
+<button class="copy" id="copy" type="button">Copy the prompt</button>
+
+<h2>Try an example</h2>
+<div class="ex" id="ex"></div>
+
+<details>
+<summary>See the full prompt</summary>
+<pre id="p"></pre>
+</details>
+
+<p class="note">JURY is a thinking partner. It is not medical, legal or financial advice, and it can be wrong. You decide. If you are in crisis, call or text 988 in the US, or find a line at findahelpline.com.</p>
+</main>
+<script>
+var PROMPT = "You are JURY. You help me think through one real life decision. You are a thinking partner, not an advisor.\n\nMY DECISION:\n[Type it here in one paragraph. If this line is still here, ask me for my decision in one short line and stop.]\n\nSAFETY FIRST\nIf I mention wanting to die, hurting myself, or being in danger, drop everything below. No jury, no format. Reply with warmth, ask if I am safe right now, and point me to a real person and a real line: someone I trust, my local emergency number, or a crisis line (988 in the US, findahelpline.com elsewhere). If the decision is heavy (a relationship, health, money stress), open with one kind line. Never diagnose.\n\nSTEP 1: QUESTIONS\nAsk at most 3 sharp questions, and only if you truly cannot judge without the answers. Otherwise skip to Step 2 and state any gap as \"Assumed: ...\". If I gave almost nothing, ask the 3 questions and stop.\n\nSTEP 2: THE JURY\nSix jurors. Each gets 2 to 3 short sentences, first person, vivid, with a real stake. Each stays in ONE lens. Vary the sentence shapes. No pros and cons lists. No hedging.\n1. The Prosecutor: the strongest case AGAINST the way I am leaning. If I am not leaning, against the more tempting option.\n2. The Defender: the strongest case FOR it.\n3. The Accountant: only numbers and cash flow. Name the one number that is missing.\n4. Future Me at 70: regret only. Which choice will I still think about?\n5. The Friend Who Knows Me: point to something I actually wrote, or left out. Call out what I seem to be avoiding.\n6. The Pre-mortem Detective: \"It is two years later and this failed. Here is the most likely reason.\"\n\nHONESTY RULES\n- Never invent facts about me: no ages, names, amounts or feelings I did not give. Put quote marks only around my exact words.\n- The Detective and Future Me may imagine, but only as \"could happen\", never as fact about my life.\n- Do not stretch a fact. A number or time I gave belongs only to what I said it for.\n- If I did not say it, you do not know it.\n\nSTEP 3: THE JUDGE\nPlain words, in this order:\n- Leans: which way the evidence leans, and how sure (low, medium or high). Never claim certainty.\n- The question you are avoiding: one question.\n- The cheapest test this week: ONE concrete action I can do within 7 days, and what result would change the verdict.\n- Regret score (0 = none, 10 = deep) for each path, with one line why.\n\nRULES\n- Total answer under 400 words. Short plain sentences. No em dashes.\n- Medical, legal, tax or investment points: one calm line saying a qualified person should check it. No lecture.\n- Last line: \"Your call. I am a thinking partner, not advice.\"";
+var EXAMPLES = [{"title": "The job offer", "text": "I have a job offer from a startup in Austin. It pays $128k, I make $96k now at a big insurance company where I have been for 6 years. The startup has 14 people, raised a seed round 9 months ago, and the founder is someone I like a lot. My current boss is fine but I am bored and I keep saying I want to build things. My wife is 5 months pregnant and our health insurance goes through my job. I have to answer by Friday."}, {"title": "The loan to a sibling", "text": "My younger brother asked me to lend him $15,000 to start a food truck. He already owes our dad about $6k from before and never really paid it back. I have $22k in savings, which is basically my safety net. If I say no, I think my mom will take his side and it will be a whole thing at Christmas."}, {"title": "The house", "text": "We found a 3-bed house for $410k. We have $62k for the down payment, combined income of $140k, and rent a 2-bed for $1,900. The mortgage plus taxes would be about $2,900 a month. We want kids in the next 2 years. Rates are high and my husband says we should wait, I say rent is just throwing money away."}];
+var MARK = /\[Type it here[^\]]*\]/;
+var d = document.getElementById('d');
+var btn = document.getElementById('copy');
+var pre = document.getElementById('p');
+
+function build(decision) {
+  var text = (decision || '').trim();
+  return text ? PROMPT.replace(MARK, function () { return text; }) : PROMPT;
+}
+function refresh() { pre.textContent = build(d.value); }
+
+function legacyCopy(text) {
+  var t = document.createElement('textarea');
+  t.value = text;
+  t.style.position = 'fixed';
+  t.style.opacity = '0';
+  document.body.appendChild(t);
+  t.select();
+  var ok = false;
+  try { ok = document.execCommand('copy'); } catch (e) { ok = false; }
+  document.body.removeChild(t);
+  return ok;
+}
+function flash(label, ok) {
+  btn.textContent = label;
+  btn.classList.toggle('done', ok);
+  setTimeout(function () { btn.textContent = 'Copy the prompt'; btn.classList.remove('done'); }, 1800);
+}
+btn.addEventListener('click', function () {
+  var text = build(d.value);
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(text).then(
+      function () { flash('Copied. Now paste it in your chatbot.', true); },
+      function () {
+        var ok = legacyCopy(text);
+        flash(ok ? 'Copied. Now paste it in your chatbot.' : 'Open "See the full prompt" and copy it', ok);
+      }
+    );
+  } else {
+    var ok = legacyCopy(text);
+    flash(ok ? 'Copied. Now paste it in your chatbot.' : 'Open "See the full prompt" and copy it', ok);
+  }
+});
+
+var ex = document.getElementById('ex');
+EXAMPLES.forEach(function (e) {
+  var b = document.createElement('button');
+  b.type = 'button';
+  var h = document.createElement('b');
+  h.textContent = e.title;
+  b.appendChild(h);
+  b.appendChild(document.createTextNode(e.text));
+  b.addEventListener('click', function () {
+    d.value = e.text;
+    refresh();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+  ex.appendChild(b);
+});
+d.addEventListener('input', refresh);
+refresh();
+</script>
+</body>
+</html>

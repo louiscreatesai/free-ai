@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HAGGLE</title>
+<meta name="description" content="Pick what you want to haggle. Copy the prompt. Paste it into any AI chatbot. It writes your script, then plays the person you are scared to call.">
+<style>
+:root{--bg:#0b0d10;--card:#14181d;--card2:#1b2128;--line:#262e37;--text:#eef2f6;--mute:#9aa7b4;--acc:#ffb020;--acc2:#ffd27a;--ok:#4ade80}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;padding:20px 16px 56px;max-width:640px;margin:0 auto}
+h1{font-size:34px;letter-spacing:.06em;margin:8px 0 4px;color:var(--acc)}
+.lead{color:var(--text);font-size:18px;margin:0 0 6px}
+.sub{color:var(--mute);margin:0 0 20px;font-size:15px}
+.step{color:var(--mute);font-size:13px;text-transform:uppercase;letter-spacing:.1em;margin:22px 0 10px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.pick{background:var(--card);border:1px solid var(--line);color:var(--text);border-radius:14px;padding:14px 12px;text-align:left;font:inherit;cursor:pointer;min-height:84px;display:flex;flex-direction:column;justify-content:space-between;gap:6px}
+.pick b{font-size:16px;line-height:1.2}
+.pick span{color:var(--mute);font-size:13px;line-height:1.3}
+.pick:focus-visible,.copy:focus-visible,textarea:focus-visible{outline:2px solid var(--acc2);outline-offset:2px}
+.pick[aria-pressed="true"]{border-color:var(--acc);background:var(--card2);box-shadow:0 0 0 1px var(--acc) inset}
+.panel{display:none}
+.panel.on{display:block}
+textarea{width:100%;height:270px;background:var(--card);color:var(--text);border:1px solid var(--line);border-radius:12px;padding:12px;font:13px/1.45 ui-monospace,SFMono-Regular,Menlo,monospace;resize:vertical}
+.copy{width:100%;margin-top:10px;background:var(--acc);color:#1a1200;border:0;border-radius:14px;padding:18px;font-family:inherit;font-weight:700;font-size:18px;line-height:1.2;cursor:pointer}
+.copy.done{background:var(--ok)}
+.full{margin-top:12px;color:var(--mute);font-size:14px}
+.full summary{cursor:pointer;padding:6px 0}
+.full pre{white-space:pre-wrap;word-wrap:break-word;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px;font:12px/1.45 ui-monospace,Menlo,monospace;color:var(--text);max-height:340px;overflow:auto}
+.hint{color:var(--mute);font-size:14px;margin:10px 0 0}
+.tips{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;margin-top:16px}
+.tips h2{font-size:17px;margin:0 0 8px}
+.tips ul{margin:0;padding-left:20px}
+.tips li{margin:0 0 8px}
+.tips .src{color:var(--mute);font-size:13px;margin:10px 0 0}
+.tips .none{color:var(--mute);margin:0}
+.honest{margin-top:28px;color:var(--mute);font-size:13px;border-top:1px solid var(--line);padding-top:14px}
+@media (min-width:520px){.grid{grid-template-columns:repeat(4,1fr)}}
+</style>
+</head>
+<body>
+<h1>HAGGLE</h1>
+<p class="lead">An AI that plays the person you are scared to call.</p>
+<p class="sub">Pick what you want to haggle. Copy the prompt. Paste it into any AI chatbot. Fill in the brackets. It writes your script, then you practise on it.</p>
+
+<div class="step">1. What do you want to haggle?</div>
+<div class="grid" id="grid" role="group" aria-label="Pick a case"></div>
+
+<div id="panels"></div>
+
+<p class="honest">Not legal, medical or financial advice. Some things cannot be negotiated, and nothing here promises a saving. Only say true things on the call. Tips are from the sources listed in sources.md. This page makes no AI calls and sends nothing anywhere.</p>
+
+<script>
+const BASE = "You are HAGGLE, a calm, kind negotiation coach. I will give you a bill, price or offer I want to improve. Help me get a better result honestly, then let me practise on you.\n\nSTEP 1. FACTS\nPull out: who the other side is, what I pay or was offered, how long I have been a customer, any deadline. Ask at most 3 short questions, and only if you truly cannot continue without them. If I say \"just give me the script\", ask nothing and use [brackets] for gaps. Use competitor prices only if I give them. If you mention a typical market figure, label it \"unverified, check it\". Never state a real company's current prices or policies as fact. Say \"check their current offer\".\n\nSTEP 2. MY LEVERAGE\nList 3 to 5 real points: loyalty, real competing offers, timing (contract end, end of month or quarter, renewal date), errors in the bill, hardship, what they lose if I leave. Be honest about how much room there is. If this kind of thing usually cannot be negotiated, say so and say what to try instead.\n\nSTEP 3. THE SCRIPT\n1. Opening line, and who to ask for.\n2. The ask: one specific number or outcome, plus a fallback.\n3. The 3 most likely pushbacks, with my reply to each.\n4. Walk-away line: calm and true, never a threat.\n5. Follow-up email if the call fails (short).\nThen give \"Odds of winning: N%\" with one line why. Then ask: \"Want to practise? I will play the other side.\"\n\nSTEP 4. ROLE-PLAY\nIf I say yes, play the toughest realistic version of the other side (retention agent, landlord, recruiter, billing office). Start with one line: \"Practice only. Any numbers or offers I invent as the other side are not real.\" Then stay in character and write one short reply per turn. Do not fold fast, and do not be cruel. After each reply of mine, add two lines under a divider:\nCoach: one sentence on what I did well or should fix.\nOdds: N% (running number, it can go up or down).\nStop after about 5 rounds, or if I type \"stop\". Then leave character and give: what worked, what to fix, final odds.\n\nRULES\nNever advise lying, faking a competitor quote or offer, threats, bluffing, or anything deceptive or illegal. Only say \"I will cancel\" or \"I have another offer\" if it is true. Add one calm line, once, that you are not giving legal, medical or financial advice. Never state what a law guarantees. Do not quote statistics or success rates. Use $ unless I name another currency. For medical bills, give only general steps and flag them as general: ask for an itemised bill, compare it with the insurer's explanation of benefits, ask about the provider's financial assistance application, ask about a payment plan. Keep the first reply under 450 words. Short plain sentences. Be kind.\n\nMY SITUATION:";
+const CASES = [
+ {
+  "id": "phone",
+  "name": "Phone, internet or cable bill",
+  "sub": "Bill went up or promo ended",
+  "template": "Case: lower my [phone / internet / cable] bill.\nCompany: [name]\nI pay now: $[amount] a month. Before: $[old amount].\nCustomer for: [how long]. Paid on time: [yes / no]\nA real offer I have seen from another company (only if true): [company and price, or none]\nPromo or contract ends: [date, or not sure]",
+  "tips": [
+   "Ask for the customer retention team. Say you are thinking about canceling and ask what they can offer.",
+   "If the first person gets you nowhere, hang up and call again.",
+   "Great deals are often only for new customers, so it can be worth checking what other providers offer before you call."
+  ],
+  "src": "Consumer Reports, Oct 9, 2025 (see sources.md, source 1)"
+ },
+ {
+  "id": "rent",
+  "name": "Rent renewal",
+  "sub": "Landlord is raising your rent",
+  "template": "Case: my landlord wants to raise my rent at renewal.\nRent now: $[amount]. New rent asked: $[amount].\nLease ends: [date]\nI have lived here: [how long]. Paid on time: [yes / no]\nSimilar places I have seen listed (price and where): [details, or none]\nWould I move if it fails: [yes / no / maybe]\nI could offer: [longer lease / handle small repairs / nothing]",
+  "tips": [
+   "A landlord may lower the rent in exchange for a longer lease or for you handling your own repairs. Only offer what you will really do."
+  ],
+  "src": "NerdWallet, updated Sep 30, 2025 (see sources.md, source 7)"
+ },
+ {
+  "id": "insurance",
+  "name": "Car insurance",
+  "sub": "Renewal price went up",
+  "template": "Case: lower my car insurance.\nInsurer: [name]\nI pay: $[amount] per [month / 6 months / year]. Renewal date: [date]\nWith them for: [how long]. Claims or tickets in that time: [none / details]\nReal quotes I have from other insurers (only if true): [company, price, same coverage?]\nChanges since last year: [less driving / moved / new job / none]",
+  "tips": [
+   "Get quotes from several insurers first. Three is the usual advice.",
+   "Ask your current insurer to reprice your plan after you tell them about changes, like driving fewer miles.",
+   "A higher deductible lowers the premium. Only do it if you can pay that amount after a claim."
+  ],
+  "src": "Consumer Reports, updated Aug 18, 2026; Triple-I (see sources.md, sources 8 and 9)"
+ },
+ {
+  "id": "gym",
+  "name": "Gym or subscription cancel",
+  "sub": "They make it hard to quit",
+  "template": "Case: cancel my [gym / subscription] membership.\nCompany: [name]. I pay $[amount] a month.\nMember for: [how long]. Next billing date: [date]\nWhy I am leaving: [moved / cannot afford it / not using it]\nWhat they told me so far: [for example, come in person]\nI want: [cancel today / a cheaper plan / a pause]",
+  "tips": [
+   "Follow the company's cancellation instructions if it has them.",
+   "Keep a copy of your cancellation request. Write down who you spoke to, how and when.",
+   "If they keep charging you after you cancel, you can dispute the charge with your credit or debit card company. This is called a chargeback."
+  ],
+  "src": "FTC Consumer Advice, Sep 2024 (see sources.md, source 4)"
+ },
+ {
+  "id": "medical",
+  "name": "Medical bill",
+  "sub": "Big bill, or a line you do not get",
+  "template": "Case: a medical bill I cannot pay all at once.\nProvider: [hospital or clinic name]\nAmount on the bill: $[amount]. Date of care: [date]\nInsurance paid or covered: [yes / no / some]\nA line I do not understand: [describe, or none]\nMy yearly income, roughly: $[amount] (leave blank if you prefer)\nCan I pay monthly: $[amount] a month",
+  "tips": [
+   "Check that the bill is correct and that you owe it before you pay.",
+   "If anything looks wrong, ask for an itemized list of charges. Look for the same service charged twice.",
+   "Ask about financial assistance, sometimes called charity care. Ask for the application.",
+   "Ask whether they will accept an interest-free repayment plan.",
+   "Nonprofit (charitable) hospitals must have a written financial assistance policy that is widely publicized, and paper copies must be free on request."
+  ],
+  "src": "CFPB, Dec 2023; IRS, updated Jul 3, 2026 (see sources.md, sources 2 and 3). General information, not advice."
+ },
+ {
+  "id": "salary",
+  "name": "Salary offer",
+  "sub": "You got an offer, want more",
+  "template": "Case: improve a job offer.\nRole: [title]. Company: [name]. My years of experience: [number]\nOffer: $[base], plus [bonus / benefits / none]\nWhat I found for this role in my area (site and range): [for example, BLS or other, $X to $Y]\nDeadline to answer: [date]\nCompeting offer (only if real): [yes with details / none]\nOther things I would take instead of more pay: [sign-on bonus / extra vacation / remote days]",
+  "tips": [
+   "Research the pay range for the role in your area before you talk. The Bureau of Labor Statistics is a start.",
+   "Do not rush to answer in the moment. Take time to read the whole offer first.",
+   "Aim high when you name your range. You can come down, but you cannot talk your way back up.",
+   "If they cannot move on salary, ask about other parts of the offer, like a sign-on bonus or more vacation.",
+   "Be professional and positive. Skip ultimatums.",
+   "Do not play one job offer against another. It can backfire.",
+   "Do not accept until you have seen all the terms in writing."
+  ],
+  "src": "U.S. Department of Labor, Salary Negotiation Participant Guide, Feb 2026 (see sources.md, source 5)"
+ },
+ {
+  "id": "usedcar",
+  "name": "Used car price",
+  "sub": "Dealer or private seller",
+  "template": "Case: get a better price on a used car.\nCar: [year, make, model, miles]\nAsking price: $[amount]. Seller: [dealer name / private]\nSimilar cars I have seen listed (price and where): [details, or none]\nProblems I noticed: [list, or none]\nMy budget: $[amount]. Max I would pay: $[amount]\nFinancing or trade-in involved: [yes / no]",
+  "tips": [
+   "Pay for an independent mechanic to inspect the car before you buy.",
+   "If a dealer will not allow an independent inspection, the FTC says that may be a sign to buy somewhere else.",
+   "Get all promises in writing. Spoken promises are hard to enforce."
+  ],
+  "src": "FTC Consumer Advice, Apr 2024 (see sources.md, source 6)"
+ },
+ {
+  "id": "other",
+  "name": "Something else",
+  "sub": "Hotel rate, late fee, anything",
+  "template": "Case: [hotel rate / late fee / other: say what].\nWho I am dealing with: [company or person]\nWhat I pay or owe: $[amount]\nWhat I want instead: $[amount] or [outcome]\nHow long I have been a customer: [how long]\nWhat went wrong or why I deserve a better deal: [facts only]\nDeadline: [date, or none]",
+  "tips": [],
+  "none": "No verified tips for this one yet. We left them out on purpose. The prompt will ask you what it needs and build the script from your facts.",
+  "src": ""
+ }
+];
+
+function buildPrompt(situation){ return BASE + "\n" + situation + "\n"; }
+
+function copyText(text, ta, btn){
+  const ok = () => { const old = btn.textContent; btn.textContent = "Copied. Now paste it into your chatbot"; btn.classList.add("done"); setTimeout(()=>{btn.textContent = old; btn.classList.remove("done");}, 2500); };
+  const fallback = () => { const tmp = document.createElement("textarea"); tmp.value = text; tmp.style.position = "fixed"; tmp.style.opacity = "0"; document.body.appendChild(tmp); tmp.select(); try { document.execCommand("copy"); document.body.removeChild(tmp); ok(); } catch(e) { btn.textContent = "Press and hold the text, then Copy"; } };
+  if (navigator.clipboard && window.isSecureContext) { navigator.clipboard.writeText(text).then(ok, fallback); } else { fallback(); }
+}
+
+const grid = document.getElementById("grid");
+const panels = document.getElementById("panels");
+
+CASES.forEach((c, i) => {
+  const b = document.createElement("button");
+  b.className = "pick"; b.type = "button"; b.setAttribute("aria-pressed", "false"); b.dataset.id = c.id;
+  b.innerHTML = "<b></b><span></span>"; b.children[0].textContent = c.name; b.children[1].textContent = c.sub;
+  grid.appendChild(b);
+
+  const p = document.createElement("section");
+  p.className = "panel"; p.id = "p-" + c.id;
+  const step = document.createElement("div"); step.className = "step"; step.textContent = "2. Fill the brackets, then copy";
+  const ta = document.createElement("textarea"); ta.value = c.template; ta.setAttribute("aria-label", "Your situation for " + c.name);
+  const cb = document.createElement("button"); cb.className = "copy"; cb.type = "button"; cb.textContent = "Copy prompt";
+  const full = document.createElement("details"); full.className = "full";
+  const sm = document.createElement("summary"); sm.textContent = "See the full prompt that gets copied";
+  const pre = document.createElement("pre"); pre.textContent = buildPrompt(ta.value);
+  full.append(sm, pre);
+  ta.addEventListener("input", () => { pre.textContent = buildPrompt(ta.value); });
+  cb.addEventListener("click", () => copyText(buildPrompt(ta.value), ta, cb));
+  const hint = document.createElement("p"); hint.className = "hint"; hint.textContent = "Paste it into any chatbot. When it offers, say yes to practise. Type \"stop\" to end.";
+  const tips = document.createElement("div"); tips.className = "tips";
+  const h = document.createElement("h2"); h.textContent = "What to say on the call"; tips.appendChild(h);
+  if (c.tips.length) {
+    const ul = document.createElement("ul");
+    c.tips.forEach(t => { const li = document.createElement("li"); li.textContent = t; ul.appendChild(li); });
+    tips.appendChild(ul);
+    const s = document.createElement("p"); s.className = "src"; s.textContent = "Source: " + c.src; tips.appendChild(s);
+  } else {
+    const n = document.createElement("p"); n.className = "none"; n.textContent = c.none; tips.appendChild(n);
+  }
+  p.append(step, ta, cb, hint, full, tips);
+  panels.appendChild(p);
+
+  b.addEventListener("click", () => {
+    document.querySelectorAll(".pick").forEach(x => x.setAttribute("aria-pressed", String(x === b)));
+    document.querySelectorAll(".panel").forEach(x => x.classList.toggle("on", x === p));
+    p.scrollIntoView({behavior: "smooth", block: "start"});
+  });
+});
+const want = decodeURIComponent((location.hash||'').slice(1));
+const pre = document.querySelector('.pick[data-id="'+want.replace(/[^a-z]/g,'')+'"]');
+if (pre) pre.click();
+</script>
+</body>
+</html>

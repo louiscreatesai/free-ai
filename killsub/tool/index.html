@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' file:; style-src 'self' file:; img-src 'self' data: blob:; connect-src 'none'; form-action 'none'; base-uri 'none'">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#0a0b0e">
+<title>CANCEL</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div class="brand">CANCEL</div>
+    <div class="pill" id="netPill" title="This page makes no network calls">
+      <span class="dot" aria-hidden="true"></span><span id="netText">100% on your device</span>
+    </div>
+  </header>
+
+  <main>
+    <section id="intro" aria-labelledby="introTitle">
+      <h1 id="introTitle">Find the subscriptions you forgot you pay for.</h1>
+      <p class="lead">Drop in a bank or card statement. See every recurring charge, what it costs per year, and what you could ditch.</p>
+
+      <div class="drop" id="drop">
+        <input type="file" id="file" accept=".csv,.txt,.tsv,text/csv,text/plain" hidden>
+        <button class="btn primary big" id="pick" type="button">Choose your statement CSV</button>
+        <p class="hint">or drag the file onto this box</p>
+      </div>
+
+      <div class="row2">
+        <button class="btn ghost" id="pasteToggle" type="button" aria-expanded="false" aria-controls="pasteBox">Paste text instead</button>
+        <button class="btn demo" id="demo" type="button"><span class="tag">DEMO</span> Try fake data</button>
+      </div>
+
+      <div id="pasteBox" hidden>
+        <label class="sr" for="pasteArea">Paste your statement rows here</label>
+        <textarea id="pasteArea" rows="7" spellcheck="false" placeholder="Date,Description,Amount&#10;2025-01-03,NETFLIX.COM,-15.49&#10;..."></textarea>
+        <button class="btn primary" id="analyze" type="button">Find my subscriptions</button>
+      </div>
+
+      <p class="error" id="error" role="alert" hidden></p>
+
+      <ul class="proof">
+        <li><b>No upload.</b> Your file is read by this page and nowhere else.</li>
+        <li><b>No accounts, no analytics, no API keys.</b></li>
+        <li><b>Prove it:</b> switch on airplane mode, then drop your file. It still works.</li>
+      </ul>
+      <details class="how">
+        <summary>How do I get the CSV?</summary>
+        <p>In your bank or card app or website, look for Statements, Activity or Transactions, then Download or Export, and pick CSV. Three to twelve months works best. Dates and amounts in US, UK and EU formats are detected for you.</p>
+      </details>
+    </section>
+
+    <section id="results" hidden aria-live="polite">
+      <div class="demoBanner" id="demoBanner" hidden><span class="tag">DEMO</span> Fake statement made up in your browser. Not real data.</div>
+
+      <div class="hero">
+        <div class="eyebrow">You pay</div>
+        <div class="big" id="heroNum" aria-label="Yearly total">$0</div>
+        <div class="per">per year on things that renew themselves</div>
+        <div class="heroSub" id="heroSub"></div>
+        <div class="curRow" role="group" aria-label="Currency symbol">
+          <span class="curLabel">Show in</span>
+          <button type="button" class="chip" data-cur="USD" aria-pressed="false">$</button>
+          <button type="button" class="chip" data-cur="EUR" aria-pressed="false">&euro;</button>
+          <button type="button" class="chip" data-cur="GBP" aria-pressed="false">&pound;</button>
+        </div>
+      </div>
+
+      <h2 class="sec">Tick what you would cancel</h2>
+      <div id="listConfirmed" class="list"></div>
+
+      <div id="maybeWrap" hidden>
+        <h2 class="sec">Maybe, not counted above</h2>
+        <p class="secNote" id="maybeNote">Seen once or too few times to be sure. Tick any that are real.</p>
+        <div id="listMaybe" class="list"></div>
+      </div>
+
+      <div id="stoppedWrap" hidden>
+        <h2 class="sec">Looks stopped already</h2>
+        <p class="secNote">No charge seen for a while. Worth a quick check that they are really cancelled.</p>
+        <div id="listStopped" class="list"></div>
+      </div>
+
+      <details class="how" id="readInfo">
+        <summary>How I read your file</summary>
+        <div id="readBody"></div>
+        <div class="row2">
+          <button class="btn ghost small" id="swapDates" type="button">Swap day and month</button>
+          <button class="btn ghost small" id="flipSign" type="button">Flip charges and credits</button>
+        </div>
+      </details>
+
+      <section class="limits" aria-labelledby="limitsTitle">
+        <h2 id="limitsTitle">Honest limits</h2>
+        <ul>
+          <li>It only sees the transactions in the file you gave it.</li>
+          <li>Detection is a guess. Check each one before you cancel.</li>
+          <li>It does not cancel anything for you.</li>
+          <li>Alternatives come from each vendor's own pages. Plans and prices change, so check the page.</li>
+          <li id="netProof">Requests to other sites since this page loaded: 0</li>
+        </ul>
+      </section>
+
+      <button class="btn ghost" id="restart" type="button">Start over</button>
+      <div class="spacer"></div>
+    </section>
+  </main>
+
+  <div class="saveBar" id="saveBar" hidden>
+    <div class="saveText">
+      <div class="saveLabel">You'd save</div>
+      <div class="saveNum"><span id="saveNum">$0</span><span class="saveUnit"> a year</span></div>
+    </div>
+    <button class="btn primary" id="shareBtn" type="button">Share card</button>
+  </div>
+
+  <div class="modal" id="modal" hidden role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="sheet">
+      <h2 id="modalTitle">Your share card</h2>
+      <canvas id="card" width="1080" height="1350" aria-label="Share card preview"></canvas>
+      <label class="toggle"><input type="checkbox" id="showNames"> <span>Show merchant names on the card</span></label>
+      <div class="row2">
+        <button class="btn primary" id="saveImg" type="button">Save image</button>
+        <button class="btn ghost" id="closeModal" type="button">Close</button>
+      </div>
+      <p class="hint" id="shareMsg"></p>
+    </div>
+  </div>
+</div>
+
+<script src="known.js"></script>
+<script src="lib/csv.js"></script>
+<script src="lib/merchant.js"></script>
+<script src="lib/recurring.js"></script>
+<script src="lib/demo.js"></script>
+<script src="lib/format.js"></script>
+<script src="card.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>JURY: six characters argue your hardest decision</title>
+<meta name="description" content="A free prompt that puts six characters and a judge on one real decision. Works in any chatbot.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;700;900&family=Montserrat:wght@700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+.guide h2{margin-top:30px}
+.guide ol{padding-left:22px}
+.guide li{margin:6px 0}
+.bigbtn{display:block;width:100%;text-align:center;font-family:'Montserrat',Arial,sans-serif;font-weight:900;font-size:20px;background:#1c1a17;color:#fff;text-decoration:none;padding:18px 16px;border-radius:12px;border:0;cursor:pointer;margin:14px 0}
+.bigbtn.done{background:#2f7d4f}
+.bigbtn.alt{background:#e0664f}
+.guide pre.paste{white-space:pre-wrap;word-wrap:break-word;overflow-x:hidden;font-size:14px;line-height:1.5;max-height:420px;overflow-y:auto}
+.guide pre code{white-space:inherit;word-break:normal}
+.note{background:#fbf1d3;border-radius:10px;padding:12px 16px;margin:16px 0}
+.note p{margin:6px 0}
+.links{list-style:none;padding:0}
+.links li{margin:10px 0}
+details.full{margin:12px 0}
+details.full summary{cursor:pointer;font-weight:700;padding:6px 0}
+@media (max-width:480px){body{font-size:18px}.guide{padding:6px 16px 20px}}
+</style></head>
+<body><div class="wrap"><svg class="robot" viewBox="0 0 260 300" aria-hidden="true"><line x1="130" y1="62" x2="130" y2="24" stroke="#1c1a17" stroke-width="7" stroke-linecap="round"/><circle cx="130" cy="20" r="14" fill="#ffd23f" stroke="#1c1a17" stroke-width="5"/><rect x="88" y="236" width="26" height="54" rx="8" fill="#4c6fff"/><rect x="146" y="236" width="26" height="54" rx="8" fill="#4c6fff"/><rect x="206" y="92" width="30" height="86" rx="14" fill="#4c6fff" transform="rotate(-150 221 100)"/><rect x="24" y="142" width="30" height="86" rx="14" fill="#4c6fff"/><rect x="44" y="58" width="172" height="190" rx="36" fill="#4c6fff"/><rect x="70" y="86" width="120" height="92" rx="24" fill="#fbf4e4"/><ellipse cx="105" cy="128" rx="13" ry="16" fill="#1c1a17"/><ellipse cx="155" cy="128" rx="13" ry="16" fill="#1c1a17"/><path d="M112 154 Q130 172 148 154" stroke="#1c1a17" stroke-width="6" fill="none" stroke-linecap="round"/></svg><a class="small" href="../">&larr; All free guides</a>
+<h1 class="tape">JURY</h1>
+<div class="guide"><h1>JURY: six characters argue your hardest decision</h1>
+<h2>What it is</h2>
+<p>A free prompt for one hard decision. You paste it into a chatbot, then type your decision. Six characters argue it out: a Prosecutor, a Defender, an Accountant, Future Me at 70, a Friend Who Knows Me and a Pre-mortem Detective. Then a Judge says which way it leans and how sure it is, names the question you are avoiding, gives you one cheap test to do this week and a regret score for each path.</p>
+<p>The six are not real people. It is one AI playing six parts. It is a thinking partner and not advice.</p>
+<h2>Steps</h2>
+<ol>
+<li><strong>Tap the button to copy the prompt.</strong></li>
+<li><strong>Open any chatbot.</strong> ChatGPT, Gemini and Claude all work. Paste the prompt and send it.</li>
+<li><strong>Answer with your decision.</strong> The chatbot asks for it. Write one paragraph. Say what you lean towards, what scares you and any numbers. It only knows what you type.</li>
+<li><strong>Read the Judge at the end.</strong> Then do the cheap test within a week and see if it changes your mind.</li>
+</ol>
+<button class="bigbtn" id="copy" type="button">Copy the prompt</button>
+<details class="full"><summary>See the full prompt</summary>
+<pre class="paste"><code id="prompt">You are JURY. You help me think through one real life decision. You are a thinking partner, not an advisor.
+
+MY DECISION:
+[Type it here in one paragraph. If this line is still here, ask me for my decision in one short line and stop.]
+
+SAFETY FIRST
+If I mention wanting to die, hurting myself, or being in danger, drop everything below. No jury, no format. Reply with warmth, ask if I am safe right now, and point me to a real person and a real line: someone I trust, my local emergency number, or a crisis line (988 in the US, findahelpline.com elsewhere). If the decision is heavy (a relationship, health, money stress), open with one kind line. Never diagnose.
+
+STEP 1: QUESTIONS
+Ask at most 3 sharp questions, and only if you truly cannot judge without the answers. Otherwise skip to Step 2 and state any gap as &quot;Assumed: ...&quot;. If I gave almost nothing, ask the 3 questions and stop.
+
+STEP 2: THE JURY
+Six jurors. Each gets 2 to 3 short sentences, first person, vivid, with a real stake. Each stays in ONE lens. Vary the sentence shapes. No pros and cons lists. No hedging.
+1. The Prosecutor: the strongest case AGAINST the way I am leaning. If I am not leaning, against the more tempting option.
+2. The Defender: the strongest case FOR it.
+3. The Accountant: only numbers and cash flow. Name the one number that is missing.
+4. Future Me at 70: regret only. Which choice will I still think about?
+5. The Friend Who Knows Me: point to something I actually wrote, or left out. Call out what I seem to be avoiding.
+6. The Pre-mortem Detective: &quot;It is two years later and this failed. Here is the most likely reason.&quot;
+
+HONESTY RULES
+- Never invent facts about me: no ages, names, amounts or feelings I did not give. Put quote marks only around my exact words.
+- The Detective and Future Me may imagine, but only as &quot;could happen&quot;, never as fact about my life.
+- Do not stretch a fact. A number or time I gave belongs only to what I said it for.
+- If I did not say it, you do not know it.
+
+STEP 3: THE JUDGE
+Plain words, in this order:
+- Leans: which way the evidence leans, and how sure (low, medium or high). Never claim certainty.
+- The question you are avoiding: one question.
+- The cheapest test this week: ONE concrete action I can do within 7 days, and what result would change the verdict.
+- Regret score (0 = none, 10 = deep) for each path, with one line why.
+
+RULES
+- Total answer under 400 words. Short plain sentences. No em dashes.
+- Medical, legal, tax or investment points: one calm line saying a qualified person should check it. No lecture.
+- Last line: &quot;Your call. I am a thinking partner, not advice.&quot;
+</code></pre></details>
+<h2>Three to try first</h2>
+<ul>
+<li>Take a job offer or stay where you are.</li>
+<li>Move to a new city or stay.</li>
+<li>Lend money to family or say no.</li>
+</ul>
+<h2>Other ways to use it</h2>
+<ul class="links">
+<li><a href="jury.html"><strong>The jury page</strong></a> lets you type your decision first or tap an example. It builds the prompt for you and has its own copy button.</li>
+<li><a href="SKILL.md" download><strong>Download SKILL.md</strong></a> if you use Claude Code. Put it in a folder named jury inside your .claude/skills folder.</li>
+<li><a href="PASTE.txt"><strong>PASTE.txt</strong></a> is the same prompt as plain text.</li>
+</ul>
+<h2>Honest limits</h2>
+<ul>
+<li>It is a thinking partner, not advice. You make the call.</li>
+<li>It only knows what you type. Give it numbers or it will ask for them.</li>
+<li>It can be wrong. For medical, legal or money rules, ask a professional.</li>
+<li>It shows you the question you may be dodging. It does not predict the future.</li>
+<li>I tested it in Claude only, with 14 test runs on 7 sample decisions. I have not tried it in ChatGPT or Gemini, so results there may differ. Answers change from run to run.</li>
+<li>The example in the video is a sample job offer, not a real person.</li>
+<li>If you are in a dark place, skip this tool. In the US call or text 988. Elsewhere, findahelpline.com lists lines near you.</li>
+</ul></div>
+<div class="box"><h2>Get the next free tool first</h2><p>I post one free AI tool at a time, tested, with the setup.</p><a class="btn" href="https://www.instagram.com/louiscreates.ai/">Follow @louiscreates.ai</a></div>
+<footer>Louis's Free AI Library &middot; <a href="https://www.instagram.com/louiscreates.ai/">Follow @louiscreates.ai</a></footer>
+</div>
+<script>
+(function () {
+  var btn = document.getElementById('copy');
+  var src = document.getElementById('prompt');
+  if (!btn || !src) return;
+  var idle = btn.textContent;
+  function legacy(text) {
+    var t = document.createElement('textarea');
+    t.value = text; t.style.position = 'fixed'; t.style.opacity = '0';
+    document.body.appendChild(t); t.select();
+    var ok = false;
+    try { ok = document.execCommand('copy'); } catch (e) { ok = false; }
+    document.body.removeChild(t);
+    return ok;
+  }
+  function flash(ok) {
+    btn.textContent = ok ? 'Copied. Now paste it in your chatbot.' : 'Could not copy. Open "See the full prompt" and copy it by hand.';
+    btn.classList.toggle('done', ok);
+    setTimeout(function () { btn.textContent = idle; btn.classList.remove('done'); }, 2500);
+  }
+  btn.addEventListener('click', function () {
+    var text = src.textContent;
+    if (navigator.clipboard && window.isSecureContext) {
+      navigator.clipboard.writeText(text).then(function () { flash(true); }, function () { flash(legacy(text)); });
+    } else { flash(legacy(text)); }
+  });
+})();
+</script></body></html>

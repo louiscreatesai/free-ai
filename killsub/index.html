@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>KILLSUB: find the subscriptions you forgot you pay for</title>
+<meta name="description" content="A free subscription finder that runs on your own device. Drop in a bank or card statement CSV and see every repeating charge per month and per year.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;700;900&family=Montserrat:wght@700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+.guide h2{margin-top:30px}
+.guide ol{padding-left:22px}
+.guide li{margin:6px 0}
+.bigbtn{display:block;width:100%;text-align:center;font-family:'Montserrat',Arial,sans-serif;font-weight:900;font-size:20px;background:#1c1a17;color:#fff;text-decoration:none;padding:18px 16px;border-radius:12px;border:0;cursor:pointer;margin:14px 0}
+.bigbtn.done{background:#2f7d4f}
+.bigbtn.alt{background:#e0664f}
+.guide pre.paste{white-space:pre-wrap;word-wrap:break-word;overflow-x:hidden;font-size:14px;line-height:1.5;max-height:420px;overflow-y:auto}
+.guide pre code{white-space:inherit;word-break:normal}
+.note{background:#fbf1d3;border-radius:10px;padding:12px 16px;margin:16px 0}
+.note p{margin:6px 0}
+.links{list-style:none;padding:0}
+.links li{margin:10px 0}
+details.full{margin:12px 0}
+details.full summary{cursor:pointer;font-weight:700;padding:6px 0}
+@media (max-width:480px){body{font-size:18px}.guide{padding:6px 16px 20px}}
+</style></head>
+<body><div class="wrap"><svg class="robot" viewBox="0 0 260 300" aria-hidden="true"><line x1="130" y1="62" x2="130" y2="24" stroke="#1c1a17" stroke-width="7" stroke-linecap="round"/><circle cx="130" cy="20" r="14" fill="#ffd23f" stroke="#1c1a17" stroke-width="5"/><rect x="88" y="236" width="26" height="54" rx="8" fill="#4c6fff"/><rect x="146" y="236" width="26" height="54" rx="8" fill="#4c6fff"/><rect x="206" y="92" width="30" height="86" rx="14" fill="#4c6fff" transform="rotate(-150 221 100)"/><rect x="24" y="142" width="30" height="86" rx="14" fill="#4c6fff"/><rect x="44" y="58" width="172" height="190" rx="36" fill="#4c6fff"/><rect x="70" y="86" width="120" height="92" rx="24" fill="#fbf4e4"/><ellipse cx="105" cy="128" rx="13" ry="16" fill="#1c1a17"/><ellipse cx="155" cy="128" rx="13" ry="16" fill="#1c1a17"/><path d="M112 154 Q130 172 148 154" stroke="#1c1a17" stroke-width="6" fill="none" stroke-linecap="round"/></svg><a class="small" href="../">&larr; All free guides</a>
+<h1 class="tape">KILLSUB</h1>
+<div class="guide"><h1>KILLSUB: find the subscriptions you forgot you pay for</h1>
+<h2>What it is</h2>
+<p>A free page that finds the subscriptions you forgot you pay for. You give it a bank or card statement and it lists the charges that keep repeating, with what each one costs per month and per year. It cancels nothing for you.</p>
+<a class="bigbtn" href="tool/">Open the subscription finder</a>
+<p class="small">No statement handy? Open it and tap <strong>Try fake data</strong> to see how it works.</p>
+<div class="note"><p><strong>Privacy:</strong> the finder runs on your own device. Your statement is read by the page in your browser and is not uploaded. There are no accounts and no tracking. The finder page makes no network requests. If you want proof, switch on airplane mode and use it anyway. The links inside Details open each company's own website.</p></div>
+<h2>Steps</h2>
+<ol>
+<li><strong>Download a statement as a CSV file.</strong> In your bank or card app or website, look for Statements, Activity or Transactions, then Download or Export, and pick CSV. Three to twelve months works best. If your app has no CSV option, try the bank's website.</li>
+<li><strong>Open the finder and choose your file.</strong> Or tap Paste text instead and paste the rows. Dates and amounts in US, UK and European formats are detected for you.</li>
+<li><strong>Read the big number.</strong> It shows what the repeating charges add up to per year. Below it are the confirmed charges, a Maybe list for charges it saw once or too few times to be sure, and a list that looks stopped already.</li>
+<li><strong>Tick what you would cancel.</strong> The You'd save counter at the bottom adds it up for you.</li>
+<li><strong>Cancel it yourself.</strong> Tap Details on a row. For services it knows, you get a link to the company's own cancel or manage page. Where a company page shows a free or cheaper plan, Details lists it with a link so you can check it.</li>
+</ol>
+<p>If the dates look wrong, open How I read your file and tap Swap day and month. If charges and refunds look flipped, tap Flip charges and credits.</p>
+<h2>Honest limits</h2>
+<ul>
+<li>Detection is a guess. Check each charge before you cancel anything.</li>
+<li>It only sees the charges in the file you give it. A short statement will miss yearly charges.</li>
+<li>It finds the repeating charges it can recognise. It does not find everything.</li>
+<li>It cancels nothing. You do that yourself on the company's page.</li>
+<li>Free and cheaper plans come from each company's own pages, checked on 23 October 2026. Plans change, so open the page to check.</li>
+<li>Tested on made-up statement files shaped like exports from Chase, Bank of America, American Express, Monzo, Revolut and a European bank. Not yet tested on a real statement from every bank, and not yet on a physical phone. The network-off test was done in a test browser.</li>
+<li>The DEMO is a sample: a fake statement with 9 repeating charges, $151 a month and $1,811 a year. It is not a real account.</li>
+</ul></div>
+<div class="box"><h2>Get the next free tool first</h2><p>I post one free AI tool at a time, tested, with the setup.</p><a class="btn" href="https://www.instagram.com/louiscreates.ai/">Follow @louiscreates.ai</a></div>
+<footer>Louis's Free AI Library &middot; <a href="https://www.instagram.com/louiscreates.ai/">Follow @louiscreates.ai</a></footer>
+</div>
+</body></html>

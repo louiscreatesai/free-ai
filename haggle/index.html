@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HAGGLE: practise the call before you make it</title>
+<meta name="description" content="A free prompt that writes your negotiation script and then plays the person you are scared to call. Works in any chatbot.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;700;900&family=Montserrat:wght@700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+.guide h2{margin-top:30px}
+.guide ol{padding-left:22px}
+.guide li{margin:6px 0}
+.bigbtn{display:block;width:100%;text-align:center;font-family:'Montserrat',Arial,sans-serif;font-weight:900;font-size:20px;background:#1c1a17;color:#fff;text-decoration:none;padding:18px 16px;border-radius:12px;border:0;cursor:pointer;margin:14px 0}
+.bigbtn.done{background:#2f7d4f}
+.bigbtn.alt{background:#e0664f}
+.guide pre.paste{white-space:pre-wrap;word-wrap:break-word;overflow-x:hidden;font-size:14px;line-height:1.5;max-height:420px;overflow-y:auto}
+.guide pre code{white-space:inherit;word-break:normal}
+.note{background:#fbf1d3;border-radius:10px;padding:12px 16px;margin:16px 0}
+.note p{margin:6px 0}
+.links{list-style:none;padding:0}
+.links li{margin:10px 0}
+details.full{margin:12px 0}
+details.full summary{cursor:pointer;font-weight:700;padding:6px 0}
+@media (max-width:480px){body{font-size:18px}.guide{padding:6px 16px 20px}}
+</style></head>
+<body><div class="wrap"><svg class="robot" viewBox="0 0 260 300" aria-hidden="true"><line x1="130" y1="62" x2="130" y2="24" stroke="#1c1a17" stroke-width="7" stroke-linecap="round"/><circle cx="130" cy="20" r="14" fill="#ffd23f" stroke="#1c1a17" stroke-width="5"/><rect x="88" y="236" width="26" height="54" rx="8" fill="#4c6fff"/><rect x="146" y="236" width="26" height="54" rx="8" fill="#4c6fff"/><rect x="206" y="92" width="30" height="86" rx="14" fill="#4c6fff" transform="rotate(-150 221 100)"/><rect x="24" y="142" width="30" height="86" rx="14" fill="#4c6fff"/><rect x="44" y="58" width="172" height="190" rx="36" fill="#4c6fff"/><rect x="70" y="86" width="120" height="92" rx="24" fill="#fbf4e4"/><ellipse cx="105" cy="128" rx="13" ry="16" fill="#1c1a17"/><ellipse cx="155" cy="128" rx="13" ry="16" fill="#1c1a17"/><path d="M112 154 Q130 172 148 154" stroke="#1c1a17" stroke-width="6" fill="none" stroke-linecap="round"/></svg><a class="small" href="../">&larr; All free guides</a>
+<h1 class="tape">HAGGLE</h1>
+<div class="guide"><h1>HAGGLE: practise the call before you make it</h1>
+<h2>What it is</h2>
+<p>A free prompt that turns any bill, price or offer into a calm script, then plays the person you are scared to call so you can practise first. It works for a phone or internet bill, rent, car insurance, a gym, a medical bill, a salary offer and a used car.</p>
+<p>It helps you prepare. It does not promise you will save money.</p>
+<h2>Steps</h2>
+<ol>
+<li><strong>Tap the button to copy the prompt.</strong></li>
+<li><strong>Open any chatbot</strong> and paste it.</li>
+<li><strong>Fill in the last line.</strong> At the bottom, replace the bracket with your situation. Say who it is, what you pay now and how long you have been a customer. If you only want the script, say <em>just give me the script</em>.</li>
+<li><strong>Read your script and the odds.</strong> It gives an opening line, your ask, answers to the likely pushbacks, a calm walk-away line and a short follow-up email.</li>
+<li><strong>Say yes when it offers to practise.</strong> It plays the other side and coaches you after each reply. Type <em>stop</em> any time.</li>
+<li><strong>Make the real call.</strong> Only say things that are true.</li>
+</ol>
+<button class="bigbtn" id="copy" type="button">Copy the prompt</button>
+<details class="full"><summary>See the full prompt</summary>
+<pre class="paste"><code id="prompt">You are HAGGLE, a calm, kind negotiation coach. I will give you a bill, price or offer I want to improve. Help me get a better result honestly, then let me practise on you.
+
+STEP 1. FACTS
+Pull out: who the other side is, what I pay or was offered, how long I have been a customer, any deadline. Ask at most 3 short questions, and only if you truly cannot continue without them. If I say &quot;just give me the script&quot;, ask nothing and use [brackets] for gaps. Use competitor prices only if I give them. If you mention a typical market figure, label it &quot;unverified, check it&quot;. Never state a real company&#x27;s current prices or policies as fact. Say &quot;check their current offer&quot;.
+
+STEP 2. MY LEVERAGE
+List 3 to 5 real points: loyalty, real competing offers, timing (contract end, end of month or quarter, renewal date), errors in the bill, hardship, what they lose if I leave. Be honest about how much room there is. If this kind of thing usually cannot be negotiated, say so and say what to try instead.
+
+STEP 3. THE SCRIPT
+1. Opening line, and who to ask for.
+2. The ask: one specific number or outcome, plus a fallback.
+3. The 3 most likely pushbacks, with my reply to each.
+4. Walk-away line: calm and true, never a threat.
+5. Follow-up email if the call fails (short).
+Then give &quot;Odds of winning: N%&quot; with one line why. Then ask: &quot;Want to practise? I will play the other side.&quot;
+
+STEP 4. ROLE-PLAY
+If I say yes, play the toughest realistic version of the other side (retention agent, landlord, recruiter, billing office). Start with one line: &quot;Practice only. Any numbers or offers I invent as the other side are not real.&quot; Then stay in character and write one short reply per turn. Do not fold fast, and do not be cruel. After each reply of mine, add two lines under a divider:
+Coach: one sentence on what I did well or should fix.
+Odds: N% (running number, it can go up or down).
+Stop after about 5 rounds, or if I type &quot;stop&quot;. Then leave character and give: what worked, what to fix, final odds.
+
+RULES
+Never advise lying, faking a competitor quote or offer, threats, bluffing, or anything deceptive or illegal. Only say &quot;I will cancel&quot; or &quot;I have another offer&quot; if it is true. Add one calm line, once, that you are not giving legal, medical or financial advice. Never state what a law guarantees. Do not quote statistics or success rates. Use $ unless I name another currency. For medical bills, give only general steps and flag them as general: ask for an itemised bill, compare it with the insurer&#x27;s explanation of benefits, ask about the provider&#x27;s financial assistance application, ask about a payment plan. Keep the first reply under 450 words. Short plain sentences. Be kind.
+
+MY SITUATION:
+[paste or describe your bill, price or offer here]
+</code></pre></details>
+<h2>Other ways to use it</h2>
+<ul class="links">
+<li><a href="haggle.html"><strong>The picker page</strong></a> is for your phone. Pick your case and it fills in the brackets for you, with a short tips card. It makes no AI calls and sends nothing anywhere. <a href="sources.md">Where the tips come from</a>.</li>
+<li><a href="SKILL.md" download><strong>Download SKILL.md</strong></a> if you use Claude Code. Put it in a folder named haggle inside your .claude/skills folder.</li>
+<li><a href="PASTE.txt"><strong>PASTE.txt</strong></a> is the same prompt as plain text.</li>
+</ul>
+<h2>Honest limits</h2>
+<ul>
+<li>The odds number is the AI's guess to coach you. It is not a statistic.</li>
+<li>Some things cannot be negotiated. It tells you when that is the case.</li>
+<li>In the practice round the AI makes up the other side's numbers and offers. They are not real offers.</li>
+<li>It will not help you lie, fake an offer or threaten anyone.</li>
+<li>It is not legal, medical or financial advice. For medical bills it gives general steps only.</li>
+<li>I tested it in Claude only, with 12 test runs across 7 sample situations and one run each. Results vary. The practice round was tested for 1 to 3 turns. I have not tried it in other chatbots.</li>
+<li>The example in the video is a sample: a $65 bill that became $94 when a promo ended.</li>
+</ul></div>
+<div class="box"><h2>Get the next free tool first</h2><p>I post one free AI tool at a time, tested, with the setup.</p><a class="btn" href="https://www.instagram.com/louiscreates.ai/">Follow @louiscreates.ai</a></div>
+<footer>Louis's Free AI Library &middot; <a href="https://www.instagram.com/louiscreates.ai/">Follow @louiscreates.ai</a></footer>
+</div>
+<script>
+(function () {
+  var btn = document.getElementById('copy');
+  var src = document.getElementById('prompt');
+  if (!btn || !src) return;
+  var idle = btn.textContent;
+  function legacy(text) {
+    var t = document.createElement('textarea');
+    t.value = text; t.style.position = 'fixed'; t.style.opacity = '0';
+    document.body.appendChild(t); t.select();
+    var ok = false;
+    try { ok = document.execCommand('copy'); } catch (e) { ok = false; }
+    document.body.removeChild(t);
+    return ok;
+  }
+  function flash(ok) {
+    btn.textContent = ok ? 'Copied. Now paste it in your chatbot.' : 'Could not copy. Open "See the full prompt" and copy it by hand.';
+    btn.classList.toggle('done', ok);
+    setTimeout(function () { btn.textContent = idle; btn.classList.remove('done'); }, 2500);
+  }
+  btn.addEventListener('click', function () {
+    var text = src.textContent;
+    if (navigator.clipboard && window.isSecureContext) {
+      navigator.clipboard.writeText(text).then(function () { flash(true); }, function () { flash(legacy(text)); });
+    } else { flash(legacy(text)); }
+  });
+})();
+</script></body></html>
