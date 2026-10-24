@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>COACH: six roles that run your training week</title>
+<meta name="description" content="A free Claude prompt with six coaching roles: a plan from your equipment, form checklists, weekly changes from your log, meals from your fridge, a safety stop and check-ins.">
+<link rel="icon" href="data:,">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;700;900&family=Montserrat:wght@700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+.guide h2{margin-top:30px}
+.guide ol{padding-left:22px}
+.guide li{margin:6px 0}
+.bigbtn{display:block;width:100%;text-align:center;font-family:'Montserrat',Arial,sans-serif;font-weight:900;font-size:20px;background:#1c1a17;color:#fff;text-decoration:none;padding:18px 16px;border-radius:12px;border:0;cursor:pointer;margin:14px 0}
+.bigbtn.done{background:#2f7d4f}
+.bigbtn.alt{background:#e0664f}
+.guide pre.paste{white-space:pre-wrap;word-wrap:break-word;overflow-x:hidden;font-size:14px;line-height:1.5;max-height:420px;overflow-y:auto}
+.guide pre code{white-space:inherit;word-break:normal}
+.note{background:#fbf1d3;border-radius:10px;padding:12px 16px;margin:16px 0}
+.note p{margin:6px 0}
+.links{list-style:none;padding:0}
+.links li{margin:10px 0}
+details.full{margin:12px 0}
+details.full summary{cursor:pointer;font-weight:700;padding:6px 0}
+@media (max-width:480px){body{font-size:18px}.guide{padding:6px 16px 20px}}
+body,.tape{background-image:url(../assets/paper.png)}
+</style></head>
+<body><div class="wrap"><svg class="robot" viewBox="0 0 260 300" aria-hidden="true"><line x1="130" y1="62" x2="130" y2="24" stroke="#1c1a17" stroke-width="7" stroke-linecap="round"/><circle cx="130" cy="20" r="14" fill="#ffd23f" stroke="#1c1a17" stroke-width="5"/><rect x="88" y="236" width="26" height="54" rx="8" fill="#4c6fff"/><rect x="146" y="236" width="26" height="54" rx="8" fill="#4c6fff"/><rect x="206" y="92" width="30" height="86" rx="14" fill="#4c6fff" transform="rotate(-150 221 100)"/><rect x="24" y="142" width="30" height="86" rx="14" fill="#4c6fff"/><rect x="44" y="58" width="172" height="190" rx="36" fill="#4c6fff"/><rect x="70" y="86" width="120" height="92" rx="24" fill="#fbf4e4"/><ellipse cx="105" cy="128" rx="13" ry="16" fill="#1c1a17"/><ellipse cx="155" cy="128" rx="13" ry="16" fill="#1c1a17"/><path d="M112 154 Q130 172 148 154" stroke="#1c1a17" stroke-width="6" fill="none" stroke-linecap="round"/></svg><a class="small" href="../">&larr; All free guides</a>
+<h1 class="tape">COACH</h1>
+<div class="guide"><h1>COACH: six roles that run your training week</h1>
+<h2>What it is</h2>
+<p>A free prompt for a normal Claude chat. One Claude plays six roles, and each part of the reply has the role name on top.</p>
+<ul>
+<li><strong>Program builder</strong> makes your plan from the equipment you really have and the days and minutes you can give.</li>
+<li><strong>Form coach</strong> gives a short checklist for every lift in the plan: setup, the move, the most common mistake.</li>
+<li><strong>Weekly adjuster</strong> reads the log you paste and sets next week's weights and reps, with one line why for each lift.</li>
+<li><strong>Chef</strong> turns what is in your fridge into three meals that fit your goal, and skips any allergy you named.</li>
+<li><strong>Safety</strong> stops all coaching the moment you say something hurts and tells you to see a professional. Chest pain gets the emergency number.</li>
+<li><strong>Check-in</strong> looks at your weeks so far and says keep going, fix a stalled lift, or take an easy week.</li>
+</ul>
+<p>It is not medical advice and it does not replace a doctor or a coach.</p>
+<div class="note"><p><strong>Chest pain, fainting, or numbness on one side?</strong> Do not ask a chatbot. Call 911 in the US, 999 in the UK or 112 in Europe. Do not drive yourself.</p></div>
+<h2>Steps</h2>
+<ol>
+<li><strong>Tap the button to copy the prompt.</strong></li>
+<li><strong>Open a new Claude chat, paste it and send.</strong> It asks for your goal, days, minutes, the exact equipment you have, any pain or health condition, kg or lb, and how you eat.</li>
+<li><strong>Answer in one message.</strong> You get your plan, a checklist for every lift and a log to fill in.</li>
+<li><strong>At the end of the week, paste your log</strong> in the same chat. Type what is in your fridge any time. Type check-in after week 4.</li>
+<li><strong>If anything hurts, say so.</strong> It stops coaching and tells you to see a professional.</li>
+</ol>
+<button class="bigbtn" id="copy" type="button" data-copy="prompt" data-done="Copied. Now paste it in Claude.">Copy the prompt</button>
+<details class="full"><summary>See the full prompt</summary>
+<pre class="paste"><code id="prompt">You are COACH: six coaching roles that run my training week. Put the role name as a heading on each part of your reply (PROGRAM BUILDER, FORM COACH, WEEKLY ADJUSTER, CHEF, SAFETY, CHECK-IN). You are not a doctor and this is not medical advice.
+
+MY SETUP:
+[Write it here: your goal, days per week, minutes per session, the exact equipment you have, your experience, any pain, injury or health condition, kg or lb, and how you eat (allergies too). If this line is still here, ask me for these in one short message and stop.]
+
+ROLE 5 COMES FIRST: SAFETY
+Read every message I send for this before anything else, including logs and fridge lists.
+If I say something hurts, or I mention pain, a twinge, an injury, swelling, numbness, tingling, dizziness, feeling faint or chest pain, the SAFETY role takes over:
+- Stop coaching. No workout, no swaps, no &quot;work around it&quot;, no stretches, no rehab moves, no meals, no guess at what it is.
+- Tell me to stop the exercise and to see a professional (a doctor or a physical therapist) before I train that area again.
+- RED FLAGS: chest pain, pressure or tightness, pain spreading to the arm, jaw, neck or back, shortness of breath that does not settle with rest, fainting, a racing or uneven heartbeat, a sudden severe headache, numbness or weakness on one side, slurred speech or confusion. For any of these, the first line is: &quot;Stop now and call emergency services (911 in the US, 999 in the UK, 112 in Europe). Do not drive yourself.&quot; Even if it went away, get checked today.
+- End with: &quot;When a professional clears you, tell me what they said and I will rebuild the plan around it.&quot;
+- Nothing else in that reply. If I push back (&quot;it is not that bad&quot;, &quot;just give me an upper body day&quot;), the stop still holds.
+Plain stiffness a day or two after a new workout, said without pain words, is common. Say so in one line and carry on. If I say it hurts, it is sharp, in a joint, on one side, or getting worse, it is a stop. If you are unsure, it is a stop.
+Only show the SAFETY heading when it takes over. Never tell me I am cleared, safe or good to go. You cannot know that.
+
+FIRST REPLY
+If my setup does not say my days, minutes or equipment, ask only for what is missing in one short message and stop.
+If I mention a heart or lung condition, high blood pressure, diabetes, pregnancy, recent surgery, or a doctor who told me to limit exercise, open with one line: get your doctor&#x27;s OK before you start. Then go on.
+
+ROLE 1: PROGRAM BUILDER
+- Use ONLY the equipment I listed. Never add a machine, bar, bench or weight I did not name. If my heaviest weight is 20 kg, nothing goes above 20 kg.
+- Fit my days and my minutes, with a 5 minute warm-up inside the time. Say how long each day takes.
+- Beginners: full body. Hit legs, hips, back, chest, shoulders and core at least twice a week.
+- One small table per day: lift, sets x reps, rest. Starting weight: &quot;a weight you could lift 2 or 3 more times&quot;.
+
+ROLE 4: FORM COACH (right after the program, every time)
+- A checklist for EVERY lift in the program. No lift left out. Three short lines each: setup, the move, the most common mistake.
+- When a lift is swapped or added later, give its checklist too.
+- One line: &quot;Film one set from the side and check it against the list. If a lift hurts, that is a safety stop, not a form fix.&quot;
+
+Then give me this log template to fill in:
+WEEK 1 LOG
+Day 1: Lift weight reps,reps,reps easy/ok/hard
+Missed:
+Sleep: good/ok/poor
+Notes:
+
+ROLE 2: WEEKLY ADJUSTER (when I paste a log)
+- All sets at the top of the rep range and it felt easy or ok: add the smallest jump I have (next dumbbell, or 1 to 2.5 kg, or 2.5 to 5 lb). If I have no heavier weight, add a rep, a set, or a slower 3 second lowering.
+- Top of the range but hard: same weight, aim for one more rep.
+- Below the bottom of the range: same weight. Two weeks in a row: drop about 10 percent.
+- Missed half the week or more: repeat the week. Never cram missed days.
+- Never guess my weight steps or which weights I own. If you do not know the next step, write &quot;next weight up on your set&quot;.
+- Use only numbers from my log. If a lift is not in the log, write &quot;not in log&quot; and keep it the same.
+- Show a table: lift, this week, next week, why (one line). Then one thing to focus on.
+
+ROLE 3: CHEF (when I tell you what is in my fridge or cupboard)
+- Use only what I listed, plus salt, pepper, oil and water. No allergens I named.
+- Give 3 meals that fit my goal, each built around a protein. Name, what to use, 3 to 5 short steps, protein in grams marked &quot;rough estimate&quot;.
+- Not enough protein in there? Say so and give a shopping list of at most 3 items.
+- No calorie promises, no supplements, no diets for a medical condition. For those, a registered dietitian should check.
+
+ROLE 6: CHECK-IN (when I type check-in, after every 4th log, or when a lift has not gone up for 2 weeks)
+- Look at all my logs: what went up, what stalled, sessions done versus planned.
+- Pick ONE: KEEP GOING, FIX THE STALL (one change, using equipment I have), or EASY WEEK (same lifts, about half the sets, a bit lighter, then back to normal).
+- One line why, and when the next check-in is.
+
+RULES
+- Plain short sentences. No em dashes. Use my units.
+- Never invent my numbers or my equipment. If I did not say it, ask or write &quot;not in log&quot;.
+- No promises about results or how fast. No diagnosis. Never say you saved, stored or will remember anything.
+- In the first reply show only PROGRAM BUILDER, FORM COACH and the log template. The other roles wait until I need them.
+- Keep the first reply under 900 words. End it with: &quot;Paste your log at the end of the week. Tell me what is in your fridge any time. Type check-in after week 4.&quot;
+</code></pre></details>
+
+<h2>The weekly log</h2>
+<p>Fill this in as you train. One line per lift: the weight, the reps of each set, and how it felt.</p>
+<button class="bigbtn alt" id="copylog" type="button" data-copy="log" data-done="Copied. Fill it in as you train.">Copy the log</button>
+<details class="full"><summary>See the log</summary>
+<pre class="paste"><code id="log">WEEK 1 LOG
+Day 1: Lift weight reps,reps,reps easy/ok/hard
+Day 2:
+Day 3:
+Missed:
+Sleep: good/ok/poor
+Notes:
+
+Example line:
+Goblet squat 10kg 12,11,10 ok
+</code></pre></details>
+
+<h2>Other ways to use it</h2>
+<ul class="links">
+<li><a href="SKILL.md" download><strong>Download SKILL.md</strong></a> if you use Claude Code. Put it in a folder named coach inside your .claude/skills folder. Then ask for a workout plan and it starts by itself.</li>
+<li><a href="PASTE.txt"><strong>PASTE.txt</strong></a> is the same prompt as plain text.</li>
+<li><a href="log-template.txt"><strong>log-template.txt</strong></a> is the weekly log as plain text.</li>
+</ul>
+<h2>Honest limits</h2>
+<ul>
+<li>It is not medical advice. If something hurts, see a doctor or a physical therapist.</li>
+<li>It only knows what you type. List your real equipment and your real numbers.</li>
+<li>It can be wrong. Film a set and check your form against the list.</li>
+<li>No promises about results or how fast.</li>
+<li>I tested it in Claude only, with 27 test runs on made up users: a beginner at home with dumbbells, a gym regular, a kettlebell and treadmill setup, a week of logs, a sore knee, chest pain and dizziness. In all 7 pain tests it stopped coaching. Answers change from run to run, and I have not tried it in other chatbots.</li>
+<li>The examples in the video are samples from those test runs, not real people.</li>
+</ul></div>
+<div class="box"><h2>Get the next free tool first</h2><p>I post one free AI tool at a time, tested, with the setup.</p><a class="btn" href="https://www.instagram.com/louiscreates.ai/">Follow @louiscreates.ai</a></div>
+<footer>Louis's Free AI Library &middot; <a href="https://www.instagram.com/louiscreates.ai/">Follow @louiscreates.ai</a></footer>
+</div>
+<script>
+(function () {
+  function legacy(text) {
+    var t = document.createElement('textarea');
+    t.value = text; t.style.position = 'fixed'; t.style.opacity = '0';
+    document.body.appendChild(t); t.select();
+    var ok = false;
+    try { ok = document.execCommand('copy'); } catch (e) { ok = false; }
+    document.body.removeChild(t);
+    return ok;
+  }
+  var buttons = document.querySelectorAll('button[data-copy]');
+  Array.prototype.forEach.call(buttons, function (btn) {
+    var src = document.getElementById(btn.getAttribute('data-copy'));
+    if (!src) return;
+    var idle = btn.textContent;
+    var doneText = btn.getAttribute('data-done') || 'Copied.';
+    function flash(ok) {
+      btn.textContent = ok ? doneText : 'Could not copy. Open the full text below and copy it by hand.';
+      btn.classList.toggle('done', ok);
+      setTimeout(function () { btn.textContent = idle; btn.classList.remove('done'); }, 2500);
+    }
+    btn.addEventListener('click', function () {
+      var text = src.textContent;
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(text).then(function () { flash(true); }, function () { flash(legacy(text)); });
+      } else { flash(legacy(text)); }
+    });
+  });
+})();
+</script></body></html>

@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PAYWALL: the free version of apps you pay for</title>
+<link rel="icon" href="data:,">
+<meta name="description" content="Type an app you pay for. See its free or open source version, what you give up by switching, and the link. Every row checked on its real page.">
+<style>
+:root{--cream:#f3ead6;--paper:#fffaf0;--ink:#1c1a17;--muted:#6b645a;--line:#e3d8c0;--red:#e0664f;--green:#2f7d4f;--yellow:#fbf1d3}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--cream);color:var(--ink)}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:17px;line-height:1.45}
+.wrap{max-width:760px;margin:0 auto;padding:20px 16px 60px}
+h1{font-size:40px;line-height:1;margin:8px 0 4px;letter-spacing:-.02em;font-weight:900}
+h1 span{background:var(--ink);color:var(--cream);padding:2px 10px;border-radius:8px}
+.sub{color:var(--muted);margin:6px 0 16px}
+.searchbox{position:sticky;top:0;background:var(--cream);padding:8px 0 10px;z-index:2}
+input[type=search]{width:100%;font:inherit;font-size:20px;padding:15px 16px;border:2px solid var(--ink);border-radius:14px;background:#fff;color:var(--ink);-webkit-appearance:none;appearance:none}
+.meta{font-size:14px;color:var(--muted);margin:6px 2px 0;min-height:20px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:4px 0 14px}
+.chips button{font:inherit;font-size:15px;border:2px solid var(--line);background:var(--paper);border-radius:999px;padding:8px 12px;cursor:pointer;color:var(--ink)}
+.results{display:grid;gap:12px}
+.card{background:var(--paper);border:2px solid var(--line);border-radius:16px;padding:14px 16px}
+.row1{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 10px}
+.paid{font-weight:800;font-size:15px;color:var(--muted);text-decoration:line-through;text-decoration-color:var(--red);text-decoration-thickness:2px}
+.cat{font-size:13px;color:var(--muted)}
+.alt{font-weight:900;font-size:24px;margin:2px 0 6px;line-height:1.15}
+.tag{display:inline-block;font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.03em;border-radius:6px;padding:2px 7px;vertical-align:middle;margin-left:6px;background:var(--green);color:#fff}
+.tag.free{background:#4c6fff}
+.tag.source{background:#8a6d1d}
+.give{background:var(--yellow);border-radius:10px;padding:8px 10px;margin:8px 0;font-size:16px}
+.give b{display:block;font-size:12px;text-transform:uppercase;letter-spacing:.04em;color:#7a5b10}
+.facts{font-size:14px;color:var(--muted);margin:6px 0 10px;overflow-wrap:anywhere}
+.open{display:inline-block;font-weight:800;text-decoration:none;color:#fff;background:var(--ink);padding:13px 16px;border-radius:12px}
+.empty{background:var(--paper);border:2px dashed var(--line);border-radius:16px;padding:18px;text-align:center}
+details{margin:22px 0 10px}
+summary{cursor:pointer;font-weight:800}
+footer{margin-top:28px;color:var(--muted);font-size:14px}
+footer a{color:var(--ink)}
+@media (max-width:480px){h1{font-size:34px}.alt{font-size:22px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<h1><span>PAYWALL</span></h1>
+<p class="sub">Type an app you pay for. See its free or open source version, what you give up by switching, and the link.</p>
+
+<div class="searchbox">
+  <label for="q" class="meta" style="display:block;margin:0 2px 6px;font-weight:700;color:var(--ink)">App you pay for</label>
+  <input type="search" id="q" placeholder="e.g. CapCut, Photoshop, Notion" autocomplete="off" autocapitalize="off" spellcheck="false">
+  <div class="meta" id="meta" aria-live="polite"></div>
+</div>
+<div class="chips" id="chips" aria-label="Try one"></div>
+
+<div class="results" id="results"></div>
+
+<details>
+  <summary>How this list was checked</summary>
+  <p>Every row was checked on 24 October 2026: the free version's real page was opened and read, GitHub projects were checked for stars, licence and recent activity, and the "you give up" line comes from what those pages say. Rows that could not be checked were dropped. No affiliate links.</p>
+  <p>Open source means anyone can read and use the code. Free means free to use, but the code is closed. Source available means you can run it yourself, but the licence is not open source.</p>
+  <p>Plans change. Tap the link and check the live page before you cancel anything.</p>
+</details>
+
+<footer>Free list by <a href="https://www.instagram.com/louiscreates.ai/" target="_blank" rel="noopener">@louiscreates.ai</a>. Follow for the next one.</footer>
+</div>
+
+<script src="data.js"></script>
+<script src="search.js"></script>
+<script>
+(function () {
+  'use strict';
+  var rows = window.PAYWALL_DATA;
+  var finder = window.PaywallSearch;
+  var input = document.getElementById('q'), out = document.getElementById('results'), meta = document.getElementById('meta'), chips = document.getElementById('chips');
+  if (!Array.isArray(rows) || !finder) {
+    out.innerHTML = '<div class="empty">The list did not load. Reload the page.</div>';
+    return;
+  }
+  var prepared = finder.prepare(rows);
+  var MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+
+  function el(tag, cls, text) {
+    var e = document.createElement(tag);
+    if (cls) e.className = cls;
+    if (text != null) e.textContent = text;
+    return e;
+  }
+  function niceDate(iso) {
+    var p = String(iso || '').split('-');
+    return p.length === 3 ? Number(p[2]) + ' ' + MONTHS[Number(p[1]) - 1] + ' ' + p[0] : iso;
+  }
+  function stars(n) {
+    if (typeof n !== 'number') return '';
+    return n >= 1000 ? (Math.round(n / 100) / 10).toString() + 'k' : String(n);
+  }
+  function kindTag(kind) {
+    var t = el('span', 'tag' + (kind === 'free' ? ' free' : kind === 'source available' ? ' source' : ''), kind);
+    return t;
+  }
+  function card(r) {
+    var c = el('article', 'card');
+    var row1 = el('div', 'row1');
+    row1.appendChild(el('span', 'paid', r.paid));
+    row1.appendChild(el('span', 'cat', r.category));
+    c.appendChild(row1);
+    var alt = el('div', 'alt', r.alt);
+    alt.appendChild(kindTag(r.kind));
+    c.appendChild(alt);
+    var give = el('div', 'give');
+    give.appendChild(el('b', null, 'What you give up'));
+    give.appendChild(document.createTextNode(r.giveUp));
+    c.appendChild(give);
+    var bits = [r.platforms];
+    if (r.repoUrl && r.stars) bits.push(stars(r.stars) + ' stars on ' + r.repoHost);
+    if (r.licenceShown) bits.push('Licence: ' + r.licenceShown);
+    bits.push('Checked ' + niceDate(r.checked));
+    c.appendChild(el('div', 'facts', bits.join(' · ')));
+    var a = el('a', 'open', 'Open ' + r.alt.replace(/ \(.*\)$/, ''));
+    a.href = r.altUrl; a.target = '_blank'; a.rel = 'noopener noreferrer';
+    c.appendChild(a);
+    return c;
+  }
+  function render() {
+    var q = input.value;
+    var found = finder.search(prepared, q);
+    out.innerHTML = '';
+    if (!q.trim()) meta.textContent = rows.length + ' apps on the list. Start typing, or scroll them all.';
+    else meta.textContent = found.length ? found.length + (found.length === 1 ? ' match' : ' matches') : '';
+    if (q.trim() && !found.length) {
+      var e = el('div', 'empty');
+      e.appendChild(el('strong', null, 'Not on the list yet.'));
+      e.appendChild(el('div', null, 'Try the app\'s short name, like "capcut" or "photoshop".'));
+      out.appendChild(e);
+      return;
+    }
+    found.forEach(function (r) { out.appendChild(card(r)); });
+  }
+  ['CapCut', 'Canva', 'Photoshop', 'ElevenLabs', 'Notion', '1Password'].forEach(function (name) {
+    var b = el('button', null, name);
+    b.type = 'button';
+    b.addEventListener('click', function () { input.value = name; render(); input.focus(); });
+    chips.appendChild(b);
+  });
+  input.addEventListener('input', render);
+  render();
+})();
+</script>
+</body>
+</html>

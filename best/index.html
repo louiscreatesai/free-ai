@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BEST: read the complaints before you buy</title>
+<meta name="description" content="A free Claude prompt that reads real owner complaints, checks which ones repeat, picks the three best with the catch of each, and gives you one question to ask before you pay.">
+<link rel="icon" href="data:,">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;700;900&family=Montserrat:wght@700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+.guide h2{margin-top:30px}
+.guide ol{padding-left:22px}
+.guide li{margin:6px 0}
+.bigbtn{display:block;width:100%;text-align:center;font-family:'Montserrat',Arial,sans-serif;font-weight:900;font-size:20px;background:#1c1a17;color:#fff;text-decoration:none;padding:18px 16px;border-radius:12px;border:0;cursor:pointer;margin:14px 0}
+.bigbtn.done{background:#2f7d4f}
+.bigbtn.alt{background:#e0664f}
+.guide pre.paste{white-space:pre-wrap;word-wrap:break-word;overflow-x:hidden;font-size:14px;line-height:1.5;max-height:420px;overflow-y:auto}
+.guide pre code{white-space:inherit;word-break:normal}
+.note{background:#fbf1d3;border-radius:10px;padding:12px 16px;margin:16px 0}
+.note p{margin:6px 0}
+.links{list-style:none;padding:0}
+.links li{margin:10px 0}
+details.full{margin:12px 0}
+details.full summary{cursor:pointer;font-weight:700;padding:6px 0}
+@media (max-width:480px){body{font-size:18px}.guide{padding:6px 16px 20px}}
+body,.tape{background-image:url(../assets/paper.png)}
+</style></head>
+<body><div class="wrap"><svg class="robot" viewBox="0 0 260 300" aria-hidden="true"><line x1="130" y1="62" x2="130" y2="24" stroke="#1c1a17" stroke-width="7" stroke-linecap="round"/><circle cx="130" cy="20" r="14" fill="#ffd23f" stroke="#1c1a17" stroke-width="5"/><rect x="88" y="236" width="26" height="54" rx="8" fill="#4c6fff"/><rect x="146" y="236" width="26" height="54" rx="8" fill="#4c6fff"/><rect x="206" y="92" width="30" height="86" rx="14" fill="#4c6fff" transform="rotate(-150 221 100)"/><rect x="24" y="142" width="30" height="86" rx="14" fill="#4c6fff"/><rect x="44" y="58" width="172" height="190" rx="36" fill="#4c6fff"/><rect x="70" y="86" width="120" height="92" rx="24" fill="#fbf4e4"/><ellipse cx="105" cy="128" rx="13" ry="16" fill="#1c1a17"/><ellipse cx="155" cy="128" rx="13" ry="16" fill="#1c1a17"/><path d="M112 154 Q130 172 148 154" stroke="#1c1a17" stroke-width="6" fill="none" stroke-linecap="round"/></svg><a class="small" href="../">&larr; All free guides</a>
+<h1 class="tape">BEST</h1>
+<div class="guide"><h1>BEST: read the complaints before you buy</h1>
+<h2>What it is</h2>
+<p>A free prompt for Claude with web search on. Before you buy something, one Claude plays three roles and then asks one question.</p>
+<ul>
+<li><strong>Complaint finder</strong> searches what real owners complain about for each option: Reddit and forum threads, low star reviews, owners after months of use, returns, warranty stories and lab tests.</li>
+<li><strong>Pattern checker</strong> counts how many separate sources report each problem, so one angry review does not decide anything. It says when the evidence is thin.</li>
+<li><strong>The picker</strong> picks the three best for what you need and names the catch of each one.</li>
+<li><strong>The one question</strong> to ask before you pay, tied to the biggest catch.</li>
+</ul>
+<p>It numbers every source with a link so you can check it. "Best of" and "top 10" lists are only used to find model names, never as evidence. There are no shop links in it and I get nothing if you buy.</p>
+<h2>Steps</h2>
+<ol>
+<li><strong>Tap the button to copy the prompt.</strong></li>
+<li><strong>Open a new Claude chat and make sure web search is on.</strong> If it is off, the prompt tells you and stops. It will not make up reviews.</li>
+<li><strong>Paste it and send.</strong> It asks what you are buying, your budget, your country, what you need it for and any models you like.</li>
+<li><strong>Wait a few minutes.</strong> In my tests it took about 3 to 7 minutes and ran 18 to 45 searches and page loads.</li>
+<li><strong>Open the sources behind the catch you care about</strong> before you pay. Then ask the one question.</li>
+</ol>
+<button class="bigbtn" id="copy" type="button" data-copy="prompt" data-done="Copied. Now paste it in Claude.">Copy the prompt</button>
+<details class="full"><summary>See the full prompt</summary>
+<pre class="paste"><code id="prompt">You are BEST: a crash test for something I am about to buy. Three roles work in order, then one question. Put each role name as a heading (COMPLAINT FINDER, PATTERN CHECKER, THE PICKER, THE ONE QUESTION). You get nothing from any product and you never add shop links, affiliate links or coupon codes.
+
+WHAT I AM BUYING:
+[Write it here: what it is, your budget, your country, what you need it for, and any models you are already looking at. If this line is still here, ask me for these in one short message and stop.]
+
+BEFORE YOU START
+- You need web search for this. If you cannot search the web in this chat, say so in one line, tell me to turn web search on, and stop. Never write complaints, reviews or sources from memory.
+- Check 4 to 6 options. If I named fewer than 4, add models that are on sale now in my country and budget until you have at least 4. Shops, brand pages and &quot;best of&quot; lists may be used only to find names and prices, never as evidence.
+
+ROLE 1: COMPLAINT FINDER
+For each option, search for what real owners complain about: Reddit and forum threads, 1 to 3 star reviews on shop sites, owners writing after months of use, return and warranty stories, recalls, and lab tests that measure things.
+- Search with words like: &quot;[model] problems&quot;, &quot;[model] reddit&quot;, &quot;[model] stopped working&quot;, &quot;[model] returned&quot;, &quot;[model] after 6 months&quot;.
+- Write each complaint in plain words with its source number, like [3]. Keep the page&#x27;s own strength: &quot;may&quot; stays &quot;may&quot;.
+- NOT evidence: &quot;best X&quot; and &quot;top 10&quot; lists, buying guides that earn money from shop links, sponsored posts, the brand&#x27;s own site, pages that only summarise reviews with AI, and any page you could not open. If a page is full of shop links and shows no testing of its own, skip it.
+
+ROLE 2: PATTERN CHECKER
+For each complaint, count the independent sources that report it. Independent means different sites or different owners, not one story copied around.
+- Count only what a page really says. Never round a number up. Several owners on one page count as one site: write &quot;3 owners on one site&quot;.
+- PATTERN: 3 or more independent sources.
+- SEEN TWICE: 2 sources.
+- ONE-OFF: 1 source. A one-off never decides anything.
+- Write &quot;Thin evidence&quot; next to any option with fewer than 3 owner sources.
+- If a problem looks fixed in a newer version or an update, say so with its source.
+- End this part with one line: &quot;Opened N pages. M more seen only in search results.&quot;
+
+ROLE 3: THE PICKER
+- Pick the best three for what I said I need. For each: one line why, and &quot;The catch:&quot; the PATTERN or SEEN TWICE problem I am most likely to hit. If an option has no repeated complaint, write &quot;No repeated complaint found in N sources&quot;, never &quot;no problems&quot;.
+- Every catch must rest on at least one page you opened, not only a search result.
+- Price: &quot;about $X when checked&quot; with its source, or &quot;check the current price&quot;.
+- If none is good enough, say so.
+
+THE ONE QUESTION
+End with the one question to ask before I pay (the seller, the shop, or myself), tied to the biggest catch. For example the return window, a part that wears out, or whether it fits my space.
+
+SOURCES
+Number every source: site name, full URL, and what it says in under 12 words. Only list pages you opened or saw in search results. Mark the ones you only saw in search results &quot;(search result)&quot;.
+
+RULES
+- Plain short sentences. No em dashes. Use my currency.
+- Never say a product is safe or will last. Say what owners reported.
+- Keep it under 700 words, not counting the sources.
+- Last line: &quot;This is what owners reported, not a guarantee. Check the return policy before you pay.&quot;
+</code></pre></details>
+
+<h2>Three to try first</h2>
+<ul>
+<li>A robot vacuum under $300 for a home with a cat.</li>
+<li>Running earbuds that stay in, under &pound;150.</li>
+<li>An air fryer for four that fits under your cabinets.</li>
+</ul>
+<h2>Other ways to use it</h2>
+<ul class="links">
+<li><a href="SKILL.md" download><strong>Download SKILL.md</strong></a> if you use Claude Code. Put it in a folder named best inside your .claude/skills folder. Web search must be allowed.</li>
+<li><a href="PASTE.txt"><strong>PASTE.txt</strong></a> is the same prompt as plain text.</li>
+</ul>
+<h2>Honest limits</h2>
+<ul>
+<li>It needs web search. Without it, it stops.</li>
+<li>Some sites block it, often Reddit and big shops. Then it uses what it saw in search results and marks those sources "(search result)".</li>
+<li>For new or cheap brands there may be few owner reports. It says "Thin evidence" when that happens.</li>
+<li>It can misread a page or count too many owners. I opened 27 of its sources by hand: 17 said exactly what it claimed, 4 were a small stretch, 3 counted too many owners, and 2 would not load for me. None were made up.</li>
+<li>Prices change every day. Check the price yourself.</li>
+<li>It is what owners reported, not a guarantee. Check the return policy before you pay.</li>
+<li>I tested it in Claude only, with 13 runs on real products: robot vacuums, running earbuds, air fryers, toothbrushes and air purifiers. The examples in the video are samples from those runs, and prices in them are out of date.</li>
+</ul></div>
+<div class="box"><h2>Get the next free tool first</h2><p>I post one free AI tool at a time, tested, with the setup.</p><a class="btn" href="https://www.instagram.com/louiscreates.ai/">Follow @louiscreates.ai</a></div>
+<footer>Louis's Free AI Library &middot; <a href="https://www.instagram.com/louiscreates.ai/">Follow @louiscreates.ai</a></footer>
+</div>
+<script>
+(function () {
+  function legacy(text) {
+    var t = document.createElement('textarea');
+    t.value = text; t.style.position = 'fixed'; t.style.opacity = '0';
+    document.body.appendChild(t); t.select();
+    var ok = false;
+    try { ok = document.execCommand('copy'); } catch (e) { ok = false; }
+    document.body.removeChild(t);
+    return ok;
+  }
+  var buttons = document.querySelectorAll('button[data-copy]');
+  Array.prototype.forEach.call(buttons, function (btn) {
+    var src = document.getElementById(btn.getAttribute('data-copy'));
+    if (!src) return;
+    var idle = btn.textContent;
+    var doneText = btn.getAttribute('data-done') || 'Copied.';
+    function flash(ok) {
+      btn.textContent = ok ? doneText : 'Could not copy. Open the full text below and copy it by hand.';
+      btn.classList.toggle('done', ok);
+      setTimeout(function () { btn.textContent = idle; btn.classList.remove('done'); }, 2500);
+    }
+    btn.addEventListener('click', function () {
+      var text = src.textContent;
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(text).then(function () { flash(true); }, function () { flash(legacy(text)); });
+      } else { flash(legacy(text)); }
+    });
+  });
+})();
+</script></body></html>

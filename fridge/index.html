@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FRIDGE: turn a photo of your fridge into four dinners</title>
+<meta name="description" content="A free prompt: send a fridge photo, get a list of what you have, four dinners, a short shopping list and what to cook first.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;700;900&family=Montserrat:wght@700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+.guide h2{margin-top:30px}
+.guide ol{padding-left:22px}
+.guide li{margin:6px 0}
+.bigbtn{display:block;width:100%;text-align:center;font-family:'Montserrat',Arial,sans-serif;font-weight:900;font-size:20px;background:#1c1a17;color:#fff;text-decoration:none;padding:18px 16px;border-radius:12px;border:0;cursor:pointer;margin:14px 0}
+.bigbtn.done{background:#2f7d4f}
+.bigbtn.alt{background:#e0664f}
+.guide pre.paste{white-space:pre-wrap;word-wrap:break-word;overflow-x:hidden;font-size:14px;line-height:1.5;max-height:420px;overflow-y:auto}
+.guide pre code{white-space:inherit;word-break:normal}
+.note{background:#fbf1d3;border-radius:10px;padding:12px 16px;margin:16px 0}
+.note p{margin:6px 0}
+.links{list-style:none;padding:0}
+.links li{margin:10px 0}
+details.full{margin:12px 0}
+details.full summary{cursor:pointer;font-weight:700;padding:6px 0}
+@media (max-width:480px){body{font-size:18px}.guide{padding:6px 16px 20px}}
+</style></head>
+<body><div class="wrap"><svg class="robot" viewBox="0 0 260 300" aria-hidden="true"><line x1="130" y1="62" x2="130" y2="24" stroke="#1c1a17" stroke-width="7" stroke-linecap="round"/><circle cx="130" cy="20" r="14" fill="#ffd23f" stroke="#1c1a17" stroke-width="5"/><rect x="88" y="236" width="26" height="54" rx="8" fill="#4c6fff"/><rect x="146" y="236" width="26" height="54" rx="8" fill="#4c6fff"/><rect x="206" y="92" width="30" height="86" rx="14" fill="#4c6fff" transform="rotate(-150 221 100)"/><rect x="24" y="142" width="30" height="86" rx="14" fill="#4c6fff"/><rect x="44" y="58" width="172" height="190" rx="36" fill="#4c6fff"/><rect x="70" y="86" width="120" height="92" rx="24" fill="#fbf4e4"/><ellipse cx="105" cy="128" rx="13" ry="16" fill="#1c1a17"/><ellipse cx="155" cy="128" rx="13" ry="16" fill="#1c1a17"/><path d="M112 154 Q130 172 148 154" stroke="#1c1a17" stroke-width="6" fill="none" stroke-linecap="round"/></svg><a class="small" href="../">&larr; All free guides</a>
+<h1 class="tape">FRIDGE</h1>
+<div class="guide"><h1>FRIDGE: turn a photo of your fridge into four dinners</h1>
+<h2>What it is</h2>
+<p>A free prompt that turns a photo of your fridge into dinner. It does four jobs, one after the other.</p>
+<ul>
+<li><strong>The Spotter</strong> lists what it can see. When it cannot tell what something is, it says "Not sure".</li>
+<li><strong>The Chef</strong> plans four dinners from what you have.</li>
+<li><strong>The Shopper</strong> writes the short list of what is missing.</li>
+<li><strong>The Cook-First Planner</strong> says which dinner to cook first, so the food that goes off first gets used first.</li>
+</ul>
+<p>It is one AI doing four jobs. Nothing to install.</p>
+<h2>Steps</h2>
+<ol>
+<li><strong>Take a photo of your open fridge.</strong> Good light, shelves in view. Open the drawers if you can.</li>
+<li><strong>Tap the button to copy the prompt.</strong></li>
+<li><strong>Open a chatbot that takes photos.</strong> Paste the prompt, add your photo, and send. I tested it in Claude. You can also type what is in your fridge instead of a photo.</li>
+<li><strong>Tell it about allergies</strong> and anything you do not eat, and correct anything it got wrong.</li>
+</ol>
+<button class="bigbtn" type="button" data-copy="prompt">Copy the prompt</button>
+<details class="full"><summary>See the full prompt</summary>
+<pre class="paste"><code id="prompt">You are FRIDGE. I send you a photo of my fridge (or a list of what is in it). You turn it into four dinners. You work as four roles, one after the other.
+
+MY FRIDGE:
+[Send a photo of your open fridge with this prompt, or type what is in it. Add anything you do not eat, any allergies, how many people, and what you have in the cupboard. If there is no photo and no list, ask me for one in one short line and stop.]
+
+ROLE 1: THE SPOTTER
+List what you can see. Group it: produce, dairy and eggs, meat and fish, leftovers and tubs, jars and sauces, drinks, other.
+- Only list what you can really see. Say roughly how much (for example &quot;about 6 eggs&quot;, &quot;half a bottle&quot;).
+- If you are not sure what something is, say so. Write it as &quot;Not sure: [your best guess]&quot;. Covered tubs, foil packs, takeaway boxes, unlabelled bottles and blurry items are always &quot;Not sure&quot;.
+- Say what you cannot see (closed drawers, the back of shelves, the freezer).
+- Do not judge freshness from the photo. A photo cannot show if food is still good.
+- If I say something is old, past its date, smells off, has mould, or is of unknown age, put it under &quot;Throw out, do not cook&quot;.
+- Ask me to correct anything you got wrong. Then go on.
+
+ROLE 2: THE CHEF
+Plan four dinners from what is there.
+- Use the things you are sure about. Never build a dinner around a &quot;Not sure&quot; item or anything on the throw-out list.
+- At least 3 of the 4 dinners must use mostly what I already have. If my fridge is too bare for that, say so.
+- Assume I have only salt, pepper, oil and water in the cupboard unless I said more.
+- For each dinner: a name, what it uses from the fridge, what is missing, about how long it takes, and 3 or 4 short steps.
+- Keep them simple and different from each other.
+- Cook meat, poultry, fish and eggs all the way through. Give a safe inside temperature where it matters: chicken and turkey 165°F (74°C), minced meat 160°F (71°C).
+- If I said allergies or foods I do not eat, never use them. If I did not say, add one line: &quot;Tell me about allergies and I will change the plan.&quot;
+
+ROLE 3: THE SHOPPER
+Write the short list of what is missing for all four dinners.
+- One list, grouped by shop aisle, 10 items at most.
+- Mark the items a dinner cannot do without.
+- Nothing I already have.
+
+ROLE 4: THE COOK-FIRST PLANNER
+Say in which order to cook the four dinners so the food that goes off first gets used first.
+- Put fresh meat, fish, opened tubs, soft fruit and leafy greens first. Hard cheese, eggs, carrots, jars and sauces can wait.
+- One line why for each dinner.
+- Then the safety lines, always:
+  &quot;I cannot tell from a photo if food is still good. Check the dates before you cook. Food can look and smell fine and still be unsafe.&quot;
+  &quot;Cooked leftovers keep about 3 to 4 days in the fridge. If you do not know how old something is, do not eat it.&quot;
+  &quot;When in doubt, throw it out.&quot;
+
+RULES
+- Never tell me to eat or cook something that might be spoiled, past its date, or of unknown age. Never say a smell test makes food safe.
+- Short plain sentences. No em dashes.
+- Whole answer under 500 words. Keep every line short.
+</code></pre></details>
+
+<h2>Food safety</h2>
+<ul>
+<li>It cannot tell from a photo if food is still good. Check the dates. Food can look and smell fine and still be unsafe.</li>
+<li>Cooked leftovers keep about 3 to 4 days in the fridge.</li>
+<li>When in doubt, throw it out.</li>
+</ul>
+<h2>What I tested</h2>
+<ul>
+<li>18 test runs in Claude: four real fridge photos from Wikimedia Commons (none of them mine) and five typed fridges, including a nearly empty one, a nut allergy and one full of out-of-date food.</li>
+<li>On the photos it marked unlabelled tins, tubs and bottles as "Not sure" and said what it could not see.</li>
+<li>When the fridge had chicken that smelled funny, out-of-date ham and mouldy cheese, it put them all on a "Throw out, do not cook" list and cooked none of them.</li>
+</ul>
+<h2>Other ways to use it</h2>
+<ul class="links">
+<li><a href="SKILL.md" download><strong>Download SKILL.md</strong></a> if you use Claude Code. Put it in a folder named fridge inside your .claude/skills folder.</li>
+<li><a href="PASTE.txt"><strong>PASTE.txt</strong></a> is the same prompt as plain text.</li>
+</ul>
+<h2>Honest limits</h2>
+<ul>
+<li>It only sees what is in the photo. Closed drawers, covered tubs and the back of shelves are guesses or missing.</li>
+<li>It can get an item wrong. Read its list and correct it.</li>
+<li>The cook-first order is based on what usually goes off first. It cannot see use-by dates.</li>
+<li>It is not a dietitian. For allergies, always check the labels yourself.</li>
+<li>Answers are long, and they change from run to run. I tested it in Claude only, not ChatGPT or Gemini.</li>
+</ul>
+</div>
+<div class="box"><h2>Get the next free tool first</h2><p>I post one free AI tool at a time, tested, with the setup.</p><a class="btn" href="https://www.instagram.com/louiscreates.ai/">Follow @louiscreates.ai</a></div>
+<footer>Louis's Free AI Library &middot; <a href="https://www.instagram.com/louiscreates.ai/">Follow @louiscreates.ai</a></footer>
+</div>
+<script>
+(function () {
+  function legacy(text) {
+    var t = document.createElement('textarea');
+    t.value = text; t.style.position = 'fixed'; t.style.opacity = '0';
+    document.body.appendChild(t); t.select();
+    var ok = false;
+    try { ok = document.execCommand('copy'); } catch (e) { ok = false; }
+    document.body.removeChild(t);
+    return ok;
+  }
+  var buttons = document.querySelectorAll('button[data-copy]');
+  Array.prototype.forEach.call(buttons, function (btn) {
+    var src = document.getElementById(btn.getAttribute('data-copy'));
+    if (!src) return;
+    var idle = btn.textContent;
+    function flash(ok) {
+      btn.textContent = ok ? 'Copied. Now paste it in your chatbot.' : 'Could not copy. Open the full prompt below and copy it by hand.';
+      btn.classList.toggle('done', ok);
+      setTimeout(function () { btn.textContent = idle; btn.classList.remove('done'); }, 2500);
+    }
+    btn.addEventListener('click', function () {
+      var text = src.textContent;
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(text).then(function () { flash(true); }, function () { flash(legacy(text)); });
+      } else { flash(legacy(text)); }
+    });
+  });
+})();
+</script></body></html>

@@ -1,0 +1,10 @@
+WEEK 1 LOG
+Day 1: Lift weight reps,reps,reps easy/ok/hard
+Day 2:
+Day 3:
+Missed:
+Sleep: good/ok/poor
+Notes:
+
+Example line:
+Goblet squat 10kg 12,11,10 ok

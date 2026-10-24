@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TWIN: a style card that makes AI write like you</title>
+<meta name="description" content="A free prompt that measures how you write and turns it into a style card you can paste into any chat.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;700;900&family=Montserrat:wght@700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+.guide h2{margin-top:30px}
+.guide ol{padding-left:22px}
+.guide li{margin:6px 0}
+.bigbtn{display:block;width:100%;text-align:center;font-family:'Montserrat',Arial,sans-serif;font-weight:900;font-size:20px;background:#1c1a17;color:#fff;text-decoration:none;padding:18px 16px;border-radius:12px;border:0;cursor:pointer;margin:14px 0}
+.bigbtn.done{background:#2f7d4f}
+.bigbtn.alt{background:#e0664f}
+.guide pre.paste{white-space:pre-wrap;word-wrap:break-word;overflow-x:hidden;font-size:14px;line-height:1.5;max-height:420px;overflow-y:auto}
+.guide pre code{white-space:inherit;word-break:normal}
+.note{background:#fbf1d3;border-radius:10px;padding:12px 16px;margin:16px 0}
+.note p{margin:6px 0}
+.links{list-style:none;padding:0}
+.links li{margin:10px 0}
+details.full{margin:12px 0}
+details.full summary{cursor:pointer;font-weight:700;padding:6px 0}
+@media (max-width:480px){body{font-size:18px}.guide{padding:6px 16px 20px}}
+</style></head>
+<body><div class="wrap"><svg class="robot" viewBox="0 0 260 300" aria-hidden="true"><line x1="130" y1="62" x2="130" y2="24" stroke="#1c1a17" stroke-width="7" stroke-linecap="round"/><circle cx="130" cy="20" r="14" fill="#ffd23f" stroke="#1c1a17" stroke-width="5"/><rect x="88" y="236" width="26" height="54" rx="8" fill="#4c6fff"/><rect x="146" y="236" width="26" height="54" rx="8" fill="#4c6fff"/><rect x="206" y="92" width="30" height="86" rx="14" fill="#4c6fff" transform="rotate(-150 221 100)"/><rect x="24" y="142" width="30" height="86" rx="14" fill="#4c6fff"/><rect x="44" y="58" width="172" height="190" rx="36" fill="#4c6fff"/><rect x="70" y="86" width="120" height="92" rx="24" fill="#fbf4e4"/><ellipse cx="105" cy="128" rx="13" ry="16" fill="#1c1a17"/><ellipse cx="155" cy="128" rx="13" ry="16" fill="#1c1a17"/><path d="M112 154 Q130 172 148 154" stroke="#1c1a17" stroke-width="6" fill="none" stroke-linecap="round"/></svg><a class="small" href="../">&larr; All free guides</a>
+<h1 class="tape">TWIN</h1>
+<div class="guide"><h1>TWIN: a style card that makes AI write like you</h1>
+<h2>What it is</h2>
+<p>A free prompt that learns how you write. You paste about five things you wrote, like texts, emails or captions. Then it does three jobs, one after the other.</p>
+<ul>
+<li><strong>The Counter</strong> measures your sentence length and finds your favourite words.</li>
+<li><strong>The Never List</strong> notes the words and habits you never use, including the words chatbots love.</li>
+<li><strong>The Card Writer</strong> turns it into a short style card.</li>
+</ul>
+<p>You paste that card at the start of any new chat, then ask for your draft, and it comes out much closer to how you write. It is one AI doing three jobs, not three people.</p>
+<h2>Steps</h2>
+<ol>
+<li><strong>Tap the button to copy the prompt.</strong></li>
+<li><strong>Open a chatbot and paste it.</strong> I tested it in Claude.</li>
+<li><strong>Swap the line in square brackets for about five things you wrote.</strong> Put a line with --- between them. Use real writing of the kind you want help with, like work emails or texts to friends. Or just send the prompt and it will ask for them.</li>
+<li><strong>Copy the style card it gives you.</strong> Keep it in your notes.</li>
+<li><strong>Next time you need a draft,</strong> paste the card at the start of a new chat, then ask for the message. Read it before you send it.</li>
+</ol>
+<button class="bigbtn" type="button" data-copy="prompt">Copy the prompt</button>
+<details class="full"><summary>See the full prompt</summary>
+<pre class="paste"><code id="prompt">You are TWIN. You study how I write and turn it into a style card I can paste into any chatbot, so its drafts sound like me. You work as three roles, one after the other.
+
+MY WRITING:
+[Paste about five things you wrote yourself: texts, emails, captions, posts. Put a line with --- between them. If this line is still here, ask me to paste my writing in one short line and stop.]
+
+BEFORE YOU START
+- Use only what I pasted. Never invent habits I do not show.
+- If I gave fewer than 3 pieces, ask for more in one short line and stop.
+- If I gave under 150 words in total, say at the top that the card will be rough, then make it anyway.
+- If my pieces are very different (work emails and texts to friends), say so and make the card for the kind I gave the most of. Offer a second card for the other kind.
+
+ROLE 1: THE COUNTER
+Measure, do not guess. Show these, short:
+- Sentence length: count the words in each sentence. Give the average, the shortest and the longest. Say &quot;about&quot; because counting by hand can be off by one or two.
+- Favourite words and phrases: the 5 to 8 words or phrases I use most, not counting &quot;the&quot;, &quot;and&quot;, &quot;a&quot;, &quot;I&quot; and other small words. Show each one with how many times it appears.
+- How I open and how I sign off.
+- Punctuation and look: capitals or all lower case, full stops at the end or not, exclamation marks, question marks, emojis, line breaks, lists.
+
+ROLE 2: THE NEVER LIST
+Note what I never do in these samples. Keep it to what is useful for a chatbot:
+- Words chatbots love that I never use. Check these and list the ones missing from my writing: delve, crucial, vibrant, seamless, elevate, leverage, robust, tapestry, journey, navigate, foster, unlock, &quot;I hope this finds you well&quot;, &quot;great question&quot;, &quot;in today&#x27;s world&quot;.
+- Punctuation I never use (for example semicolons, dashes, exclamation marks).
+- Habits I never have (for example no greetings, no emojis, never more than two sentences).
+Say &quot;never in these samples&quot;, because you only saw what I pasted.
+
+ROLE 3: THE CARD WRITER
+Write my style card. It must work on its own when pasted into a new chat that has never seen my samples. Rules for the card:
+- Under 220 words. Plain words. Keep each line short.
+- Start with: &quot;Write like me. Follow this style card.&quot;
+- Give hard numbers from the Counter (sentence length, how often I use questions or exclamation marks).
+- List my favourite words and phrases to use sometimes, not in every line.
+- Give the never list as &quot;Never use: ...&quot;.
+- Add 2 or 3 very short example lines in my style. Make them new lines, not copies of my samples, and about everyday things, not private details from my samples.
+- End with these two lines: &quot;Only use facts I give you. Do not invent plans, excuses or details, leave a [gap] instead.&quot; and &quot;If a draft does not follow this card, rewrite it before you show me.&quot;
+Put the card in one block I can copy.
+
+ANSWER FORMAT
+1. The Counter
+2. The Never List
+3. Your style card (in one copyable block)
+4. One line: &quot;Paste this card at the start of any chat, then ask for your draft. If a draft overdoes your favourite words, tell it to use them less.&quot;
+
+RULES
+- Short plain sentences. No em dashes in your own words.
+- Do not quote private details (names, addresses, numbers) from my samples in the card.
+- If my writing includes something worrying (someone in danger or wanting to hurt themselves), stop the task, reply with care and point me to a real person or a local emergency number.
+</code></pre></details>
+
+<h2>What I tested</h2>
+<ul>
+<li>I made up three very different writers: a retired teacher who writes warm emails, a 19 year old who texts in lower case, and a manager who writes short work emails. Each got a style card.</li>
+<li>Its sentence length numbers matched a real count for all three.</li>
+<li>Then I asked for new messages with the card and without it. A separate Claude chat saw the writer's real pieces and guessed which new message was theirs. The one written with the card was picked 36 times out of 36, including against a one-line style hint.</li>
+<li>One surprise: a card made from 3 pieces did better than a card from 5 pieces in 7 of 8 checks. So use real writing, not just more of it.</li>
+</ul>
+<h2>Other ways to use it</h2>
+<ul class="links">
+<li><a href="SKILL.md" download><strong>Download SKILL.md</strong></a> if you use Claude Code. Put it in a folder named twin inside your .claude/skills folder.</li>
+<li><a href="PASTE.txt"><strong>PASTE.txt</strong></a> is the same prompt as plain text.</li>
+</ul>
+<h2>Honest limits</h2>
+<ul>
+<li>It only copies what you paste. If your samples are short or mixed, the card will be rough, and it will tell you.</li>
+<li>Drafts can overdo your favourite words. If they do, tell it to use them less.</li>
+<li>Always read a draft before you send it. The card tells the chatbot not to invent facts, but check anyway.</li>
+<li>Do not paste private details you would not want in a chat, like addresses or account numbers.</li>
+<li>The writers in my tests were made up, and the judge was Claude, not a person who knows them. I tested it in Claude only, not ChatGPT or Gemini. Answers change from run to run.</li>
+</ul>
+</div>
+<div class="box"><h2>Get the next free tool first</h2><p>I post one free AI tool at a time, tested, with the setup.</p><a class="btn" href="https://www.instagram.com/louiscreates.ai/">Follow @louiscreates.ai</a></div>
+<footer>Louis's Free AI Library &middot; <a href="https://www.instagram.com/louiscreates.ai/">Follow @louiscreates.ai</a></footer>
+</div>
+<script>
+(function () {
+  function legacy(text) {
+    var t = document.createElement('textarea');
+    t.value = text; t.style.position = 'fixed'; t.style.opacity = '0';
+    document.body.appendChild(t); t.select();
+    var ok = false;
+    try { ok = document.execCommand('copy'); } catch (e) { ok = false; }
+    document.body.removeChild(t);
+    return ok;
+  }
+  var buttons = document.querySelectorAll('button[data-copy]');
+  Array.prototype.forEach.call(buttons, function (btn) {
+    var src = document.getElementById(btn.getAttribute('data-copy'));
+    if (!src) return;
+    var idle = btn.textContent;
+    function flash(ok) {
+      btn.textContent = ok ? 'Copied. Now paste it in your chatbot.' : 'Could not copy. Open the full prompt below and copy it by hand.';
+      btn.classList.toggle('done', ok);
+      setTimeout(function () { btn.textContent = idle; btn.classList.remove('done'); }, 2500);
+    }
+    btn.addEventListener('click', function () {
+      var text = src.textContent;
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(text).then(function () { flash(true); }, function () { flash(legacy(text)); });
+      } else { flash(legacy(text)); }
+    });
+  });
+})();
+</script></body></html>

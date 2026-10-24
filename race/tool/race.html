@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RACE: ask five AIs at once</title>
+<link rel="icon" href="data:,">
+<meta name="description" content="Type a question once and open ChatGPT, Claude, Gemini, Grok and Perplexity with it, in your own accounts. One file, no keys, no tracking.">
+<style>
+:root{--cream:#f3ead6;--paper:#fffaf0;--ink:#1c1a17;--muted:#6b645a;--line:#e3d8c0;--red:#e0664f;--green:#2f7d4f;--yellow:#fbf1d3}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--cream);color:var(--ink)}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:17px;line-height:1.45}
+.wrap{max-width:760px;margin:0 auto;padding:20px 16px 60px}
+h1{font-size:40px;line-height:1;margin:8px 0 4px;letter-spacing:-.02em;font-weight:900}
+h1 span{background:var(--ink);color:var(--cream);padding:2px 10px;border-radius:8px}
+.sub{color:var(--muted);margin:6px 0 18px}
+label.q{display:block;font-weight:800;margin:0 0 6px}
+textarea{width:100%;min-height:120px;font:inherit;font-size:18px;padding:14px;border:2px solid var(--ink);border-radius:12px;background:#fff;color:var(--ink);resize:vertical}
+.count{font-size:14px;color:var(--muted);margin:4px 2px 0;min-height:20px}
+.count.warn{color:#9a3b22;font-weight:700}
+.lanes{display:grid;gap:10px;margin:18px 0}
+.lane{display:grid;grid-template-columns:auto 1fr auto;gap:10px;align-items:center;background:var(--paper);border:2px solid var(--line);border-radius:14px;padding:10px 12px}
+.lane.off{opacity:.55}
+.lane input[type=checkbox]{width:26px;height:26px;accent-color:var(--ink);margin:0}
+.lane .name{font-weight:800;font-size:18px}
+.lane .how{font-size:14px;color:var(--muted)}
+.lane .how b{color:var(--ink)}
+.lane a.go{display:inline-block;min-width:96px;text-align:center;font-weight:800;text-decoration:none;color:#fff;background:var(--ink);padding:14px 14px;border-radius:12px;font-size:16px}
+.lane a.go.paste{background:var(--red)}
+.lane a.go.done{background:var(--green)}
+.lane a.go[aria-disabled=true]{pointer-events:none;opacity:.4}
+.start{display:block;width:100%;font:inherit;font-weight:900;font-size:22px;padding:18px;border:0;border-radius:14px;background:var(--red);color:#fff;cursor:pointer}
+.start:disabled{opacity:.45;cursor:not-allowed}
+.layout{display:flex;flex-wrap:wrap;gap:8px 16px;margin:12px 2px;font-size:15px}
+.layout label{display:flex;gap:6px;align-items:center}
+.note{background:var(--yellow);border-radius:12px;padding:12px 14px;margin:14px 0;font-size:15px}
+.note p{margin:4px 0}
+.status{min-height:24px;font-weight:700;margin:10px 2px}
+.status.bad{color:#9a3b22}
+.status.good{color:var(--green)}
+.hidden{display:none}
+kbd{background:#fff;border:1px solid var(--line);border-radius:5px;padding:0 5px;font-family:inherit;font-size:.92em}
+details{margin:14px 0}
+summary{cursor:pointer;font-weight:800}
+footer{margin-top:28px;color:var(--muted);font-size:14px}
+footer a{color:var(--ink)}
+@media (max-width:480px){h1{font-size:34px}.lane a.go{min-width:84px;padding:14px 10px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<h1><span>RACE</span></h1>
+<p class="sub">Type your question once. Open it in ChatGPT, Claude, Gemini, Grok and Perplexity, in the accounts you already use.</p>
+
+<label class="q" for="question">Your question</label>
+<textarea id="question" placeholder="e.g. What is the best way to learn Spanish in 3 months?" maxlength="20000"></textarea>
+<div class="count" id="count" aria-live="polite"></div>
+
+<div class="lanes" id="lanes"></div>
+
+<div class="layout" id="layoutBox">
+  <span>Open as:</span>
+  <label><input type="radio" name="layout" value="windows"> windows side by side</label>
+  <label><input type="radio" name="layout" value="tabs"> new tabs</label>
+</div>
+
+<button class="start" id="start" type="button">Start the race</button>
+<div class="status" id="status" role="status" aria-live="polite"></div>
+
+<div class="note" id="popupNote">
+  <p><strong>Computer:</strong> browsers let a page open only one new tab per click. To open all of them with one click, allow pop-ups for this page once: press Start, then click the blocked pop-up icon at the right of the address bar and choose Always allow. Press Start again.</p>
+  <p><strong>Phone:</strong> tap the buttons one by one. Each one opens that AI.</p>
+</div>
+
+<details>
+  <summary>What happens on each site</summary>
+  <ul id="howList"></ul>
+  <p>Every button also copies your question. If a box is ever empty, paste with <kbd>Cmd</kbd>+<kbd>V</kbd> (<kbd>Ctrl</kbd>+<kbd>V</kbd> on Windows, or press and hold, then Paste on a phone).</p>
+  <p>Questions longer than 2,000 characters are not put in the link. The site opens and you paste.</p>
+  <p>Checked on 24 October 2026. These sites can change how their links work at any time.</p>
+</details>
+
+<details>
+  <summary>Privacy</summary>
+  <p>This page makes no network requests of its own. No keys, no accounts, no tracking. Your question only goes to the AI sites you open, inside your own accounts there. Your ticks are saved in this browser only.</p>
+</details>
+
+<footer>Free tool by <a href="https://www.instagram.com/louiscreates.ai/" target="_blank" rel="noopener">@louiscreates.ai</a>. Follow for the next one.</footer>
+</div>
+
+<script id="race-core">
+(function (root) {
+  'use strict';
+  var MAX_PREFILL_CHARS = 2000;
+  var STORAGE_KEY = 'race.v1';
+  // mode: "sends" = the site sends it straight away, "fills" = it lands in the box and you press Send,
+  // "confirm" = the site shows your question and asks you to press Send, "paste" = no prefill, you paste.
+  var AIS = [
+    { id: 'chatgpt', name: 'ChatGPT', home: 'https://chatgpt.com/', prefix: 'https://chatgpt.com/?q=', mode: 'sends' },
+    { id: 'claude', name: 'Claude', home: 'https://claude.ai/new', prefix: 'https://claude.ai/new?q=', mode: 'fills' },
+    { id: 'gemini', name: 'Gemini', home: 'https://gemini.google.com/app', prefix: null, mode: 'paste' },
+    { id: 'grok', name: 'Grok', home: 'https://grok.com/', prefix: 'https://grok.com/?q=', mode: 'confirm' },
+    { id: 'perplexity', name: 'Perplexity', home: 'https://www.perplexity.ai/', prefix: 'https://www.perplexity.ai/search?q=', mode: 'sends' }
+  ];
+  var HOW = {
+    sends: 'Question is sent for you.',
+    fills: 'Question is in the box. Press Send.',
+    confirm: 'Grok shows your question. Press Send.',
+    paste: 'Question is copied. Paste with Cmd+V.'
+  };
+
+  function cleanQuestion(raw) {
+    if (typeof raw !== 'string') return '';
+    return raw.replace(/\r\n?/g, '\n').trim();
+  }
+
+  function findAi(id) {
+    for (var i = 0; i < AIS.length; i++) if (AIS[i].id === id) return AIS[i];
+    return null;
+  }
+
+  // Returns { url, prefilled, mode } for one AI and one question.
+  function buildUrl(aiOrId, rawQuestion) {
+    var ai = typeof aiOrId === 'string' ? findAi(aiOrId) : aiOrId;
+    if (!ai) throw new Error('Unknown AI: ' + aiOrId);
+    var q = cleanQuestion(rawQuestion);
+    var canPrefill = ai.prefix !== null && q.length > 0 && q.length <= MAX_PREFILL_CHARS;
+    if (!canPrefill) return { url: ai.home, prefilled: false, mode: q.length > 0 ? 'paste' : 'empty' };
+    return { url: ai.prefix + encodeURIComponent(q), prefilled: true, mode: ai.mode };
+  }
+
+  function howText(ai, rawQuestion) {
+    var built = buildUrl(ai, rawQuestion);
+    if (built.mode === 'empty') return ai.mode === 'paste' ? 'No link prefill. Paste with Cmd+V.' : HOW[ai.mode];
+    return HOW[built.mode];
+  }
+
+  // Window rectangles for "side by side": up to 3 per row, filling the available screen.
+  function tileLayout(count, screen) {
+    var n = Math.max(0, Math.floor(count));
+    if (n === 0) return [];
+    var w = Math.max(320, Math.floor(screen.width || 1280));
+    var h = Math.max(320, Math.floor(screen.height || 800));
+    var left0 = Math.floor(screen.left || 0), top0 = Math.floor(screen.top || 0);
+    var cols = Math.min(n, 3), rows = Math.ceil(n / cols);
+    var cellW = Math.floor(w / cols), cellH = Math.floor(h / rows);
+    var out = [];
+    for (var i = 0; i < n; i++) {
+      var r = Math.floor(i / cols), c = i % cols;
+      var inRow = Math.min(cols, n - r * cols);
+      var rowW = Math.floor(w / inRow);
+      out.push({ left: left0 + c * rowW, top: top0 + r * cellH, width: inRow === cols ? cellW : rowW, height: cellH });
+    }
+    return out;
+  }
+
+  function defaultState() {
+    var picked = {};
+    AIS.forEach(function (a) { picked[a.id] = true; });
+    return { picked: picked, layout: null };
+  }
+
+  // Reads saved settings safely. Anything broken falls back to the defaults.
+  function parseSaved(text) {
+    var base = defaultState();
+    if (typeof text !== 'string' || text === '') return base;
+    var data;
+    try { data = JSON.parse(text); } catch (e) { return base; }
+    if (!data || typeof data !== 'object') return base;
+    var picked = {};
+    AIS.forEach(function (a) {
+      var v = data.picked && data.picked[a.id];
+      picked[a.id] = typeof v === 'boolean' ? v : true;
+    });
+    var layout = data.layout === 'windows' || data.layout === 'tabs' ? data.layout : null;
+    return { picked: picked, layout: layout };
+  }
+
+  var api = { AIS: AIS, HOW: HOW, MAX_PREFILL_CHARS: MAX_PREFILL_CHARS, STORAGE_KEY: STORAGE_KEY,
+    cleanQuestion: cleanQuestion, buildUrl: buildUrl, howText: howText, tileLayout: tileLayout,
+    parseSaved: parseSaved, defaultState: defaultState, findAi: findAi };
+  root.RaceCore = api;
+})(typeof window !== 'undefined' ? window : globalThis);
+</script>
+
+<script>
+(function () {
+  'use strict';
+  var core = window.RaceCore;
+  var $ = function (id) { return document.getElementById(id); };
+  var qBox = $('question'), lanesBox = $('lanes'), startBtn = $('start'), statusBox = $('status'), countBox = $('count');
+
+  function loadState() {
+    try { return core.parseSaved(window.localStorage.getItem(core.STORAGE_KEY)); } catch (e) { return core.defaultState(); }
+  }
+  function saveState() {
+    try { window.localStorage.setItem(core.STORAGE_KEY, JSON.stringify(state)); } catch (e) { /* private mode: ticks just are not remembered */ }
+  }
+  var isPhone = window.matchMedia && window.matchMedia('(max-width: 700px), (pointer: coarse)').matches;
+  var state = loadState();
+  if (!state.layout) state.layout = isPhone ? 'tabs' : 'windows';
+
+  function copyQuestion(text) {
+    if (!text) return;
+    try {
+      if (navigator.clipboard && window.isSecureContext) { navigator.clipboard.writeText(text).catch(function () { legacyCopy(text); }); return; }
+    } catch (e) { /* fall through */ }
+    legacyCopy(text);
+  }
+  function legacyCopy(text) {
+    var t = document.createElement('textarea');
+    t.value = text; t.setAttribute('readonly', ''); t.style.position = 'fixed'; t.style.opacity = '0';
+    document.body.appendChild(t); t.select();
+    try { document.execCommand('copy'); } catch (e) { /* copying is a bonus, the link still opens */ }
+    document.body.removeChild(t);
+  }
+
+  function renderLanes() {
+    lanesBox.innerHTML = '';
+    core.AIS.forEach(function (ai) {
+      var lane = document.createElement('div');
+      lane.className = 'lane' + (state.picked[ai.id] ? '' : ' off');
+      lane.innerHTML = '<input type="checkbox" aria-label="Include ' + ai.name + '"><div><div class="name"></div><div class="how"></div></div><a class="go" target="_blank" rel="noopener"></a>';
+      var box = lane.querySelector('input'), link = lane.querySelector('a.go');
+      lane.querySelector('.name').textContent = ai.name;
+      box.checked = !!state.picked[ai.id];
+      box.id = 'pick-' + ai.id;
+      link.id = 'go-' + ai.id;
+      link.textContent = 'Open';
+      box.addEventListener('change', function () {
+        state.picked[ai.id] = box.checked; saveState();
+        lane.className = 'lane' + (box.checked ? '' : ' off');
+        refresh();
+      });
+      link.addEventListener('click', function () {
+        copyQuestion(core.cleanQuestion(qBox.value));
+        link.classList.add('done');
+      });
+      lanesBox.appendChild(lane);
+    });
+  }
+
+  function refresh() {
+    var q = core.cleanQuestion(qBox.value);
+    var picked = core.AIS.filter(function (a) { return state.picked[a.id]; });
+    core.AIS.forEach(function (ai) {
+      var built = core.buildUrl(ai, q);
+      var link = $('go-' + ai.id);
+      link.href = built.url;
+      link.classList.toggle('paste', !built.prefilled && q.length > 0);
+      var needsPaste = !built.prefilled && q.length > 0;
+      link.textContent = window.innerWidth < 420 ? 'Open' : 'Open ' + ai.name;
+      var how = core.howText(ai, q);
+      if (isPhone) how = how.replace('Paste with Cmd+V.', 'Press and hold the box, then Paste.');
+      link.parentNode.querySelector('.how').textContent = how;
+      link.setAttribute('aria-label', 'Open ' + ai.name + (needsPaste ? ', then paste' : ''));
+    });
+    if (q.length > core.MAX_PREFILL_CHARS) {
+      countBox.className = 'count warn';
+      countBox.textContent = q.length + ' characters. Too long to put in a link, so each site opens and you paste with Cmd+V.';
+    } else {
+      countBox.className = 'count';
+      countBox.textContent = q.length ? q.length + ' characters' : '';
+    }
+    startBtn.disabled = q.length === 0 || picked.length === 0;
+    startBtn.textContent = picked.length ? 'Start the race (' + picked.length + ')' : 'Tick at least one AI';
+  }
+
+  function setStatus(text, kind) { statusBox.textContent = text; statusBox.className = 'status' + (kind ? ' ' + kind : ''); }
+
+  function startRace() {
+    var q = core.cleanQuestion(qBox.value);
+    var picked = core.AIS.filter(function (a) { return state.picked[a.id]; });
+    if (!q || !picked.length) return;
+    copyQuestion(q);
+    var rects = state.layout === 'windows' ? core.tileLayout(picked.length, {
+      width: screen.availWidth, height: screen.availHeight, left: screen.availLeft || 0, top: screen.availTop || 0 }) : [];
+    var opened = 0, blocked = [];
+    picked.forEach(function (ai, i) {
+      var url = core.buildUrl(ai, q).url, w = null;
+      try {
+        if (state.layout === 'windows') {
+          var r = rects[i];
+          w = window.open(url, 'race_' + ai.id, 'popup=yes,width=' + r.width + ',height=' + r.height + ',left=' + r.left + ',top=' + r.top);
+        } else {
+          w = window.open(url, '_blank');
+        }
+      } catch (e) { w = null; }
+      if (w) { try { w.opener = null; } catch (e) { /* cross-origin already, fine */ } opened++; $('go-' + ai.id).classList.add('done'); }
+      else blocked.push(ai.name);
+    });
+    if (!blocked.length) setStatus('Off they go: ' + opened + ' opened. Your question is also copied.', 'good');
+    else setStatus('Your browser opened ' + opened + ' of ' + picked.length + '. Blocked: ' + blocked.join(', ') + '. Allow pop-ups for this page (icon in the address bar) and press Start again, or tap their Open buttons.', 'bad');
+  }
+
+  function renderHowList() {
+    var list = $('howList');
+    core.AIS.forEach(function (ai) {
+      var li = document.createElement('li');
+      li.textContent = ai.name + ': ' + core.HOW[ai.mode];
+      list.appendChild(li);
+    });
+  }
+
+  Array.prototype.forEach.call(document.querySelectorAll('input[name=layout]'), function (r) {
+    r.checked = r.value === state.layout;
+    r.addEventListener('change', function () { if (r.checked) { state.layout = r.value; saveState(); } });
+  });
+  if (isPhone) $('layoutBox').classList.add('hidden');
+  renderLanes();
+  renderHowList();
+  qBox.addEventListener('input', refresh);
+  window.addEventListener('resize', refresh);
+  startBtn.addEventListener('click', startRace);
+  refresh();
+})();
+</script>
+</body>
+</html>
